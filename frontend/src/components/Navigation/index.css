@@ -1,0 +1,67 @@
+.profileBtnAndCreateVideoBtnContainer{
+    display: flex;
+    justify-content: end;
+    width:30%;
+
+}
+
+.navBar{
+    display: flex;
+    /* background-color: red; */
+    justify-content: space-between;
+
+    padding: 0rem 0.2rem 0.5rem 0.2rem;
+    width: 100%;
+    margin:0 0 0 0;
+}
+
+.utubeHomeIcon{
+    color: red;
+    font-size: 1.3rem;
+    margin: 0 0.2rem 0 0;
+}
+
+.utubeHomeLink{
+    font-weight: bold;
+    color: black;
+    font-size: 1.3rem;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.logo{
+    width:21%;
+    height:50%;
+    margin:0.2rem 0 0 1rem;
+
+}
+
+.barIcon{
+    margin: 0 0 0 1rem;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.logoBarIconContainer{
+    display: flex;
+    align-items: center;
+    width: 30%;
+}
+.searchForm{
+    width: 40%;
+    display: flex;
+
+}
+
+.searchBar{
+    width: 100%;
+    padding: 0.5rem ;
+    border: 1px solid rgba(0, 0, 0, 0.222);
+}
+
+.submmitSearchbtn{
+    background-color: rgba(245, 245, 245, 0.497);
+    border: 1px solid rgba(0, 0, 0, 0.222);
+    padding: 0 1rem 0 01rem;
+}

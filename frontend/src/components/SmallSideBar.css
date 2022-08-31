@@ -1,0 +1,29 @@
+.SmallSideBar{
+    width:100%;
+    /* background-color:green; */
+    margin: 0 2rem 0 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+}
+.iconActive{
+    margin: 1rem 0 0 0;
+    color: red;
+}
+
+.explorerIcon,.homeIcon,.subscriptionsIcon,.libraryIcon{
+    margin: 1rem 0 0 0;
+    color: black;
+}
+
+.smallSidebarLinks{
+    text-decoration: none;
+    font-size: 0.6rem;
+}
+
+
+
+.linkContainer:hover{
+   background-color: rgba(232, 229, 229, 0.408);
+}

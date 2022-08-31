@@ -1,0 +1,36 @@
+.homeVideoContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(23%,1fr));;
+
+    gap:1rem;
+    background-color: rgba(245, 245, 245, 0.497);
+    /* width: 100%; */
+    padding: 1rem 1rem 1rem 1rem;
+    /* box-sizing: border-box; */
+    border-top: 1px solid rgba(0, 0, 0, 0.126);
+
+
+}
+.oncloseSidebar{
+    display: grid;
+    grid-template-columns:55px 5fr;
+
+}
+.homePageOuterContainer{
+    display: grid;
+    grid-template-columns:1fr 5fr;
+    /* display: flex;
+    flex-direction: column; */
+
+
+
+}
+
+
+@media only screen and (max-width: 800px) {
+    .homeVideoContainer{
+        grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+
+    }
+
+}

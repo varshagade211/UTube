@@ -1,0 +1,60 @@
+.userProfileImg{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+
+}
+
+.profileImageContainer{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.imgAndDescriptionContainer{
+    display: flex;
+
+}
+
+.vidDiscription{
+  margin: 1rem 0 0 1rem;
+}
+
+.vidioTag{
+    width:100%;
+
+}
+.vidioTagContainer{
+    width:100%;
+}
+.vidioTagContainer:hover{
+    cursor: pointer;
+
+}
+.vidioInfoContainer
+{
+  width:100%
+}
+
+.vidioInfoContainer:hover{
+    width:250px;
+    min-height: 290px;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 0 20px black;
+    background-color: white;
+    display: inline-block;
+
+}
+.vidUserName,.vidViwes{
+    margin: 0 0 0 0rem;
+    font-size: 0.8rem;
+    color:rgba(0, 0, 0, 0.74)
+}
+
+.viewsAndNameContainer
+{
+    margin: 0.5rem 0 0 1rem;
+
+}

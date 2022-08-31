@@ -1,0 +1,70 @@
+.profile-dropdown{
+   position: absolute;
+   top:2.6rem;
+   right: 2.3rem;
+   box-shadow: 0 0 0.5px black;
+   min-width: 200px;
+   min-height: 200px;
+   background-color: white;
+   z-index:3;
+
+
+}
+
+.proFileDropdownUserProfileImg{
+    width:40px;
+    height:40px;
+    margin: 0rem 0rem 0rem 1rem;
+    border-radius: 50%;
+    border: 2px solid grey;
+}
+
+.dpProfileImgNameContainer{
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0 0 0;
+}
+
+.dpFirstName{
+    margin-left: 1rem;
+    font-weight: bold;
+}
+
+.signOutBtn{
+    width: 100%;
+    background-color: white;
+    text-align:left;
+    border:none;
+    padding: 0.5rem 1rem 1rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+.signOutBtn:hover{
+    background-color: rgba(128, 128, 128, 0.252);
+}
+
+.signOutLogo{
+    margin: 0 1rem 0 0;
+    font-size: 1.1rem;
+}
+
+.hr{
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.292);
+}
+
+.circlePfImage{
+    width:100%;
+    height:100%;
+    border-radius: 50%;
+}
+
+.circlePfImageBtn{
+    width:23px;
+    height:23px;
+    background-color: white;
+    border: 2px solid grey;
+    /* background-color: grey; */
+    border-radius: 50%;
+    margin: 0 1rem 0 0;
+}
