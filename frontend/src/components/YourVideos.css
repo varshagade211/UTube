@@ -1,0 +1,45 @@
+.userVideoOuterContainerWithSidebar{
+    display: grid;
+    grid-template-columns:10rem 3fr 1fr;
+
+
+}
+
+
+.userVideoOuterContainerWithSmallSidebar{
+    display: grid;
+    grid-template-columns:55px 3fr 1fr;
+
+}
+
+
+.userVideoContainer{
+    margin: 0 0 0 0;
+    background-color: rgba(245, 245, 245, 0.497);
+}
+.userVideoContainerWithSmallSidebar{
+    margin: 0 0 0 6.55rem;
+
+    background-color: rgba(245, 245, 245, 0.497);
+}
+
+
+.userVideosInfo{
+  background-color: whitesmoke;
+  padding: 1rem;
+
+}
+
+.userYourVideosProfileImg{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+}
+
+.yourVideoImageProfileIconContainer{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   margin: 1rem 0 0 0;
+
+}

@@ -19,11 +19,11 @@ const validateLogin = [
 ];
 // Log in
 router.post('/login', validateLogin, async (req, res, next) => {
-  console.log('req.body', req.body)
+  
       const { email, password } = req.body;
 
       const user = await User.login({ email, password });
-     
+
       if (!user) {
         const err = new Error('Login failed');
         err.status = 401;

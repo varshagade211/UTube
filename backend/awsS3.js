@@ -39,12 +39,12 @@ const multiplePublicFileUpload = async (files) => {
 };
 
 
-// const deleteSingleFile = async (fileName) => {
-//   if(fileName){
-//       await s3.deleteObject({ Bucket: NAME_OF_BUCKET, Key: fileName }).promise();
-//       return 'File Deleted Successfully'
-//   }
-// }
+const deleteSingleFile = async (fileName) => {
+  if(fileName){
+      await s3.deleteObject({ Bucket: NAME_OF_BUCKET, Key: fileName }).promise();
+      return 'File Deleted Successfully'
+  }
+}
 // --------------------------- Prviate UPLOAD ------------------------
 
 const singlePrivateFileUpload = async (file) => {

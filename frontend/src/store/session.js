@@ -42,12 +42,13 @@ export const logout = () => async (dispatch) => {
 
 
 export const signup = (user) => async (dispatch) => {
-  const { images, image, firstName,lastName, email, password } = user;
+  const { images, image, firstName,lastName, email, password, confirmPassword } = user;
   const formData = new FormData();
   formData.append("firstName", firstName);
   formData.append("lastName", lastName);
   formData.append("email", email);
   formData.append("password", password);
+  formData.append("confirmPassword", confirmPassword);
 
   // for multiple files
   if (images && images.length !== 0) {

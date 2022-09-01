@@ -22,7 +22,9 @@
     font-size: 0.6rem;
 }
 
-
+.linkContainer{
+    cursor: pointer;
+}
 
 .linkContainer:hover{
    background-color: rgba(232, 229, 229, 0.408);

@@ -107,7 +107,6 @@ export const createVideoThunkCreator = ( (videoInfo) => async (dispatch) => {
 
 export const editVideoThunkCreator = (video) => async(dispatch) => {
     const {id, title,description} = video
-
     const response = await csrfFetch(`/api/video/${id}`,
     {
         method: 'PUT',
@@ -193,7 +192,8 @@ const videoReducer = (state = initialState, action) => {
             return newState
         }
         case EDIT_VIDEO:{
-            state?.videos?.forEach((i,video) => {
+            state?.videos?.forEach((video,i) => {
+
                 if(video?.id === action?.editedVideo?.id){
                     state?.videos?.splice(i, 1, action?.editedVideo)
                 }

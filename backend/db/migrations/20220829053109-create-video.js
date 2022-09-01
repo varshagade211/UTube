@@ -20,6 +20,10 @@ module.exports = {
         type: Sequelize.STRING(1000),
         allowNull:false
       },
+      type:{
+        type: Sequelize.STRING(100),
+        allowNull:false
+      },
       views: {
         type: Sequelize.INTEGER,
         defaultValue:0

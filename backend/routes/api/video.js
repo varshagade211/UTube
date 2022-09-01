@@ -22,6 +22,7 @@ const validateVideo = [
 
     handleValidationErrors
 ];
+
 // get all videos
 router.get('/', async (req, res, next)=>{
     let videos = await Video.findAll({
@@ -92,14 +93,20 @@ router.post('/',  singleMulterUpload("video"), requireAuth, validateVideo, async
     }
     if(req.file.size > 5242880){
         const err = Error('Validation error');
-        err.errors = {url:"maximum allowed file size is 5MB"}
+        err.errors = {url:"Maximum allowed file size is 5MB"}
         err.status = 400;
         err.title = "Validation Errors"
         return next(err);
     }
-    // const videoUrl = await singlePublicFileUpload(req.file);
-    console.log(req.file.size)
-    return
+    if(!['video/mp4','video/ogg','video/webm'].includes(req.file.mimetype)){
+        const err = Error('Validation error');
+        err.errors = {url:"Video format not supported, only supports MP4, OGG, WebM"}
+        err.status = 400;
+        err.title = "Validation Errors"
+        return next(err);
+    }
+
+    const videoUrl = await singlePublicFileUpload(req.file);
 
     if(!videoUrl){
         const err = Error('AWS error');
@@ -113,7 +120,8 @@ router.post('/',  singleMulterUpload("video"), requireAuth, validateVideo, async
         title,
         description,
         videoUrl,
-        uploaderId:req.user.id
+        uploaderId:req.user.id,
+        type:req.file.mimetype
     })
     return res.status(200).json(video)
 
@@ -157,7 +165,6 @@ router.delete('/:id', requireAuth , async(req,res,next) => {
     if(video.uploaderId === req.user.id){
         try {
             // let fileName = video.url.split('/').pop()
-
             // const response = await deleteSingleFile(fileName);
 
             video.destroy()
@@ -170,15 +177,11 @@ router.delete('/:id', requireAuth , async(req,res,next) => {
             err.statusCode = 500;
             return next(err);
         }
-
     }else {
         const err = new Error("Forbidden");
         err.statusCode = 403;
         return next(err);
     }
-
-
-
 })
 
 

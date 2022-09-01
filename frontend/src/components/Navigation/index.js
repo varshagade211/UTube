@@ -1,18 +1,22 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './index.css'
 import CreateVideoFormModal from '../CreateVideoPage';
-import logo from '../../videos/logo.png'
+import logo from '../../images/logo.png'
 import {SideBarContext} from '../../context/SideBarContext'
 import { useContext } from 'react';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
   const {setSidebar} = useContext(SideBarContext)
+  const history = useHistory()
 
-  console.log(setSidebar)
+  const signInHandler = ()=> {
+    history.push("/signin")
+
+  }
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
@@ -27,10 +31,16 @@ function Navigation({ isLoaded }){
     sessionLinks = (
       <>
         {/* <LoginFormModal /> */}
-        <NavLink to="/signin">Sign In</NavLink>
+       <div className='signinBtnContainer'>
+       <button className='signInBtn' onClick={signInHandler}><i className="fas fa-user-circle signInCircleIcon" /> SIGN IN</button></div>
 
       </>
     );
+  }
+  const onSearchSubmit = (e) =>{
+    e.preventDefault()
+    history.push('/')
+
   }
 
   return (
@@ -42,9 +52,9 @@ function Navigation({ isLoaded }){
           <NavLink   exact to="/"><img className='logo' src= {logo} /></NavLink>
         </div>
 
-          <form className='searchForm'>
+          <form className='searchForm' onSubmit={(e)=> onSearchSubmit(e)}>
             <input className='searchBar' placeholder='Search coming soon...'type='text'></input>
-            <button className='submmitSearchbtn' disabled={true}><i className="fa-solid fa-magnifying-glass"></i></button>
+            <button className='submmitSearchbtn' ><i className="fa-solid fa-magnifying-glass"></i></button>
           </form>
 
         {isLoaded && sessionLinks}

@@ -37,6 +37,7 @@
     border:none;
     padding: 0.5rem 1rem 1rem 0.5rem;
     font-size: 0.8rem;
+    cursor: pointer;
 }
 
 .signOutBtn:hover{
@@ -63,8 +64,17 @@
     width:23px;
     height:23px;
     background-color: white;
-    border: 2px solid grey;
-    /* background-color: grey; */
+
     border-radius: 50%;
     margin: 0 1rem 0 0;
+    cursor: pointer;
+}
+
+.topcircleSinginIcon{
+    font-size: 25px;
+}
+
+.dpcircleSinginIcon{
+    margin: 0rem 0rem 0rem 1rem;
+    font-size: 50px;
 }

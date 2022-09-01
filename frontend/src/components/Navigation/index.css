@@ -33,7 +33,7 @@
 .logo{
     width:21%;
     height:50%;
-    margin:0.2rem 0 0 1rem;
+    margin:0.2rem 0 0 1.3rem;
 
 }
 
@@ -64,4 +64,39 @@
     background-color: rgba(245, 245, 245, 0.497);
     border: 1px solid rgba(0, 0, 0, 0.222);
     padding: 0 1rem 0 01rem;
+}
+
+
+/* .signInLink{
+    text-decoration: none;
+    color: #0275d8;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin: 0 0.6rem 0rem 0.5rem;
+    /* margin-bottom: 1rem; */
+
+/* }  */
+
+.signInBtn{
+    border: 0.9px solid  #0275d8;
+    padding: 0 0.6rem 0 0.6rem ;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    color: #0275d8;
+    cursor: pointer;
+    margin: 0 0.4rem 0 0rem;
+
+}
+
+.signInCircleIcon{
+    color: #0275d8;
+    font-size: 1.1rem;
+    margin: 0 0.4rem 0 0rem;
+}
+
+.signinBtnContainer{
+    display: flex;
+    width:30%;
+    justify-content: end;
 }

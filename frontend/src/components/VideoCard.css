@@ -6,10 +6,12 @@
 }
 
 .profileImageContainer{
-    width: 3rem;
-    height: 3rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     overflow: hidden;
+    margin: 0.5rem 0 0 0;
+
 }
 
 .imgAndDescriptionContainer{
@@ -18,7 +20,13 @@
 }
 
 .vidDiscription{
-  margin: 1rem 0 0 1rem;
+  margin: 0.5rem 0 0 0.7rem;
+
+  font-size: 0.85rem;
+  /* font-weight: 500; */
+}
+.homeDescriptionContainer{
+    max-width: 100%;
 }
 
 .vidioTag{
@@ -34,17 +42,18 @@
 }
 .vidioInfoContainer
 {
-  width:100%
+  width:100%;
 }
 
 .vidioInfoContainer:hover{
-    width:250px;
-    min-height: 290px;
+    max-width:280px;
+    /* min-height: 290px; */
     position: absolute;
     z-index: 1;
     box-shadow: 0 0 20px black;
     background-color: white;
     display: inline-block;
+
 
 }
 .vidUserName,.vidViwes{
@@ -55,6 +64,6 @@
 
 .viewsAndNameContainer
 {
-    margin: 0.5rem 0 0 1rem;
+    margin: 0.5rem 0 0 0.7rem;
 
 }

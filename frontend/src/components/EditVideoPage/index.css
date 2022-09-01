@@ -1,0 +1,21 @@
+.editVideoPencilIcon{
+    font-size: 1rem;
+}
+
+.editVideoIconContainer{
+    background-color: white;
+    border: none;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+
+}
+
+.editVideoIconContainer:hover{
+    background-color: whitesmoke;
+}
+.editVidEdit{
+    margin: 0 0 0  0;
+    font-size: 0.8rem;
+}

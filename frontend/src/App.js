@@ -6,8 +6,9 @@ import SignupForm from "./components/SignUpForm";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from './components/Home'
+import YourVideos from './components/YourVideos'
 import './App.css'
-
+import ProtectedRoute from './components/ProtectedRoute'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -30,6 +31,9 @@ function App() {
         <Route exact={true} path="/signin">
           <LoginForm />
         </Route>
+        <ProtectedRoute exact={true} path="/:userId/videos/">
+          <YourVideos />
+        </ProtectedRoute>
       </Switch>
     )}
   </div>

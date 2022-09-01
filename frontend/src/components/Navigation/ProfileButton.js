@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import './ProfileButton.css'
 
@@ -8,6 +9,7 @@ import './ProfileButton.css'
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
+    const history = useHistory()
     const openMenu = () => {
         if (showMenu) return;
         setShowMenu(true);
@@ -24,15 +26,17 @@ function ProfileButton({ user }) {
     const logout = (e) => {
         e.preventDefault();
         dispatch(sessionActions.logout());
+        history.push('/')
     };
     return (
       <>
         <div className='circlePfImageBtn'onClick={openMenu}>{user?.profileImageUrl ? <img className="circlePfImage" src={user?.profileImageUrl}/>:
-        <i className="fas fa-user-circle" />}</div>
+        <i className="fas fa-user-circle topcircleSinginIcon" />}</div>
         {showMenu && (
               <div className="profile-dropdown">
                   <div className="dpProfileImgNameContainer">
-                      <div><img className="proFileDropdownUserProfileImg" src={user?.profileImageUrl} /></div>
+                      <div>{user?.profileImageUrl ? <img className="proFileDropdownUserProfileImg" src={user?.profileImageUrl}
+                       />: <i className="fas fa-user-circle dpcircleSinginIcon" />}</div>
                       <p className="dpFirstName">{user.email}</p>
                   </div>
                   <hr className="hr"></hr>

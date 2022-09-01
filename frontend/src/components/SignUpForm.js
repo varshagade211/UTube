@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../store/session";
-import { NavLink, useHistory } from 'react-router-dom'
-import vid from '../videos/videoplayback.mp4'
+import {  useHistory } from 'react-router-dom'
+
 const SignupFormPage = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setconfirmPassword] = useState("");
   const [image, setImage] = useState(null);
   const [errors, setErrors] = useState({});
 
@@ -18,12 +19,13 @@ const SignupFormPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(sessionActions.signup({ firstName,lastName, email, password, image }))
+    dispatch(sessionActions.signup({ firstName,lastName, email, password, image,confirmPassword }))
       .then((res) => {
         setFirstName("");
         setLastName("")
         setEmail("");
         setPassword("");
+        setconfirmPassword("");
         setImage(null);
         if(res.status === 200) history.push('/')
       })
@@ -32,6 +34,7 @@ const SignupFormPage = () => {
         if (data && data.errors) {
           setErrors(data.errors);
         }
+
       });
   };
 
@@ -44,7 +47,7 @@ const SignupFormPage = () => {
     <div>
       <form onSubmit={handleSubmit} >
         <div>
-          <label>First Name  </label>
+          <label>First Name<span className="requireAstrick">*</span></label>
           <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
           {errors?.firstName &&
           <div className="errorContainer">
@@ -59,7 +62,7 @@ const SignupFormPage = () => {
         </div>
 
         <div>
-          <label> Last Name</label>
+          <label> Last Name<span className="requireAstrick">*</span></label>
           <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)}  />
           {errors?.lastName &&
           <div className="errorContainer">
@@ -73,8 +76,8 @@ const SignupFormPage = () => {
         }
         </div>
         <div>
-          <label>Email </label>
-          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+          <label>Email<span className="requireAstrick">*</span></label>
+          <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
           {errors?.email &&
           <div className="errorContainer">
             <div>
@@ -87,7 +90,7 @@ const SignupFormPage = () => {
         }
         </div>
         <div>
-          <label> Password  </label>
+          <label> Password<span className="requireAstrick">*</span> </label>
           <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
           {errors?.password &&
           <div className="errorContainer">
@@ -101,20 +104,40 @@ const SignupFormPage = () => {
         }
         </div>
         <div>
-          <label>   </label>
+          <label>Confirm Password<span className="requireAstrick">*</span> </label>
+          <input type="password" placeholder="Password" value={confirmPassword} onChange={(e) => setconfirmPassword(e.target.value)}/>
+          {errors?.confirmPassword &&
+          <div className="errorContainer">
+            <div>
+              <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+            </div>
+            <div>
+              <span className='error' key={errors.confirmPassword}>{errors.confirmPassword}</span>
+            </div>
+          </div>
+        }
+        </div>
+        <div>
+          <label> Profile Image </label>
           <input type="file" onChange={updateFile} />
         </div>
-
+        {errors?.profile &&
+          <div className="errorContainer">
+            <div>
+              <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+            </div>
+            <div>
+              <span className='error' key={errors.profile}>{errors.profile}</span>
+            </div>
+          </div>
+        }
         <div>
           <button type="submit">Create User</button>
 
         </div>
 
       </form>
-       <video width="400" controls autoPlay={true} muted playsInline >
-            <source src={vid} type="video/mp4"/>
 
-        </video>
     </div>
   );
 };
