@@ -16,11 +16,17 @@ module.exports = {
         },
         onDelete:'CASCADE'
       },
-      likableId: {
+      videoId: {
         type: Sequelize.INTEGER,
-        allowNull:false,
         references:{
-          model:['Videos','Comments']
+          model: 'Videos'
+        },
+        onDelete:'CASCADE'
+      },
+      commentId: {
+        type: Sequelize.INTEGER,
+        references:{
+          model: 'Comments'
         },
         onDelete:'CASCADE'
       },

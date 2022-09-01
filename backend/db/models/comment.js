@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
        Comment.belongsTo(models.User,{foreignKey:'CommenterId'})
        Comment.belongsTo(models.Video,{foreignKey:'videoId'})
       //  Comment.hasMany(models.Like,{foreignKey:'likableId', onDelete: 'cascade'})
-      Comment.hasMany(models.Like,{foreignKey:'likableId'})
+      Comment.hasMany(models.Like,{foreignKey:'commentId'})
     }
   }
   Comment.init({

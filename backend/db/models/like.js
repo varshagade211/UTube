@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Like.belongsTo(models.User,{foreignKey:'likerId'})
-      Like.belongsTo(models.Video,{foreignKey:'likableId',as:'Video'})
-      Like.belongsTo(models.Comment,{foreignKey:'likableId',as:'Comment'})
+      Like.belongsTo(models.Video,{foreignKey:'videoId'})
+      Like.belongsTo(models.Comment,{foreignKey:'commentId'})
     }
   }
   Like.init({
@@ -20,9 +20,11 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.INTEGER,
       allowNull:false
     },
-    likableId:{
+    videoId:{
       type: DataTypes.INTEGER,
-      allowNull:false
+    },
+    commentId:{
+      type: DataTypes.INTEGER,
     },
     likableType: {
       type:DataTypes.STRING,

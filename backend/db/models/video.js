@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       // Video.hasMany(models.Comment,{foreignKey:'videoId', onDelete: 'cascade'})
       // Video.hasMany(models.Like,{foreignKey:'likableId', onDelete: 'cascade'})
       Video.hasMany(models.Comment,{foreignKey:'videoId'})
-      Video.hasMany(models.Like,{foreignKey:'likableId'})
+      Video.hasMany(models.Like,{foreignKey:'videoId'})
     }
   }
   Video.init({
