@@ -1,0 +1,43 @@
+.createVideoBtn{
+    cursor: pointer;
+}
+
+
+
+.formandSpinerContainer{
+  position: relative;
+}
+.submitSpinner{
+ position: absolute;
+ top:4rem;
+ right:9rem;
+color:#0275d8;
+/* color: green; */
+font-size: 2rem;
+
+
+}
+
+.submitSpinner {
+    animation-duration: 1s;
+    animation-name: rotate;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes rotate {
+    0% {
+        transform: rotate(0);
+      }
+      30%{
+        transform: rotate(90deg);
+      }
+      50%{
+        transform: rotate(120deg);
+      }
+      70%{
+        transform: rotate(180deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }

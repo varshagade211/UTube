@@ -42,20 +42,18 @@
 }
 .vidioInfoContainer
 {
-  width:100%;
+  width:250px;
 }
 
-.vidioInfoContainer:hover{
+/* .vidioInfoContainer:hover{
     max-width:280px;
-    /* min-height: 290px; */
     position: absolute;
     z-index: 1;
     box-shadow: 0 0 20px black;
     background-color: white;
     display: inline-block;
+} */
 
-
-}
 .vidUserName,.vidViwes{
     margin: 0 0 0 0rem;
     font-size: 0.8rem;

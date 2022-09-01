@@ -28,9 +28,11 @@ function Home () {
     const {isSidebar} = useContext(SideBarContext)
 
     useEffect(()=>{
+
         const response = dispatch(videoActions.getAllVideosThunkCreator())
 
     },[dispatch])
+    
     return (
         <div className={isSidebar?'homePageOuterContainer':"oncloseSidebar"}>
             {isSidebar? <SideBar />  : <SmallSideBar/>}

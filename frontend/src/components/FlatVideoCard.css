@@ -41,6 +41,7 @@
 }
 .flatVideoUserDescription{
     font-size: 0.8rem;
+    text-align: justify;
 }
 
 .flatVideoViews{
@@ -70,6 +71,7 @@
     margin: 1rem 0.8rem 0 0;
     position: absolute;
     right: 0.5rem;
+    background-color: white;
 
 }
 

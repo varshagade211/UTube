@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as videoActions from "../../store/video";
 
 const EditVideoForm = ({video, setShowModal}) => {
     const [title, setTitle] = useState(video?.title);
     const [description, setDescription] = useState(video?.description);
-    // const [video, setVideo] = useState(null);
+    const [titleCount,setTitleCount] = useState(video?.title.length)
+    const [descCount,setDescCount] = useState(video?.description.length)
     const [errors, setErrors] = useState({});
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user);
@@ -13,6 +15,9 @@ const EditVideoForm = ({video, setShowModal}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         let id=video?.id
+        if(Object.keys(errors).length){
+            return
+        }
         dispatch(videoActions.editVideoThunkCreator({id, title, description }))
         .then((res) => {
             setTitle("");
@@ -28,17 +33,36 @@ const EditVideoForm = ({video, setShowModal}) => {
             }
         });
     };
+    const onChangeTitleHandler = (e)=>{
+        if(e.target.value.length>100){
+            setErrors({...errors,'title':'title is greter than 100 charactor'});
+        }if(errors.title){
+            delete errors.title
+        }
+        setTitleCount(e.target.value.length)
+        setTitle(e.target.value)
+    }
+    const onChangeDescriptioneHandler = (e)=>{
+        if(e.target.value.length>1000){
+            
+            setErrors({...errors,'description':'description is greter than 1000 charactor'});
+        }else{
+            if(errors.description){
+                delete errors.description
+            }
+        }
+        setDescCount(e.target.value.length)
+        setDescription(e.target.value)
+    }
 
-    // const updateFile = (e) => {
-    //     const file = e.target.files[0];
-    //     if (file) setVideo(file);
-    // };
+
 
     return (
     <div>
         <form style={{ display: "flex", flexFlow: "column" }} onSubmit={handleSubmit} novalidate={true}>
             <label>Title</label>
-            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+            <input type="text" value={title} onChange={(e) => onChangeTitleHandler(e)} />
+            <span>{titleCount}/100</span>
             {errors?.title &&
             <div className="errorContainer">
                 <div>
@@ -49,7 +73,8 @@ const EditVideoForm = ({video, setShowModal}) => {
                 </div>
             </div>}
             <label> Description  </label>
-            <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
+            <textarea value={description} onChange={(e) => onChangeDescriptioneHandler(e)} />
+            <span>{descCount}/1000</span>
             {errors?.description &&
             <div className="errorContainer">
                 <div>

@@ -19,7 +19,7 @@ const validateLogin = [
 ];
 // Log in
 router.post('/login', validateLogin, async (req, res, next) => {
-  
+
       const { email, password } = req.body;
 
       const user = await User.login({ email, password });
@@ -28,7 +28,7 @@ router.post('/login', validateLogin, async (req, res, next) => {
         const err = new Error('Login failed');
         err.status = 401;
         err.title = 'Login failed';
-        err.errors = ['The provided credentials were invalid.'];
+        err.errors = {error:'The provided credentials were invalid.'}
         return next(err);
       }
 

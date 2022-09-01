@@ -99,8 +99,8 @@ export const createVideoThunkCreator = ( (videoInfo) => async (dispatch) => {
     });
 
     const data = await res.json();
-    dispatch(createVideo(data.video));
-    return data.video.url
+    dispatch(createVideo(data));
+    return res
 
 })
 

@@ -1,23 +1,34 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as videoActions from "../../store/video";
-
-const CreateVideoForm = () => {
+import './CreateVideoForm.css'
+const CreateVideoForm = ({setShowModal}) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [video, setVideo] = useState(null);
     const [errors, setErrors] = useState({});
+    const [isSpinner, setShowSpinner] = useState(false)
+    const [titleCount,setTitleCount] = useState(0)
+    const [descCount,setDescCount] = useState(0)
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user);
 
-    let videoUrl = ''
     const handleSubmit = (e) => {
         e.preventDefault();
-        videoUrl = dispatch(videoActions.createVideoThunkCreator({ title,description,video }))
-        .then(() => {
+
+        if(Object.keys(errors).length){
+            return
+        }
+        setShowSpinner(true)
+        dispatch(videoActions.createVideoThunkCreator({ title,description,video }))
+        .then((res) => {
             setTitle("");
             setDescription("")
             setVideo(null);
+            if(res.status === 200){
+                setShowSpinner(false)
+                setShowModal(false)
+            }
         })
         .catch(async (res) => {
             const data = await res.json();
@@ -27,16 +38,41 @@ const CreateVideoForm = () => {
         });
     };
 
+    const onChangeTitleHandler = (e)=>{
+        if(e.target.value.length>100){
+            setErrors({...errors,'title':'title is greter than 100 charactor'});
+        }if(errors.title){
+            delete errors.title
+        }
+        setTitleCount(e.target.value.length)
+        setTitle(e.target.value)
+    }
+    const onChangeDescriptioneHandler = (e)=>{
+        if(e.target.value.length>1000){
+        
+            setErrors({...errors,'description':'description is greter than 1000 charactor'});
+        }else{
+            if(errors.description){
+                delete errors.description
+            }
+        }
+        setDescCount(e.target.value.length)
+        setDescription(e.target.value)
+    }
+
     const updateFile = (e) => {
         const file = e.target.files[0];
         if (file) setVideo(file);
     };
 
     return (
-    <div>
+    <div className="formandSpinerContainer">
+          { isSpinner && <i className="fa-solid fa-circle-notch submitSpinner"></i>}
         <form style={{ display: "flex", flexFlow: "column" }} onSubmit={handleSubmit} novalidate={true}>
+
             <label>Title</label>
-            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+            <input type="text" value={title} onChange={(e) => onChangeTitleHandler(e)} />
+            <span>{titleCount}/100</span>
             {errors?.title &&
             <div className="errorContainer">
                 <div>
@@ -47,7 +83,8 @@ const CreateVideoForm = () => {
                 </div>
             </div>}
             <label> Description  </label>
-            <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
+            <textarea value={description} onChange={(e) => onChangeDescriptioneHandler(e)} />
+            <span>{descCount}/1000</span>
             {errors?.description &&
             <div className="errorContainer">
                 <div>
@@ -68,13 +105,9 @@ const CreateVideoForm = () => {
                     <span className='error' key={errors.url}>{errors.url}</span>
                 </div>
             </div>}
-            <button type="submit">Publish</button>
+            <button className="createVideoBtn" type="submit">Publish</button>
         </form>
-        <div>
-            {videoUrl && <video width="400" controls autoPlay={true} muted playsInline >
-                <source src={videoUrl} type="video/mp4"/>
-            </video>}
-        </div>
+
     </div>
   );
 };

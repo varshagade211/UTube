@@ -49,7 +49,9 @@ function YourVideos () {
             </div>
             <div className='userVideosInfo'>
                 <div className='yourVideoImageProfileIconContainer'>
-                    <img className="userYourVideosProfileImg" src={sessionUser?.profileImageUrl} />
+                    {sessionUser?.profileImageUrl ? <img className="userYourVideosProfileImg" src={sessionUser?.profileImageUrl} />:
+                      <i className="fas fa-user-circle yourVidcircleSinginIcon" />
+                    }
                     <p>{sessionUser?.firstName} {sessionUser?.lastName}</p>
 
                 </div>

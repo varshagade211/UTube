@@ -10,7 +10,7 @@ function CreateVideoFormModal() {
       <button className='createVideoIconBtn' onClick={() => setShowModal(true)}><i className="fa-solid fa-video createVideoIcon"></i></button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <CreateVideoForm />
+          <CreateVideoForm setShowModal={setShowModal}/>
         </Modal>
       )}
     </>

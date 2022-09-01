@@ -68,6 +68,16 @@ function LoginForm() {
         }
       </div>
       <div>
+      {errors?.error &&
+          <div className="errorContainer">
+            <div>
+              <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+            </div>
+            <div>
+              <span className='error' key={errors.error}>{errors.error}</span>
+            </div>
+          </div>
+        }
         <button type="submit">Log In</button>
 
         <button onClick={demoUserLoginHandleSubmit} className='demoUserBtn'>Demo User</button>

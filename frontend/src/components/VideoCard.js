@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 function VideoCard({video}) {
     const sessionUser = useSelector(state => state.session.user);
     const history = useHistory()
-
+     
     const playHandler = (target) => {
             target.currentTime = 0;
             target.play();
@@ -36,7 +36,7 @@ function VideoCard({video}) {
                     <div className='profileImageContainer'>  {sessionUser && <img className='userProfileImg' src={sessionUser?.profileImageUrl}/>} </div>
 
                     <div>
-                        <div className="homeDescriptionContainer"> <h3 className='vidDiscription'>{video?.description}</h3> </div>
+                        <div className="homeDescriptionContainer"> <h3 className='vidDiscription'>{video?.title}</h3> </div>
                         <div className='viewsAndNameContainer'>
                             <p className='vidUserName'>{sessionUser?.firstName} </p>
                             <p className='vidViwes'>{video?.views} views</p>

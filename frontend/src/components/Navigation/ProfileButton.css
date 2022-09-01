@@ -72,9 +72,11 @@
 
 .topcircleSinginIcon{
     font-size: 25px;
+    color:#0275d8;
 }
 
 .dpcircleSinginIcon{
-    margin: 0rem 0rem 0rem 1rem;
-    font-size: 50px;
+    margin: 0.6rem 0rem 0rem 1rem;
+    font-size: 2rem;
+    color:#0275d8;
 }
