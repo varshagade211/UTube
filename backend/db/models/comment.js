@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-       Comment.belongsTo(models.User,{foreignKey:'CommenterId'})
+       Comment.belongsTo(models.User,{foreignKey:'commenterId'})
        Comment.belongsTo(models.Video,{foreignKey:'videoId'})
       //  Comment.hasMany(models.Like,{foreignKey:'likableId', onDelete: 'cascade'})
       Comment.hasMany(models.Like,{foreignKey:'commentId'})
