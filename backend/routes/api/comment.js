@@ -9,7 +9,7 @@ const {handleValidationErrors}= require('../../utils/validation')
 const validateComments = [
     check('comment')
       .exists({checkFalsy:true})
-      .withMessage('Comment is requred'),
+      .withMessage('Comment is required'),
 
     handleValidationErrors
 ]
@@ -41,7 +41,21 @@ router.get('/:videoId' , async(req,res,next) => {
 
 // create comment on video
 router.post('/:videoId', requireAuth, validateComments, async(req,res,next) => {
-   const {comment} =req.body
+    const {comment} =req.body
+    if(!comment){
+        const err = Error('Validation error');
+        err.errors = {comment:"Comment cannot be empty"}
+        err.status = 400;
+        err.title = "Validation Errors"
+        return next(err);
+    }
+    if(comment.length > 1000){
+        const err = Error('Validation error');
+        err.errors = {comment:"Comment greater than 1000 characters not allowed"}
+        err.status = 400;
+        err.title = "Validation Errors"
+        return next(err);
+    }
     const newComment = await Comment.create({
         comment,
         videoId:req.params.videoId,
@@ -63,18 +77,28 @@ router.put('/:id', requireAuth, validateComments, async(req,res,next) => {
     }
 
     const {comment} =req.body
+
     if(req.user.id === foundComment.commenterId){
+        if(comment.length > 1000){
+            const err = Error('Validation error');
+            err.errors = {comment:"Comment greater than 1000 characters not allowed"}
+            err.status = 400;
+            err.title = "Validation Errors"
+            return next(err);
+        }
+
         const newComment = await foundComment.update({
             comment,
             videoId:foundComment.videoId,
             commenterId:req.user.id
         })
+        return res.status(200).json(newComment)
     }else{
         const err = new Error('Forbidden')
         err.statusCode = 403
         return next(err)
     }
-    return res.status(200).json(newComment)
+
 
 })
 
@@ -108,6 +132,8 @@ router.delete('/:commentId', requireAuth, async(req,res,next) => {
         err.statusCode = 403
         return next(err)
     }
-   
+
 
 })
+
+module.exports = router;

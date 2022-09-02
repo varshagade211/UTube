@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import DeleteVideoForm from './DeleteVideoForm';
+import DeleteCommentForm from './DeleteCommentForm'
 import './index.css'
-function DeleteVideoFormModal({video}) {
+function DeleteVideoFormModal(prop) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -17,7 +18,8 @@ function DeleteVideoFormModal({video}) {
         </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <DeleteVideoForm video={video} setShowModal={setShowModal} />
+          {prop.type=== "video" && <DeleteVideoForm video={prop?.video} setShowModal={setShowModal} />}
+          {prop.type=== "comment" && <DeleteCommentForm comment={prop?.comment} setShowModal={setShowModal} />}
         </Modal>
       )}
     </>

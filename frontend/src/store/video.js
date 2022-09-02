@@ -3,12 +3,10 @@ import { csrfFetch } from './csrf';
 
 const CREATE_VIDEO =  'video/createVideo'
 const GET_VIDEOS = 'video/getVideos'
+const GET_SINGLE_VIDEO = 'video/getSingleVideo'
 const EDIT_VIDEO = 'video/editVideo'
 const DELETE_VIDEO = 'video/deleteVideo'
-// commants constants
-const CREATE_COMMENT = 'video/createComment'
-const EDIT_COMMENT = 'video/editComment'
-const DELETE_COMMENT = 'video/deleteComment'
+
 //--------------------------------------------- action creators------------------------------
 
 const createVideo = ( (video) => {
@@ -24,7 +22,12 @@ const getAllVideos = ( (videos) => {
         videos
     }
  })
-
+ const getSingleVideo = ( (video) => {
+    return {
+        type:GET_SINGLE_VIDEO,
+        video
+    }
+ })
  const editVideo = ( (editedVideo) => {
     return {
         type:EDIT_VIDEO,
@@ -37,31 +40,7 @@ const deletVideo = ( (deleteVideodId) => {
         deleteVideodId
     }
  })
-// commnet action creator
- const createComment = ((newComment,videoId) => {
-    return {
-        type:CREATE_COMMENT,
-        newComment,
-        videoId
-    }
- })
 
- const editComment = ((newComment) => {
-    return {
-        type:EDIT_COMMENT,
-        newComment,
-
-    }
- })
-
- const deleteComment = ((deletedCommId,videoId) => {
-    return {
-        type:DELETE_COMMENT,
-        deletedCommId,
-        videoId
-
-    }
- })
 // ------------------------------------------------thunk action creator --------------------------
 
 
@@ -69,6 +48,14 @@ export const getAllVideosThunkCreator = (() => async (dispatch) =>{
     const response = await csrfFetch('/api/video/')
     const videos = await response.json()
     dispatch(getAllVideos(videos.videos))
+    return response
+})
+
+export const getSingleVideoThunkCreator = ((id) => async (dispatch) =>{
+    const response = await csrfFetch(`/api/video/${id}/`)
+    const video = await response.json()
+    
+    dispatch(getSingleVideo(video))
     return response
 })
 
@@ -131,60 +118,22 @@ export const deleteVideoThunkCreator = (videoId) => async(dispatch) => {
 }
 
 
-// comments thunk crator
-export const createCommentThunkCreator = (commentData) => async (dispatch) => {
-    const {comment,videoId} = commentData
-
-        const response = await csrfFetch(`/api/comment/${videoId}`,
-        {
-           method:'POST',
-           body:JSON.stringify({
-              comment
-           })
-       })
-       const newComment = await response.json()
-       dispatch(createComment(newComment,videoId))
-       return response;
-
-}
-
-export const editCommentThunkCreator = (commentData) => async (dispatch) => {
-    const {comment,id} = commentData
-
-        const response = await csrfFetch(`/api/comment/${id}`,
-        {
-           method:'PUT',
-           body:JSON.stringify({
-              comment
-           })
-       })
-       const newComment = await response.json()
-       dispatch(editComment(newComment))
-       return response;
-
-}
 
 
-export const deleteCommentThunkCreator = (commentId,videoId) => async(dispatch) => {
-    const response = await csrfFetch(`/api/video/${commentId}`,
-    {
-        method: 'DELETE',
-    })
-    if(response.status === 200){
-        dispatch(deleteComment(commentId,videoId))
-    }
-    return response
-
-}
 // -------------------------------------video Reducer-----------------------
 
-const initialState = { videos: [] };
+const initialState = { videos: []  };
 
 const videoReducer = (state = initialState, action) => {
     let newState;
     switch(action.type) {
         case GET_VIDEOS:{
             newState = {...state, videos:action?.videos}
+            return newState
+        }
+        case GET_SINGLE_VIDEO:{
+            state['singleVideo'] = action?.video
+            newState={...state}
             return newState
         }
         case CREATE_VIDEO:{
@@ -206,40 +155,6 @@ const videoReducer = (state = initialState, action) => {
             let newUserPosts = state?.videos?.filter((video) => video?.id !== action?.deleteVideodId)
             newState = {...state,videos:newUserPosts}
             return newState
-        }
-        // comment reducers
-        case CREATE_COMMENT:{
-             state?.videos?.forEach((vid) => {
-                  if(vid.id === action?.videoId){
-                     vid.comments.push(action?.newComment)
-                  }
-             })
-             newState= {...state,videos:[...state?.videos]}
-             return newState
-        }
-        case EDIT_COMMENT:{
-            state?.videos?.forEach((vid) => {
-                if(vid.id === action?.newComment?.videoId){
-                    vid?.comments?.forEach((comm,i) => {
-                        if(comm.id === action?.newComment?.id){
-                            vid?.comments?.splice(i, 1, action?.newComment)
-                        }
-                    })
-                }
-            })
-            newState = {...state, videos:[...state?.videos]}
-            return newState
-        }
-        case DELETE_COMMENT:{
-            state?.videos?.forEach((vid) => {
-                if(vid.id === action?.videoId){
-                    let newComments = vid?.comments?.filter((comm) => comm?.id !== action?.deletedCommId)
-                    vid.comments = newComments
-                }
-            })
-            newState = {...state, videos:[...state?.videos]}
-            return newState
-
         }
         default:{
             return state;

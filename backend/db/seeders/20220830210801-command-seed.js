@@ -6,7 +6,22 @@ const commentsData = [
     comment:'first comment',
     videoTitle:'first video',
     commenterEmail:'tom@user.io'
-  }
+  },
+  {
+    comment:'second comment',
+    videoTitle:'first video',
+    commenterEmail:'tom@user.io'
+  },
+  {
+    comment:'third comment',
+    videoTitle:'second video',
+    commenterEmail:'tom@user.io'
+  },
+  {
+    comment:'fourth comment',
+    videoTitle:'fourth video',
+    commenterEmail:'tom@user.io'
+  },
 ]
 module.exports = {
   async up (queryInterface, Sequelize) {

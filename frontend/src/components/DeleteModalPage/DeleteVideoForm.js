@@ -16,13 +16,13 @@ function DeleteVideoForm({video,setShowModal})  {
 
   return(
     <div>
-        <p>Permanently delete this video?</p>
+      <p>Permanently delete this video?</p>
       <input type="checkbox" id="sure" name="sure" onClick={(e)=>checkboxHandler()}/>
 
       <label for="sure">I understand that deleting is permanent and can't be undone</label>
       <button  onClick={()=>deleteHandler()}  disabled={!isChecked}>Delete Forever</button>
 
-      <button onClick={()=>setShowModal(false)}>Cancel</button>
+      <button type='button' onClick={()=>setShowModal(false)}>Cancel</button>
     </div>
   )
 }

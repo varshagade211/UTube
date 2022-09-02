@@ -40,7 +40,7 @@ const CreateVideoForm = ({setShowModal}) => {
 
     const onChangeTitleHandler = (e)=>{
         if(e.target.value.length>100){
-            setErrors({...errors,'title':'title is greter than 100 charactor'});
+            setErrors({...errors,'title':'Title is greater than 100 characters'});
         }if(errors.title){
             delete errors.title
         }
@@ -49,8 +49,8 @@ const CreateVideoForm = ({setShowModal}) => {
     }
     const onChangeDescriptioneHandler = (e)=>{
         if(e.target.value.length>1000){
-        
-            setErrors({...errors,'description':'description is greter than 1000 charactor'});
+
+            setErrors({...errors,'description':'Description is greater than 1000 characters'});
         }else{
             if(errors.description){
                 delete errors.description

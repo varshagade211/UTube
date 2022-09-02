@@ -33,7 +33,7 @@ router.get('/', async (req, res, next)=>{
           model:Comment
         },
         {
-            model:User,
+            model:User, as:'uploader',
             include:[{
                 model:User, as:'subscribee'
             }]
@@ -47,7 +47,6 @@ router.get('/', async (req, res, next)=>{
 router.get('/:id', async(req,res,next) => {
     let video = await Video.findByPk(req.params.id,
         {
-            where,
             include:[{
                 model: Like
             },
@@ -55,13 +54,14 @@ router.get('/:id', async(req,res,next) => {
               model:Comment
             },
             {
-                model:User,
+                model:User, as:'uploader',
                 include:[{
-                    model:Subscribe
+                    model:User, as:'subscribee'
                 }]
             }
-
-        ]})
+        ],
+      }
+      )
 
     if(!video){
        const err = new Error("Video couldn't be found");
@@ -69,11 +69,11 @@ router.get('/:id', async(req,res,next) => {
         return next(err);
     }
 
-    let viewIncrement = await Video.update({
+    let viewIncrement = await video.update({
         title:video.title,
         description:video.description,
         url:video.url,
-        views:views++
+        views:++video.views
 
     })
 

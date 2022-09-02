@@ -7,6 +7,8 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from './components/Home'
 import YourVideos from './components/YourVideos'
+
+import  SingleVideoPage from './components/SingleVideoPage'
 import './App.css'
 import ProtectedRoute from './components/ProtectedRoute'
 function App() {
@@ -30,6 +32,9 @@ function App() {
         </Route>
         <Route exact={true} path="/signin">
           <LoginForm />
+        </Route>
+        <Route exact={true} path="/video/:id/">
+          <SingleVideoPage />
         </Route>
         <ProtectedRoute exact={true} path="/:userId/videos/">
           <YourVideos />

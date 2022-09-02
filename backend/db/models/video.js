@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Video.belongsTo(models.User,{foreignKey:'uploaderId'})
+      Video.belongsTo(models.User,{foreignKey:'uploaderId', as:'uploader'})
       // Video.hasMany(models.Comment,{foreignKey:'videoId', onDelete: 'cascade'})
       // Video.hasMany(models.Like,{foreignKey:'likableId', onDelete: 'cascade'})
       Video.hasMany(models.Comment,{foreignKey:'videoId'})

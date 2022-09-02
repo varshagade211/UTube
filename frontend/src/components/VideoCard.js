@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 function VideoCard({video}) {
     const sessionUser = useSelector(state => state.session.user);
     const history = useHistory()
-     
+
     const playHandler = (target) => {
             target.currentTime = 0;
             target.play();
@@ -16,9 +16,9 @@ function VideoCard({video}) {
     const pauseHandler = (target)=> {
         target.load()
     }
+
     const videoClickHandler = () => {
         history.push(`/video/${video?.id}/`)
-
     }
     return(
     <div>
