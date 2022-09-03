@@ -1,0 +1,80 @@
+
+
+.singlePageVideoContainer{
+
+     max-width: 100%;
+}
+.singleVidioTag{
+    width: 95%;
+
+}
+.singlePagecircleSinginIcon{
+    font-size: 2rem;
+
+    margin: 0.8rem 1rem 0rem 0rem;
+}
+.singlePageOuterContainerWithoutSidebar{
+    margin: 1rem 1rem 1rem 2rem;
+}
+.singlePageOuterContainer{
+    margin: 1rem 0 0 0 ;
+}
+.singlePageTitle{
+    margin: 0.8rem 0 0.5rem 0;
+    font-size: 1rem;
+    overflow-wrap: anywhere;
+}
+.singlePageViews{
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.736);
+}
+.singlepageHr{
+    height: 0.5px;
+    background-color: rgba(0, 0, 0, 0.232);
+    border: none;
+    width: 95%;
+    margin: 0px;
+}
+.singlePageProfileImageAndNameContainer{
+    display: grid;
+    grid-template-columns: 1fr 18fr;
+    max-width: 95%;
+}
+
+.singlePageProfileImage{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0.8rem 1rem 0rem 0rem;
+
+}
+.singlePageNameDiscriptionContainer{
+    margin: 0rem 1rem 1rem 0rem;
+    text-align: justify;
+
+}
+
+.singlePageUseName{
+
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+.singlePageDiscription{
+    font-size: 0.8rem;
+
+
+}
+@media only screen and (min-width: 750px)  {
+    .singlePageOuterContainer{
+        display: grid;
+        grid-template-columns: 1fr 6fr 2fr;
+    }
+
+    .singlePageOuterContainerWithoutSidebar{
+        display: grid;
+        grid-template-columns: 6fr 2fr;
+    }
+
+}

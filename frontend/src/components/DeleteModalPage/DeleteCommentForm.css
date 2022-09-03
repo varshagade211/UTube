@@ -1,0 +1,43 @@
+.deleteCommentModalContainer{
+    /* margin: 1rem 1rem 1rem 1.5rem; */
+}
+
+.deleteComentHeading{
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.659);
+    margin: 1rem 1rem 1rem 1.5rem;
+    font-weight: 600;
+}
+
+.deleteComentWarning{
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.714);
+    margin: 1rem 1rem 1rem 1.5rem;
+
+}
+
+
+.deleteCommentModalHr{
+    height: 0.5px;
+    background-color: rgba(0, 0, 0, 0.188);
+    border: none;
+    /* width: 95%; */
+    margin: 0px;
+}
+
+
+.deleteCommentModalBtn,.deleteCommentModalCancelBtn{
+    background-color: white;
+    border: none;
+    color: #0067c1;
+    /* padding: 1rem 1rem 1rem 1rem; */
+    font-weight: 600;
+    font-size: 0.72rem;
+    font-family: "Roboto", sans-serif;
+    margin: 1rem 0.5rem 0.9rem 0.5rem;
+    cursor: pointer;
+
+}
+.deleteCommentModalBtnContainer{
+    text-align: end;
+}

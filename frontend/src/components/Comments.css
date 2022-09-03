@@ -1,0 +1,85 @@
+.commentNumber{
+    font-size: 0.85rem;
+    color: rgb(0, 0, 0);
+    margin:1.2rem 0 1.2rem 0;
+}
+
+.commentFormProfileImage{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin:-0.4rem 1rem 0rem 0rem;
+
+}
+
+.commentFormProfileImageIcon{
+    font-size: 2rem;
+    margin: 0rem 1rem 0rem 0rem;
+    color:#0275d8;
+
+}
+
+.profileImageAndFormContainer{
+    display: flex;
+    width: 95%;
+
+}
+
+.commentFormContainer{
+    width: 94%;
+}
+
+.commentFormImageContainer{
+    /* width: 6%; */
+    min-width: 45px;
+}
+.commentInput{
+    width: 100%;
+    border:none;
+    border-bottom:  0.5px solid rgba(0, 0, 0, 0.232);
+    margin: 0rem 0 0 0rem;
+    font-size: 0.8rem;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+    min-height: 0.8rem;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+
+}
+
+.commentInput:focus {
+    border-bottom: 2px solid black;
+  }
+.commentBtnContainer{
+    margin: 0.4rem 0 0 3rem ;
+    text-align: end;
+
+}
+.commentCancelBtn,.commentsubmitBtn{
+    background-color: white;
+    border: none;
+    font-size: 0.71rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.553);
+    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+    cursor: pointer;
+}
+.commentsubmitBtn{
+    background-color: #0067c1;
+    color: white;
+}
+
+
+.commentError,.commentErrorlogo{
+    color:red;
+    font-size: 0.8rem;
+    margin: 0.5rem 0.2rem 0rem 0.2rem;
+}
+
+@media only screen and (max-width: 500px)  {
+
+
+
+}

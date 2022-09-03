@@ -27,12 +27,19 @@
 
 .userVideoTag{
     width:100%;
-    height: 100%;
+    /* height: 100%; */
 
 }
 
-.flatVideoUserDescription,.flatVideoViews,.flatVideoUserTitle{
+.flatVideoUserDescription,.flatVideoViews{
     margin: 0.3rem 0 0 1rem;
+}
+
+
+
+.flatVideoUserTitle{
+    margin: 0.3rem 0 0 1rem;
+    overflow-wrap: anywhere;
 
 }
 
@@ -66,34 +73,11 @@
 
 .flatDropDownMenu{
     width:100px;
-    height: 100px;
+    height: 70px;
     box-shadow: 0 0 10px black;
     margin: 1rem 0.8rem 0 0;
     position: absolute;
     right: 0.5rem;
     background-color: white;
 
-}
-
-.flatVideoDelBtnContainer{
-    background-color: white;
-    border: none;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-    display: flex;
-    justify-content: space-around;
-    cursor: pointer;
-}
-
-
-.flatVideoDelBtnContainer:hover{
-    background-color: whitesmoke;
-}
-
-.flatVidDelete{
-    margin: 0 0 0  0;
-    font-size: 0.8rem;
-}
-.flatVidTrashIcon{
-
-    font-size: 0.9rem;
 }

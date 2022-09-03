@@ -12,21 +12,27 @@
     overflow: hidden;
     margin: 0.5rem 0 0 0;
 
+
+
 }
 
 .imgAndDescriptionContainer{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
 
 }
 
 .vidDiscription{
   margin: 0.5rem 0 0 0.7rem;
-
   font-size: 0.85rem;
-  /* font-weight: 500; */
+  overflow-wrap: anywhere;
 }
+
+
 .homeDescriptionContainer{
     max-width: 100%;
+   
+
 }
 
 .vidioTag{
@@ -42,7 +48,8 @@
 }
 .vidioInfoContainer
 {
-  width:250px;
+  max-width:250px;
+
 }
 
 /* .vidioInfoContainer:hover{

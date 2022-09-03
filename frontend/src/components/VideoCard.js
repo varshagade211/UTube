@@ -36,7 +36,11 @@ function VideoCard({video}) {
                     <div className='profileImageContainer'>  {sessionUser && <img className='userProfileImg' src={sessionUser?.profileImageUrl}/>} </div>
 
                     <div>
-                        <div className="homeDescriptionContainer"> <h3 className='vidDiscription'>{video?.title}</h3> </div>
+                        <div className="homeDescriptionContainer">
+                             <h3 className='vidDiscription'>
+                                {video?.title}
+                                </h3>
+                             </div>
                         <div className='viewsAndNameContainer'>
                             <p className='vidUserName'>{sessionUser?.firstName} </p>
                             <p className='vidViwes'>{video?.views} views</p>

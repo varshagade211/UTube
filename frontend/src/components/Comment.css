@@ -1,0 +1,193 @@
+
+
+.commentProfileImage{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin:0rem 0.7rem 0rem 0rem
+
+}
+
+.commentProfileImageIcon{
+    font-size: 2rem;
+    margin: 0rem 1rem 0rem 0rem;
+    color:#0275d8;
+
+}
+
+.commentProfileImageAndIconContainer{
+    margin: 1.3rem 0 1.3rem 0;
+    display: grid;
+    grid-template-columns: 1fr 15fr;
+    width: 95%;
+}
+
+.commentUserName{
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin: 0 0 0.2rem 0;
+}
+
+.commentTxt{
+    font-size: 0.8rem;
+    margin: 0 0 0 0;
+    overflow-wrap: anywhere;
+    text-align: justify;
+}
+.commentTxtContainer{
+    width: 100%;
+}
+
+.createdTimeAndUserNameOuter{
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    /* width: 98%; */
+}
+.createdTimeAndUserNameAndCommentContainer{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+.createdTimeAndUserName{
+    display: flex;
+
+}
+.createdCommentTime{
+    font-size: 0.8rem;
+    margin: 0 0 0 0.5rem;
+    color: gray;
+}
+
+.isEdited{
+    margin: 0 0 0 0.3rem;
+    font-size: 0.8rem;
+    color: gray;
+
+}
+
+.editCommentVerticalIcon{
+    margin: 0.3rem 0 0 0;
+
+}
+
+.editCommentVerticalIconOuterContainer{
+     text-align: center;
+     /* width: 100%; */
+     width: 30px;
+     height: 30px;
+     border-radius: 50%;
+     cursor: pointer;
+
+
+
+}
+.editCommentVerticalIconOuterContainer:hover{
+    background-color: rgba(215, 210, 210, 0.395);
+}
+
+.editFlatDropDownMenu{
+    width:100px;
+    height: 70px;
+    box-shadow: 0 0 10px black;
+    margin: 1rem 0.8rem 0 0;
+    position: absolute;
+    right: 0.8rem;
+    background-color: white;
+    z-index: 1;
+
+}
+
+.commentEditBtn{
+    background-color: white;
+    border: none;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+    margin: 0.3rem 0 0 0;
+}
+
+.editCommentPencilIcon{
+    font-size: 0.9rem;
+
+}
+
+.commentEditBtn:hover{
+    background-color: rgba(215, 210, 210, 0.395);
+}
+.commentEditP{
+    margin: 0 1rem 0 0;
+    font-size: 0.8rem;
+
+}
+
+
+/* form css */
+
+.editCommentInput{
+    width: 100%;
+    border:none;
+    border-bottom:  0.5px solid rgba(0, 0, 0, 0.232);
+    margin: 0rem 0 0 0rem;
+    font-size: 0.8rem;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+    min-height: 0.8rem;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+
+}
+.editCommentInput:focus{
+    border-bottom: 2px solid black;
+}
+
+.editCommentError,.editCommentErrorlogo{
+    color:red;
+    font-size: 0.8rem;
+    margin: 0.5rem 0.2rem 0rem 0.2rem;
+}
+
+
+
+.editCommentCancelBtn,.editCommentsubmitBtn{
+    background-color: white;
+    border: none;
+    font-size: 0.71rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.553);
+    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+    cursor: pointer;
+}
+
+.editCommentsubmitBtn{
+    background-color: #0067c1;
+    color: white;
+}
+
+.editProfileImageAndFormContainer{
+    display: flex;
+    width: 95%;
+    margin: 1rem 0 0 0;
+
+}
+
+.editCommentFormImageContainer{
+    /* width: 6%; */
+    min-width: 45px;
+}
+
+.editCommentFormContainer{
+    width: 94%;
+}
+
+
+.editCommentBtnContainer{
+    margin: 0.4rem 0 0 3rem ;
+    text-align: end;
+
+}

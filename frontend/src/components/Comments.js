@@ -2,6 +2,7 @@ import * as commentActions from '../store/comment'
 import { useSelector,useDispatch } from "react-redux"
 import { useState, useEffect } from 'react'
 import Comment from './Comment'
+import './Comments.css'
 
 function Comments ({video}) {
     const [commentData,setCommentData] = useState('')
@@ -23,6 +24,8 @@ function Comments ({video}) {
         dispatch(commentActions.createCommentThunkCreator({comment:commentData,videoId:video.id}))
         .then((res) => {
             setCommentData("");
+            const textArea = document.querySelector(".commentInput")
+            textArea.style.height = 1.2 +"rem"
             if(res.status === 200){
                 setshowSubmitCancelBtn(false)
                 setErrors({})
@@ -38,12 +41,17 @@ function Comments ({video}) {
 
 
     const cancelCommentFormHandler=()=>{
+        const textArea = document.querySelector(".commentInput")
+        textArea.style.height = 1.2 +"rem"
+
         setCommentData("");
         setErrors({})
         setshowSubmitCancelBtn(false)
     }
 
     const onCommentChangeHandler = (e) =>{
+        e.target.style.height = 'auto'
+        e.target.style.height = e.target.scrollHeight + 'px'
         setCommentData(e.target.value)
 
     }
@@ -51,26 +59,46 @@ function Comments ({video}) {
         setshowSubmitCancelBtn(true)
     }
 
-   
+
     return (
         <div>
-            <p>{Object.keys(comments)?.length} Comments</p>
-            <form onSubmit={onSubmitCommentHandler}>
-                <input type='text' value={commentData} name='comment' onChange={(e)=>onCommentChangeHandler(e)} onClick={inputCommentClickHandler} />
-                {errors?.comment &&
-                 <div className="errorContainer">
-                <div>
-                    <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+            <p className='commentNumber'>{Object.keys(comments)?.length} Comments</p>
+            <div className='profileImageAndFormContainer'>
+                <div className='commentFormImageContainer'>
+                    {sessionUser?.profileImageUrl
+                  
+                    ?
+                        <img className='commentFormProfileImage' src={sessionUser?.profileImageUrl}/>:
+                        <i className="fas fa-user-circle commentFormProfileImageIcon" />
+                    }
+
                 </div>
-                <div>
-                    <span className='error' key={errors.comment}>{errors.comment}</span>
-                </div>
-            </div>}
-            {showSubmitCancelBtn &&
-            <div><button>Comment</button>
-                <button type='button' onClick={cancelCommentFormHandler}>Cancel</button>
-                </div>}
+                <div className='commentFormContainer'>
+
+                <form onSubmit={onSubmitCommentHandler}>
+                    <textarea className='commentInput' rows={1} placeholder='Add a Comment...'
+                    value={commentData} name='comment' onChange={(e)=>onCommentChangeHandler(e)} onClick={inputCommentClickHandler} />
+                    {errors?.comment &&
+                        <div className="errorContainer">
+
+                            <div>
+                            <i class="fa-solid fa-circle-exclamation commentErrorlogo"></i>
+                            <span className='commentError' key={errors.comment}>{errors.comment}</span>
+                            </div>
+                        </div>
+                    }
+                    {showSubmitCancelBtn &&
+                        <div className='commentBtnContainer'>
+                            <button className='commentCancelBtn' type='button' onClick={cancelCommentFormHandler}>CANCEL</button>
+                            <button className='commentsubmitBtn'>COMMENT</button>
+                        </div>
+                    }
             </form>
+                </div>
+
+            </div>
+
+
             {Object.values(comments)?.map((comment)=>{
 
                 return <Comment key={comment?.id} comment={comment} />

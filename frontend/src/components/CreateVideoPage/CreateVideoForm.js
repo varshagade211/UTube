@@ -15,13 +15,16 @@ const CreateVideoForm = ({setShowModal}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        
 
         if(Object.keys(errors).length){
             return
+        }else{
+            setShowSpinner(true)
         }
-        setShowSpinner(true)
         dispatch(videoActions.createVideoThunkCreator({ title,description,video }))
         .then((res) => {
+
             setTitle("");
             setDescription("")
             setVideo(null);
@@ -31,6 +34,7 @@ const CreateVideoForm = ({setShowModal}) => {
             }
         })
         .catch(async (res) => {
+            setShowSpinner(false)
             const data = await res.json();
             if (data && data.errors) {
                 setErrors(data.errors);
@@ -62,7 +66,13 @@ const CreateVideoForm = ({setShowModal}) => {
 
     const updateFile = (e) => {
         const file = e.target.files[0];
-        if (file) setVideo(file);
+        if (file){
+            if(errors?.url){
+                delete errors.url
+            }
+
+             setVideo(file);
+        }
     };
 
     return (

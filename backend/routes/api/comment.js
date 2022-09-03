@@ -61,6 +61,8 @@ router.post('/:videoId', requireAuth, validateComments, async(req,res,next) => {
         videoId:req.params.videoId,
         commenterId:req.user.id
     })
+    let user = await User.findByPk(req.user.id )
+    newComment.dataValues.User = user
 
     return res.status(200).json(newComment)
 
@@ -86,12 +88,14 @@ router.put('/:id', requireAuth, validateComments, async(req,res,next) => {
             err.title = "Validation Errors"
             return next(err);
         }
-
+        let user = await User.findByPk(req.user.id )
         const newComment = await foundComment.update({
             comment,
             videoId:foundComment.videoId,
             commenterId:req.user.id
         })
+
+        newComment.dataValues.User = user
         return res.status(200).json(newComment)
     }else{
         const err = new Error('Forbidden')

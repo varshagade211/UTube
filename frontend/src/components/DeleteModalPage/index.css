@@ -1,0 +1,22 @@
+.flatVidDelete{
+    margin: 0 0 0  0;
+    font-size: 0.8rem;
+}
+.flatVidTrashIcon{
+
+    font-size: 0.9rem;
+}
+
+.flatVideoDelBtnContainer{
+    background-color: white;
+    border: none;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+
+.flatVideoDelBtnContainer:hover{
+    background-color: whitesmoke;
+}

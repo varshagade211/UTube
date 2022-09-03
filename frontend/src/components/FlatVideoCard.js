@@ -43,7 +43,7 @@ function FlatVideoCard({video}) {
 
                 {showDelete && <div className='flatDropDownMenu'>
                     <EditVideoFormModal video={video}/>
-                    <DeleteVideoFormModal video={video} type={'video'}/>
+                    <DeleteVideoFormModal video={video} type={'video'} setShowDelete={setShowDelete}/>
                 </div>}
 
                 {sessionUser?.id === video?.uploaderId &&<div onClick={editDeleteDropdown} className='flatVerticalIconContainer'>

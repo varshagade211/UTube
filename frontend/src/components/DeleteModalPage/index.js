@@ -18,7 +18,8 @@ function DeleteVideoFormModal(prop) {
         </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          {prop.type=== "video" && <DeleteVideoForm video={prop?.video} setShowModal={setShowModal} />}
+
+          {prop.type=== "video" && <DeleteVideoForm video={prop?.video} setShowModal={setShowModal}  setShowDelete={prop.setShowDelete} />}
           {prop.type=== "comment" && <DeleteCommentForm comment={prop?.comment} setShowModal={setShowModal} />}
         </Modal>
       )}

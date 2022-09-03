@@ -5,7 +5,8 @@ import { useEffect,useContext } from "react"
 import Comments from './Comments'
 import {SideBarContext} from '../context/SideBarContext'
 import SideBar from './SideBar'
-import SmallSideBar from './SmallSideBar'
+// import SmallSideBar from './SmallSideBar'
+import './SingleVideoPage.css'
 
 // video files
 // import vid1 from '../videos/videoplayback.mp4'
@@ -35,33 +36,47 @@ function SingleVideoPage(){
 
 
     return(
-        <div>
-            {isSidebar? <SideBar />  : <SmallSideBar/>}
+        <div className={isSidebar?"singlePageOuterContainer":"singlePageOuterContainerWithoutSidebar"}>
+            {/* {isSidebar? <SideBar />  : <SmallSideBar/>} */}
+            {isSidebar&& <SideBar /> }
             {foundVideo &&
-            <div>
-                <video className='vidioTag' controls autoPlay>
-                    <source src={foundVideo?.url} type={foundVideo?.type}/>
 
-                    {/* <source src={localVideo[foundVideo?.id]} type={foundVideo?.type}/> */}
-                </video>
-                <h3>{foundVideo?.title}</h3>
-                <p>{foundVideo?.views} views</p>
-                <hr className="hr"></hr>
-                <div>
-                    {foundVideo?.uploader?.profileImageUrl ?<img src={foundVideo?.uploader?.profileImageUrl}/>:
-                      <i className="fas fa-user-circle topcircleSinginIcon" />}
-                    <p>{foundVideo?.uploader?.firstName}</p>
+                <div className="singlePageVideoDesContainer">
+                    <div className="singlePageVideoContainer">
+                        <video className='singleVidioTag' controls autoPlay>
+                        {/* <video className='singleVidioTag' controls > */}
+                            <source src={foundVideo?.url} type={foundVideo?.type}/>
+                            {/* <source src={localVideo[foundVideo?.id]} type={foundVideo?.type}/> */}
+                        </video>
+                    </div>
+                    <div className="singlePageTitleViewsContainer">
+                        <h3 className="singlePageTitle">{foundVideo?.title}</h3>
+                        <p className="singlePageViews">{foundVideo?.views} views</p>
+                        <hr className="singlepageHr"></hr>
+                        <div className="singlePageProfileImageAndNameContainer">
+                            {foundVideo?.uploader?.profileImageUrl
+
+                             ?
+                            <img className='singlePageProfileImage' src={foundVideo?.uploader?.profileImageUrl}/>:
+                            <i className="fas fa-user-circle singlePagecircleSinginIcon" />}
+
+                            <div className="singlePageNameDiscriptionContainer">
+                                <p className="singlePageUseName">{foundVideo?.uploader?.firstName}  {foundVideo?.uploader?.lastName}</p>
+                                <p className="singlePageDiscription">{foundVideo?.description}</p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr className="singlepageHr"></hr>
+                    <Comments video={foundVideo}/>
                 </div>
-                <div>
-                    <p>About The Show:</p>
-                    <h3>{foundVideo?.description}</h3>
 
-                </div>
-
-                 <hr className="hr"></hr>
-                <Comments video={foundVideo}/>
-            </div>
             }
+            <div>
+                suggested vidoes
+            </div>
+
         </div>
     )
 }
