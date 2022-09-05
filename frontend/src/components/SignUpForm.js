@@ -11,6 +11,7 @@ const SignupFormPage = () => {
   const [confirmPassword, setconfirmPassword] = useState("");
   const [image, setImage] = useState(null);
   const [errors, setErrors] = useState({});
+  const [isSpinner, setShowSpinner] = useState(false)
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
@@ -18,6 +19,10 @@ const SignupFormPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if(!Object.keys(errors).length){
+      setShowSpinner(true)
+  }
 
     dispatch(sessionActions.signup({ firstName,lastName, email, password, image,confirmPassword }))
       .then((res) => {
@@ -27,9 +32,13 @@ const SignupFormPage = () => {
         setPassword("");
         setconfirmPassword("");
         setImage(null);
-        if(res.status === 200) history.push('/')
+        if(res.status === 200){
+          setShowSpinner(false)
+           history.push('/')
+      }
       })
       .catch(async (res) => {
+        setShowSpinner(false)
         const data = await res.json();
         if (data && data.errors) {
           setErrors(data.errors);
@@ -45,6 +54,7 @@ const SignupFormPage = () => {
 
   return (
     <div className="signupFormOuterContainer">
+       {isSpinner && <i className="fa-solid fa-circle-notch singnUpSubmitSpinner"></i>}
       <div className="signupFormContainer">
       <form className='signupForm' onSubmit={handleSubmit} >
 

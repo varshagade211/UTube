@@ -92,7 +92,7 @@ const CreateVideoForm = ({setShowModal}) => {
     };
 
     useEffect(() => {
-   
+
         if(videoTag.current){
             videoTag.current.load()
 
@@ -101,7 +101,8 @@ const CreateVideoForm = ({setShowModal}) => {
 
     return (
     <div className="formandSpinerContainer">
-        { isSpinner && <i className="fa-solid fa-circle-notch submitSpinner"></i>}
+        { isSpinner &&
+        <i className="fa-solid fa-circle-notch submitSpinner"></i> }
 
 
         <form  className="createVideoForm" onSubmit={handleSubmit} novalidate={true}>

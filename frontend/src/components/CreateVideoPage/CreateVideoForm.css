@@ -13,16 +13,12 @@
   /* width: 400px;
   height: 400px; */
   padding: 1rem 1rem 1rem 1rem;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.submitSpinner{
-  position: absolute;
-  top:4rem;
-  right:9rem;
-  color:#0275d8;
-  /* color: green; */
-  font-size: 2rem;
-}
 
 .createVideoForm{
   display: grid;
@@ -224,18 +220,17 @@ input[type=file]::file-selector-button {
     animation-duration: 1s;
     animation-name: rotate;
     animation-iteration-count: infinite;
+    position: absolute;
+    color:#0275d8;
+    font-size: 2rem;
+    z-index: 1;
   }
+
+
 .createVideoDetail{
     margin: 0 0 0 0;
   }
-/* .createVideoHr{
-    height: 0.5px;
-    background-color: rgba(0, 0, 0, 0.232);
-    border: none;
-    /* width: 95%; */
-    /* width: 100%;
-    margin: 0px; */
-/* }  */
+
 
 .createVideoPageTitleContainer{
   border-bottom: 1px solid rgba(0, 0, 0, 0.316);
