@@ -87,14 +87,13 @@ function SingleVideoPage(){
 
                         <div className="suggestedVidoeImageAndTitleContainer" onClick={()=>videoClickHandler(vid)}>
                             <div className="suggestedVidoeImageContainer">
-                                {/* onClick={videoClickHandler}  */}
                                 <video  className='suggestedVidioTag' >
-                                    {/* <source src={vid?.url} type={vid?.type}/> */}
-                                    <source src={localVideo[i]} type={vid?.type}/>
+                                    <source src={vid?.url} type={vid?.type}/>
+                                    {/* <source src={localVideo[i]} type={vid?.type}/> */}
                                 </video>
                             </div>
                             <div>
-                                <p className="suggestedUserTitleBigScreen"> {vid?.title?.substring(0,50)}{vid?.title?.length>50&& '...'}</p>
+                                <p className="suggestedUserTitleBigScreen"> {vid?.title?.substring(0,50)}{vid?.title?.length > 50 && '...'}</p>
                                 <p className="suggestedUserTitleSmallScren"> {vid?.title}</p>
                                 <div className="suggestedUserViwesAndCreatedAtContainer">
                                     <p className="suggestedUserViews">{vid?.User?.firstName}{vid?.User?.lastName}</p>
