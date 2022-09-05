@@ -23,7 +23,7 @@ function FlatVideoCard({video}) {
 
     return(
         <div>
-        {video?.uploaderId === sessionUser?.id &&
+        {/* {video?.uploaderId === sessionUser?.id && */}
         <div className='userVideoAnddiscContainer'>
             <div className='userFlatVideoContainer'>
                 <video className='userVideoTag' onClick={videoClickHandler}  muted playsInline >
@@ -55,7 +55,8 @@ function FlatVideoCard({video}) {
 
 
 
-        </div>}
+        </div>
+        {/* } */}
         </div>
 
 

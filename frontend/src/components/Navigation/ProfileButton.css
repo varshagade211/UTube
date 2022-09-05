@@ -100,7 +100,7 @@
 }
 
 .dpcircleSinginIcon{
-    margin: 0.6rem 0rem 0rem 1rem;
+    margin: 0rem 0rem 0rem 0rem;
     font-size: 2rem;
     color:#0275d8;
 }
@@ -126,4 +126,13 @@
 
 .dropDownVideoLinkContainer:hover{
     background-color: rgba(128, 128, 128, 0.252);
+}
+
+
+@media only screen and (min-width: 1300px) {
+    .dpcircleSinginIcon{
+        margin: 0.6rem 0rem 0rem 1rem;
+        font-size: 2rem;
+        color:#0275d8;
+    }
 }

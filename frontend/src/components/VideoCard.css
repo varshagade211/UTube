@@ -46,8 +46,11 @@
     cursor: pointer;
 
 }
+.userSeedProfileIcon{
 
-
+    font-size: 2rem;
+    color: #0275d8;
+}
 /* .vidioInfoContainer:hover{
     max-width:280px;
     position: absolute;
@@ -88,6 +91,6 @@
         margin: 0.5rem 0 0 0.7rem;
 
       }
- 
+
 
 }

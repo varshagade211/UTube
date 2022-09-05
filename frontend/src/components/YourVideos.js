@@ -32,13 +32,20 @@ function YourVideos () {
     // const {isModalOpen,setIsModalOpen} = useContext(isModalOnContext)
     // useEffect(()=>{
 
-    
+
     // },[isModalOpen])
 
     useEffect(()=>{
         const response = dispatch(videoActions.getAllVideosThunkCreator())
 
     },[dispatch])
+    const userVideo = []
+    videos?.forEach((vid)=>{
+        if(vid?.uploaderId === sessionUser?.id ){
+            userVideo.push(vid)
+        }
+    })
+
     return (
 
         <div className={isSidebar ?'userVideoOuterContainerWithSidebar':'userVideoOuterContainerWithSmallSidebar'}>
@@ -47,8 +54,8 @@ function YourVideos () {
 
 
             <div  className={isSidebar ? 'userVideoContainer':'userVideoContainerWithSmallSidebar'}>
-
-            {videos.length && videos?.map((video,i) => {
+            {userVideo?.length === 0 && <h2>No videos created yet, Please create some videos..........</h2>}
+            {userVideo?.length !== 0 && userVideo?.map((video,i) => {
                 return(
                     <FlatVideoCard video={video} />
                     // <FlatVideoCard video={video} localVideo={localVideo[i]} />
@@ -59,13 +66,21 @@ function YourVideos () {
             </div>
             <div className='userVideosInfo'>
                 <div className='yourVideoImageProfileIconContainer'>
+                    <div className='yourVideoProfileContainer'>
                     {sessionUser?.profileImageUrl ? <img className="userYourVideosProfileImg" src={sessionUser?.profileImageUrl} />:
                       <i className="fas fa-user-circle yourVidcircleSinginIcon" />
                     }
                     <p>{sessionUser?.firstName} {sessionUser?.lastName}</p>
 
+                    </div>
+                    <div className='yourVideoUloadCound'>
+                    <p className='uploadCount'>Uploads</p>
+                    <p className='uploadCount'>{userVideo?.length}</p>
+                    </div>
+
+
                 </div>
-                <hr className='hr'></hr>
+                {/* <hr className='hr'></hr> */}
             </div>
         </div>
     </div>

@@ -34,7 +34,12 @@ function VideoCard({video}) {
             </div>
             <div>
                 <div className='imgAndDescriptionContainer'>
-                    <div className='profileImageContainer'>  {sessionUser && <img className='userProfileImg' src={sessionUser?.profileImageUrl}/>} </div>
+                    <div className='profileImageContainer'>
+                     {video?.uploader?.profileImageUrl
+                        ? <img className='userProfileImg' src={video?.uploader?.profileImageUrl}/>
+                        : <i className="fas fa-user-circle userSeedProfileIcon" />
+
+                     } </div>
 
                     <div>
                         <div className="homeDescriptionContainer">
@@ -43,7 +48,7 @@ function VideoCard({video}) {
                                 </h3>
                              </div>
                         <div className='viewsAndNameContainer'>
-                            <p className='vidUserName'>{sessionUser?.firstName} {sessionUser?.lastName} </p>
+                            <p className='vidUserName'>{video?.uploader?.firstName} {video?.uploader?.lastName} </p>
                             <p className='vidViwes'>{video?.views} views . {getSpentTime(video?.createdAt)}</p>
 
                         </div>
