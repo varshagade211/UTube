@@ -38,7 +38,7 @@ function Home () {
             {isSidebar? <SideBar />  : <SmallSideBar/>}
             <div className='homeVideoContainer'>
                 {!videos.length && <h2>No videos created yet, Please create some videos..........</h2>}
-                {videos.length && videos?.map((video,i) => {
+                {videos.length !== 0 && videos?.map((video,i) => {
                     return(
                         // <VideoCard video={video} localVideo={localVideo[i]} />
                         <VideoCard video={video} />
