@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../store/session";
 import {  useHistory } from 'react-router-dom'
-
+import './SignUpForm.css'
 const SignupFormPage = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -44,99 +44,120 @@ const SignupFormPage = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} >
-        <div>
-          <label>First Name<span className="requireAstrick">*</span></label>
-          <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-          {errors?.firstName &&
-          <div className="errorContainer">
-            <div>
-              <i class="fa-solid fa-circle-exclamation errorlogo"></i>
-            </div>
-            <div>
-              <span className='error' key={errors.firstName}>{errors.firstName}</span>
-            </div>
-          </div>
-        }
+    <div className="signupFormOuterContainer">
+      <div className="signupFormContainer">
+      <form className='signupForm' onSubmit={handleSubmit} >
+
+      <div className="signUpFormTitleConatainer">
+          <h6 className="UTubeLogo"><span className="U">U</span><span className='t'>T</span><span className='u'>u</span>
+          <span className="b">b</span><span className='e'>e</span></h6>
+          <p className="signUpTxt">Create your Account</p>
+          <p className="signUpContinueText">to continue to UTube</p>
+
         </div>
 
         <div>
-          <label> Last Name<span className="requireAstrick">*</span></label>
-          <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)}  />
+
+          <input  className="firstNameInput"  placeholder='First Name *' type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+          {errors?.firstName &&
+            <div className="firstNameSmallScreenError">
+              <div>
+                <i class="fa-solid fa-circle-exclamation signUpEerrorlogo"></i>
+                <span className='signUpError' key={errors.firstName}>{errors.firstName}</span>
+              </div>
+            </div>
+          }
+        <input type="text" className="lastNameInput"  placeholder='Last Name *'  value={lastName} onChange={(e) => setLastName(e.target.value)}  />
           {errors?.lastName &&
-          <div className="errorContainer">
-            <div>
-              <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+            <div className="firstNameSmallScreenError">
+              <div>
+                <i class="fa-solid fa-circle-exclamation signUpEerrorlogo"></i>
+                <span className='signUpError' key={errors.lastName}>{errors.lastName}</span>
+              </div>
             </div>
-            <div>
-              <span className='error' key={errors.lastName}>{errors.lastName}</span>
+          }
+         <div className="FirstNameLastNAmeErrorContainer">
+            {errors?.firstName &&
+            <div className="errorContainer">
+              <div>
+                <i class="fa-solid fa-circle-exclamation signUpEerrorlogo"></i>
+                <span className='signUpError' key={errors.firstName}>{errors.firstName}</span>
+              </div>
             </div>
-          </div>
-        }
+          }
+
+            {errors?.lastName &&
+            <div className="errorContainer">
+              <div>
+                <i class="fa-solid fa-circle-exclamation signUpEerrorlogo"></i>
+                <span className='signUpError' key={errors.lastName}>{errors.lastName}</span>
+              </div>
+            </div>
+          }
+
+         </div>
         </div>
         <div>
-          <label>Email<span className="requireAstrick">*</span></label>
-          <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+          {/* <label>Email  (required)</label><br></br> */}
+          <input type="text" className="singnUpInput"  placeholder="Email *" value={email} onChange={(e) => setEmail(e.target.value)}/>
           {errors?.email &&
           <div className="errorContainer">
             <div>
-              <i class="fa-solid fa-circle-exclamation errorlogo"></i>
-            </div>
-            <div>
-              <span className='error' key={errors.email}>{errors.email}</span>
+              <i class="fa-solid fa-circle-exclamation signUpEerrorlogo"></i>
+              <span className='signUpError' key={errors.email}>{errors.email}</span>
             </div>
           </div>
         }
         </div>
         <div>
-          <label> Password<span className="requireAstrick">*</span> </label>
-          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+          {/* <label> Password  (required)</label><br></br> */}
+          <input type="password" className="singnUpInput" placeholder="Password *" value={password} onChange={(e) => setPassword(e.target.value)}/>
           {errors?.password &&
           <div className="errorContainer">
             <div>
-              <i class="fa-solid fa-circle-exclamation errorlogo"></i>
-            </div>
-            <div>
-              <span className='error' key={errors.password}>{errors.password}</span>
+              <i class="fa-solid fa-circle-exclamation signUpEerrorlogo"></i>
+              <span className='signUpError' key={errors.password}>{errors.password}</span>
             </div>
           </div>
         }
         </div>
         <div>
-          <label>Confirm Password<span className="requireAstrick">*</span> </label>
-          <input type="password" placeholder="Password" value={confirmPassword} onChange={(e) => setconfirmPassword(e.target.value)}/>
+          {/* <label>Confirm Password (required)</label><br></br> */}
+          <input type="password" className="singnUpInput" placeholder="Confirm Password *" value={confirmPassword} onChange={(e) => setconfirmPassword(e.target.value)}/>
           {errors?.confirmPassword &&
           <div className="errorContainer">
             <div>
-              <i class="fa-solid fa-circle-exclamation errorlogo"></i>
-            </div>
-            <div>
-              <span className='error' key={errors.confirmPassword}>{errors.confirmPassword}</span>
+              <i class="fa-solid fa-circle-exclamation signUpEerrorlogo"></i>
+              <span className='signUpError' key={errors.confirmPassword}>{errors.confirmPassword}</span>
             </div>
           </div>
         }
         </div>
-        <div>
-          <label> Profile Image </label>
-          <input type="file" onChange={updateFile} />
+        <div className="fileUploadInputLabelContainer">
+          <label className='fileUploadInputLabel' for='profileImage'><i className="fa-solid fa-upload signuploadIcon"></i>Profile Image </label>
+          <input id='profileImage' className="fileUploadInput" type="file" onChange={updateFile} />
+          {image?.name && <p>{image?.name}</p>}
         </div>
         {errors?.profile &&
           <div className="errorContainer">
             <div>
-              <i class="fa-solid fa-circle-exclamation errorlogo"></i>
-            </div>
-            <div>
-              <span className='error' key={errors.profile}>{errors.profile}</span>
+              <i class="fa-solid fa-circle-exclamation signUpEerrorlogo"></i>
+              <span className='signUpError' key={errors.profile}>{errors.profile}</span>
             </div>
           </div>
         }
-        <div>
-          <button type="submit">Create User</button>
+        <div className="signUpCreateAccountBtnContainer">
+          <button type="button"  className='signupInsteadBtn' onClick={()=>history.push('/signin')}>Sign in instead</button>
+          <button type="submit" className="signUpbtn">Create Account</button>
 
         </div>
 
       </form>
+      </div>
+      <div className="signupSideIconContainer">
+      <i className="fa-solid fa-user-plus signupSideIcon"></i>
+
+      </div>
 
     </div>
   );

@@ -20,11 +20,12 @@ function App() {
 
   return isLoaded && (
     <div className="appContainer">
-    <Navigation isLoaded={isLoaded} />
+
 
     {isLoaded && (
       <Switch>
         <Route exact={true} path='/'>
+        <Navigation isLoaded={isLoaded} />
             <Home />
         </Route>
         <Route exact={true} path="/signup">
@@ -34,9 +35,11 @@ function App() {
           <LoginForm />
         </Route>
         <Route exact={true} path="/video/:id/">
+        <Navigation isLoaded={isLoaded} />
           <SingleVideoPage />
         </Route>
         <ProtectedRoute exact={true} path="/:userId/videos/">
+          <Navigation isLoaded={isLoaded} />
           <YourVideos />
         </ProtectedRoute>
       </Switch>

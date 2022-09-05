@@ -91,6 +91,7 @@ export const deleteCommentThunkCreator = (commentId) => async(dispatch) => {
     if(response.status === 200){
         dispatch(deleteComment(commentId))
     }
+
     return response
 }
 

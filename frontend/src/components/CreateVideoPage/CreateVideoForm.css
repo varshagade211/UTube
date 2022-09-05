@@ -1,29 +1,245 @@
 .createVideoBtn{
     cursor: pointer;
+    margin: 0 0 0 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: white;
+    background-color: #0067c1;
+    border: none;
+    border-radius: 4px;
 }
-
-
 
 .formandSpinerContainer{
   position: relative;
+  /* width: 400px;
+  height: 400px; */
+  padding: 1rem 1rem 1rem 1rem;
 }
+
 .submitSpinner{
- position: absolute;
- top:4rem;
- right:9rem;
-color:#0275d8;
-/* color: green; */
-font-size: 2rem;
+  position: absolute;
+  top:4rem;
+  right:9rem;
+  color:#0275d8;
+  /* color: green; */
+  font-size: 2rem;
+}
 
+.createVideoForm{
+  display: grid;
+  grid-template-rows: 1fr 8fr 40px;
+  max-width:800px;
+  /* height: 600px; */
+}
+
+.createVideoFormInputContainer{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+
+  /* grid-template-columns: 2fr 1fr; */
+}
+
+.createFormTitleDescContainer{
+  /* display: grid;
+  grid-template-rows: 1fr 1fr; */
+  margin: 1rem 0 0 0;
 
 }
 
+.createFormUploadContainer{
+ margin: 2rem 0 0 1rem;
+ /* border: 1px dotted black; */
+ /* display: grid;
+  grid-template-rows: 2fr 1fr; */
+  /* min-width: 200px */
+
+}
+.createVideoFormButtonContainer{
+/*
+  display: flex;
+  justify-content: center;
+  height: 100%; */
+  text-align: center;
+  /* padding: 1rem 0 2rem 0; */
+  margin: 0.5rem 3rem 0 ;
+}
+
+.createTitalConatainer{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 1rem 0 0 0;
+}
+.createDescripConatainer
+{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 1rem 0 0 0;
+  /* padding: 0rem 0rem 1rem 0rem; */
+
+}
+
+.discCharCount{
+  text-align: end;
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 0rem;
+  right: 0;
+}
+
+
+.descLable{
+  text-align: start;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  color: gray;
+}
+
+
+/* .createFormDescriptionInput:focus-within .descLable {
+  color: red;
+} */
+
+
+.createFormDescriptionInput{
+  width: 100%;
+  /* border:none; */
+  border:  0.5px solid rgba(0, 0, 0, 0.249);
+  border-radius: 5px;
+  margin: 0rem 0 0 0rem;
+  font-size: 0.9rem;
+  outline: none;
+  resize: none;
+  overflow: hidden;
+  min-height: 0.8rem;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+
+
+}
+.createDescripConatainer:focus-within .descLable{
+  color: #0067c1;
+}
+.createFormDescriptionInput:focus{
+  border:  0.5px solid #0067c1;
+}
+.createFormTitleInput{
+  width: 100%;
+  /* border:none; */
+  border:  0.5px solid rgba(0, 0, 0, 0.249);
+  border-radius: 5px;
+  margin: 0rem 0 0 0rem;
+  font-size: 0.9rem;
+  outline: none;
+  resize: none;
+  overflow: hidden;
+  min-height: 0.8rem;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+
+}
+
+.createTitalConatainer:focus-within .titleLable{
+  color: #0067c1;
+}
+.createFormTitleInput:focus{
+  border:  0.5px solid #0067c1;
+}
+.titleCharCount{
+  text-align: end;
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.titleLable{
+  text-align: start;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  color: gray;
+}
+.previewVidContainer
+{
+/* width: 300px; */
+
+width:100%;
+height:100%;
+max-height: 200px;
+
+}
+.previewVid{
+  width: 100%;
+  height: 100%;
+  object-fit: initial;
+
+}
+.previewPlaceHolder{
+  width: 100%;
+  height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  border: 2px dashed #0067c1;
+}
+
+.uploadVidoIcon{
+  font-size: 3rem;
+  color:#0067c1;
+  cursor: pointer;
+}
+.uploadInputContainer{
+  padding-top: 1rem 1rem 1rem 1rem;
+  text-align:center;
+}
+
+.createVideoPageTital{
+  font-weight: bold;
+  overflow-wrap: anywhere;
+}
+
+.createFormErrorError,.createFormErrorlogo{
+  color:red;
+  font-size: 0.8rem;
+  margin: 0.5rem 0.2rem 0rem 1rem;
+}
+input[type=file]::file-selector-button {
+  color: white;
+  background-color: #0067c1;
+  border: none;
+  display: inline;
+  text-align: center;
+  margin:  1rem 1rem 0 0;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+
+}
 .submitSpinner {
     animation-duration: 1s;
     animation-name: rotate;
     animation-iteration-count: infinite;
   }
+.createVideoDetail{
+    margin: 0 0 0 0;
+  }
+/* .createVideoHr{
+    height: 0.5px;
+    background-color: rgba(0, 0, 0, 0.232);
+    border: none;
+    /* width: 95%; */
+    /* width: 100%;
+    margin: 0px; */
+/* }  */
 
+.createVideoPageTitleContainer{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.316);
+}
   @keyframes rotate {
     0% {
         transform: rotate(0);
@@ -41,3 +257,37 @@ font-size: 2rem;
         transform: rotate(360deg);
       }
     }
+
+
+
+@media only screen and (max-width: 750px)  {
+
+ .createVideoFormInputContainer{
+   display: block;
+   text-align: center
+ }
+ .createFormUploadContainer{
+   margin: 1rem 0 0 0;
+ }
+ .uploadInputContainer{
+  margin: 1rem 0 0 2rem;
+  align-items: center;
+ }
+ .previewVid{
+  width:300px;
+  height: 150px;
+}
+.previewPlaceHolder{
+  height: 150px;
+}
+.createVideoForm{
+  display: block;
+}
+.uploadInputContainer{
+  margin: 0rem 0rem 1rem 0rem;
+}
+.createVideoFormButtonContainer{
+  margin: 1rem 1rem 1rem 1rem;
+}
+
+}

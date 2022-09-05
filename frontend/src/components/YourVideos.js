@@ -6,6 +6,8 @@ import SideBar from './SideBar'
 import './YourVideos.css'
 import {SideBarContext} from '../context/SideBarContext'
 import SmallSideBar from './SmallSideBar'
+import { Modal ,isModalOnContext} from '../context/Modal';
+
 // video files
 // import vid1 from '../videos/videoplayback.mp4'
 // import vid2 from '../videos/Amazing_Kingfisher.mp4'
@@ -27,6 +29,11 @@ function YourVideos () {
     const videos = useSelector(state => state?.videos?.videos)
     const sessionUser = useSelector(state => state.session.user);
     const {isSidebar} = useContext(SideBarContext)
+    // const {isModalOpen,setIsModalOpen} = useContext(isModalOnContext)
+    // useEffect(()=>{
+
+    
+    // },[isModalOpen])
 
     useEffect(()=>{
         const response = dispatch(videoActions.getAllVideosThunkCreator())
@@ -36,6 +43,9 @@ function YourVideos () {
 
         <div className={isSidebar ?'userVideoOuterContainerWithSidebar':'userVideoOuterContainerWithSmallSidebar'}>
             {isSidebar? <SideBar />  : <SmallSideBar/>}
+            <div className='yourVideoAndUserInfoContainer'>
+
+
             <div  className={isSidebar ? 'userVideoContainer':'userVideoContainerWithSmallSidebar'}>
 
             {videos.length && videos?.map((video,i) => {
@@ -58,6 +68,7 @@ function YourVideos () {
                 <hr className='hr'></hr>
             </div>
         </div>
+    </div>
 
     )
 }

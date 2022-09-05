@@ -27,6 +27,9 @@
 
 .userVideoTag{
     width:100%;
+    height: 100%;
+    object-fit: initial;
+    cursor: pointer;
     /* height: 100%; */
 
 }
@@ -35,6 +38,10 @@
     margin: 0.3rem 0 0 1rem;
 }
 
+.flatVideoViews{
+    font-size: 0.75rem;
+    color:rgba(0, 0, 0, 0.74)
+}
 
 
 .flatVideoUserTitle{
@@ -51,9 +58,7 @@
     text-align: justify;
 }
 
-.flatVideoViews{
-    font-size: 0.8rem;
-}
+
 
 
 .flatVerticalIconContainer{
@@ -81,3 +86,5 @@
     background-color: white;
 
 }
+
+

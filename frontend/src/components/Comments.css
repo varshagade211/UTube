@@ -1,3 +1,6 @@
+.commentsAndFormContainer{
+    margin: 0 0 2rem 0;
+}
 .commentNumber{
     font-size: 0.85rem;
     color: rgb(0, 0, 0);
@@ -22,7 +25,8 @@
 
 .profileImageAndFormContainer{
     display: flex;
-    width: 95%;
+    /* width: 95%; */
+    width: 100%;
 
 }
 
@@ -69,6 +73,7 @@
 .commentsubmitBtn{
     background-color: #0067c1;
     color: white;
+    border-radius: 4px;
 }
 
 

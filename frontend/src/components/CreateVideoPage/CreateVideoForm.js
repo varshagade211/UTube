@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect,useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as videoActions from "../../store/video";
 import './CreateVideoForm.css'
@@ -10,16 +11,15 @@ const CreateVideoForm = ({setShowModal}) => {
     const [isSpinner, setShowSpinner] = useState(false)
     const [titleCount,setTitleCount] = useState(0)
     const [descCount,setDescCount] = useState(0)
+    const videoTag = useRef(null);
+    const [preview,setPreview] = useState(null)
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
 
-        if(Object.keys(errors).length){
-            return
-        }else{
+        if(!Object.keys(errors).length){
             setShowSpinner(true)
         }
         dispatch(videoActions.createVideoThunkCreator({ title,description,video }))
@@ -36,6 +36,9 @@ const CreateVideoForm = ({setShowModal}) => {
         .catch(async (res) => {
             setShowSpinner(false)
             const data = await res.json();
+            if(!video && data.errors.url === undefined) {
+                data.errors["url"]='Video url cannot be empty'
+            }
             if (data && data.errors) {
                 setErrors(data.errors);
             }
@@ -43,6 +46,9 @@ const CreateVideoForm = ({setShowModal}) => {
     };
 
     const onChangeTitleHandler = (e)=>{
+        e.target.style.height = 'auto'
+        e.target.style.height = e.target.scrollHeight + 'px'
+
         if(e.target.value.length>100){
             setErrors({...errors,'title':'Title is greater than 100 characters'});
         }if(errors.title){
@@ -52,6 +58,12 @@ const CreateVideoForm = ({setShowModal}) => {
         setTitle(e.target.value)
     }
     const onChangeDescriptioneHandler = (e)=>{
+        e.target.style.height = 'auto'
+
+        e.target.style.height = e.target.scrollHeight + 'px'
+        // e.target.style.height= e.target.scrollHeight + 14 +'px'
+
+
         if(e.target.value.length>1000){
 
             setErrors({...errors,'description':'Description is greater than 1000 characters'});
@@ -70,54 +82,129 @@ const CreateVideoForm = ({setShowModal}) => {
             if(errors?.url){
                 delete errors.url
             }
-
-             setVideo(file);
+            setTitle(file.name)
+            if(errors?.title){
+                delete errors.title
+            }
+            setPreview(URL.createObjectURL(file))
         }
+        setVideo(file);
     };
+
+    useEffect(() => {
+   
+        if(videoTag.current){
+            videoTag.current.load()
+
+        }
+    },[preview])
 
     return (
     <div className="formandSpinerContainer">
-          { isSpinner && <i className="fa-solid fa-circle-notch submitSpinner"></i>}
-        <form style={{ display: "flex", flexFlow: "column" }} onSubmit={handleSubmit} novalidate={true}>
+        { isSpinner && <i className="fa-solid fa-circle-notch submitSpinner"></i>}
 
-            <label>Title</label>
-            <input type="text" value={title} onChange={(e) => onChangeTitleHandler(e)} />
-            <span>{titleCount}/100</span>
-            {errors?.title &&
-            <div className="errorContainer">
-                <div>
-                    <i class="fa-solid fa-circle-exclamation errorlogo"></i>
+
+        <form  className="createVideoForm" onSubmit={handleSubmit} novalidate={true}>
+            <div className="createVideoPageTitleContainer">
+                {title? <p className="createVideoPageTital">{title?.substring(0, 100)}</p> : <p className="createVideoPageTital">{video?.name?.substring(0, 100)}</p>}
+            </div>
+            <div className="createVideoFormInputContainer">
+
+                <div className="createFormTitleDescContainer">
+                <h3 className="createVideoDetail">Details</h3>
+                    <div className="createTitalConatainer">
+
+                    <label  className="titleLable">Title (required)</label>
+                    <textarea type="text" value={title} className="createFormTitleInput"
+                    placeholder="Add a title that describes your video (Default is file name)"
+                    onChange={(e) => onChangeTitleHandler(e)} />
+                    <span className="titleCharCount">{titleCount}/100</span>
+                    {errors?.title &&
+                        <div className="errorContainer">
+                            <div>
+                                <i class="fa-solid fa-circle-exclamation createFormErrorlogo"></i>
+                                <span className='createFormErrorError' key={errors.title}>{errors.title}</span>
+                            </div>
+
+                        </div>
+                    }
+                    </div>
+
+
+                   <div className="createDescripConatainer" >
+
+                    <label className="descLable"> Description (required) </label>
+
+                    <textarea value={description} rows={5}
+                     className="createFormDescriptionInput"
+                     placeholder="Tell viewers about your video"
+                      onChange={(e) => onChangeDescriptioneHandler(e)} />
+                    <span className="discCharCount">{descCount}/1000</span>
+                    {errors?.description &&
+                        <div className="errorContainer">
+                            <div>
+                                <i class="fa-solid fa-circle-exclamation createFormErrorlogo"></i>
+                                <span className='createFormErrorError' key={errors.description}>{errors.description}</span>
+                            </div>
+
+                        </div>
+                    }
+
+                   </div>
+                   {/* <div className="createVideoFormButtonContainer">
+                        <button className="createVideoBtn" type="submit">Publish</button>
+                        <button className="createVideoBtn" onClick ={()=>setShowModal(false)} type="button">Cancel</button>
+                     </div> */}
+
+
                 </div>
-                <div>
-                    <span className='error' key={errors.title}>{errors.title}</span>
+
+                <div className="createFormUploadContainer">
+
+
+                    <div className="previewVidContainer">
+                       {preview ?
+
+                        <video ref={videoTag} className='previewVid'  controls muted playsInline >
+                         <source src={preview} type={video?.type} id="videoSource"/>
+                        </video>:
+                       <div className="previewPlaceHolder">
+                          <label for='file'><i className="fa-solid fa-upload uploadVidoIcon"></i></label>
+                       </div>
+                        }
+                         <div className="uploadInputContainer">
+
+                            <input type="file" id="file" title=" " className="uploadInput" onChange={updateFile} />
+
+                        </div>
+                        {errors?.url &&
+                        <div className="errorContainer">
+                            <div>
+                                <i class="fa-solid fa-circle-exclamation createFormErrorlogo"></i>
+
+                                <span className='createFormErrorError' key={errors.url}>{errors.url}</span>
+                            </div>
+                        </div>
+                    }
+
+                    </div>
+                    {/* <div className="uploadInputContainer">
+
+                         <input type="file" id="file" title=" " className="uploadInput" onChange={updateFile} />
+
+                    </div> */}
+
+
+                    {/* <p>{video?.name}</p> */}
+
                 </div>
-            </div>}
-            <label> Description  </label>
-            <textarea value={description} onChange={(e) => onChangeDescriptioneHandler(e)} />
-            <span>{descCount}/1000</span>
-            {errors?.description &&
-            <div className="errorContainer">
-                <div>
-                    <i class="fa-solid fa-circle-exclamation errorlogo"></i>
-                </div>
-                <div>
-                    <span className='error' key={errors.description}>{errors.description}</span>
-                </div>
-            </div>}
-            <label>   </label>
-            <input type="file" onChange={updateFile} />
-            {errors?.url &&
-            <div className="errorContainer">
-                <div>
-                    <i class="fa-solid fa-circle-exclamation errorlogo"></i>
-                </div>
-                <div>
-                    <span className='error' key={errors.url}>{errors.url}</span>
-                </div>
-            </div>}
-            <button className="createVideoBtn" type="submit">Publish</button>
+            </div>
+
+             <div className="createVideoFormButtonContainer">
+                <button className="createVideoBtn" type="submit">Publish</button>
+                <button className="createVideoBtn" onClick ={()=>setShowModal(false)} type="button">Cancel</button>
+            </div>
         </form>
-
     </div>
   );
 };

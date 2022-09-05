@@ -22,6 +22,14 @@ function Navigation({ isLoaded }){
     sessionLinks = (
       <div className='profileBtnAndCreateVideoBtnContainer'>
         <CreateVideoFormModal />
+
+        <a href={"https://github.com/varshagade211"} > <i className="fa-brands fa-github gitHubIcon"></i> </a>
+
+       <a  href={"https://www.linkedin.com/in/varsha-gade-7b33aa174/"}>
+       <i className="fa-brands fa-linkedin linkeInIcon"></i></a>
+
+
+        {/* <CreateVideoFormModal /> */}
         <ProfileButton user={sessionUser} />
 
 
@@ -32,6 +40,15 @@ function Navigation({ isLoaded }){
       <>
         {/* <LoginFormModal /> */}
        <div className='signinBtnContainer'>
+
+       <a href={"https://github.com/varshagade211"} ><i className="fa-brands fa-github gitHubIcon"></i> </a>
+
+       <a  href={"https://www.linkedin.com/in/varsha-gade-7b33aa174/"}>
+       <i className="fa-brands fa-linkedin linkeInIcon"></i></a>
+
+
+
+
        <button className='signInBtn' onClick={signInHandler}><i className="fas fa-user-circle signInCircleIcon" /> SIGN IN</button></div>
 
       </>

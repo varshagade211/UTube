@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { restoreCSRF, csrfFetch } from './store/csrf';
 import * as sessionActions from './store/session';
-import { ModalProvider } from "./context/Modal";
+import { ModalProvider, IsModalOnContextProvider } from "./context/Modal";
 import {SideBarContextProvider} from './context/SideBarContext.js'
 import configureStore from './store';
 
@@ -24,11 +24,13 @@ function Root() {
   return (
     <Provider store={store}>
       <ModalProvider>
-       <SideBarContextProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-        </SideBarContextProvider>
+        <IsModalOnContextProvider>
+          <SideBarContextProvider>
+            <BrowserRouter>
+            <App />
+           </BrowserRouter>
+           </SideBarContextProvider>
+        </IsModalOnContextProvider>
       </ ModalProvider>
     </Provider>
   );

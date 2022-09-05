@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import EditVideoForm from './EditVideoForm';
 import './index.css'
-function EditVideoFormModal({video}) {
+function EditVideoFormModal({video,setShowDelete}) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -12,7 +12,7 @@ function EditVideoFormModal({video}) {
         <p className='editVidEdit'> Edit</p></div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditVideoForm video={video} setShowModal={setShowModal} />
+          <EditVideoForm video={video} setShowDelete={setShowDelete} setShowModal={setShowModal} showModal={showModal} />
         </Modal>
       )}
     </>

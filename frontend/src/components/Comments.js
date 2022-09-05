@@ -1,6 +1,6 @@
 import * as commentActions from '../store/comment'
 import { useSelector,useDispatch } from "react-redux"
-import { useState, useEffect } from 'react'
+import { useState,useRef, useEffect } from 'react'
 import Comment from './Comment'
 import './Comments.css'
 
@@ -11,11 +11,12 @@ function Comments ({video}) {
     const comments = useSelector(state => state?.comments)
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch()
+    const textArea = useRef(null);
 
 
     useEffect(()=>{
         const response = dispatch(commentActions.getVideoCommentsThunkCreator(video?.id))
-    },[dispatch])
+    },[dispatch, video])
 
     const onSubmitCommentHandler = (e) => {
         e.preventDefault();
@@ -24,8 +25,7 @@ function Comments ({video}) {
         dispatch(commentActions.createCommentThunkCreator({comment:commentData,videoId:video.id}))
         .then((res) => {
             setCommentData("");
-            const textArea = document.querySelector(".commentInput")
-            textArea.style.height = 1.2 +"rem"
+            textArea.current.style.height = 1.2 +"rem"
             if(res.status === 200){
                 setshowSubmitCancelBtn(false)
                 setErrors({})
@@ -41,8 +41,7 @@ function Comments ({video}) {
 
 
     const cancelCommentFormHandler=()=>{
-        const textArea = document.querySelector(".commentInput")
-        textArea.style.height = 1.2 +"rem"
+        textArea.current.style.height = 1.2 +"rem"
 
         setCommentData("");
         setErrors({})
@@ -61,12 +60,12 @@ function Comments ({video}) {
 
 
     return (
-        <div>
+        <div className='commentsAndFormContainer'>
             <p className='commentNumber'>{Object.keys(comments)?.length} Comments</p>
             <div className='profileImageAndFormContainer'>
                 <div className='commentFormImageContainer'>
                     {sessionUser?.profileImageUrl
-                  
+
                     ?
                         <img className='commentFormProfileImage' src={sessionUser?.profileImageUrl}/>:
                         <i className="fas fa-user-circle commentFormProfileImageIcon" />
@@ -76,7 +75,7 @@ function Comments ({video}) {
                 <div className='commentFormContainer'>
 
                 <form onSubmit={onSubmitCommentHandler}>
-                    <textarea className='commentInput' rows={1} placeholder='Add a Comment...'
+                    <textarea className='commentInput'    ref={textArea} rows={1} placeholder='Add a Comment...'
                     value={commentData} name='comment' onChange={(e)=>onCommentChangeHandler(e)} onClick={inputCommentClickHandler} />
                     {errors?.comment &&
                         <div className="errorContainer">
@@ -98,9 +97,7 @@ function Comments ({video}) {
 
             </div>
 
-
-            {Object.values(comments)?.map((comment)=>{
-
+            {Object.values(comments)?.sort((a, b) => b?.id - a?.id)?.map((comment)=>{
                 return <Comment key={comment?.id} comment={comment} />
             })}
         </div>

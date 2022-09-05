@@ -7,6 +7,8 @@ import {SideBarContext} from '../context/SideBarContext'
 import SideBar from './SideBar'
 // import SmallSideBar from './SmallSideBar'
 import './SingleVideoPage.css'
+import {getSpentTime} from './DateUtils'
+import { useHistory } from 'react-router-dom';
 
 // video files
 // import vid1 from '../videos/videoplayback.mp4'
@@ -29,54 +31,82 @@ function SingleVideoPage(){
     const foundVideo = useSelector(state => state?.videos?.singleVideo)
     const {id} = useParams()
     const {isSidebar} = useContext(SideBarContext)
+    const history = useHistory()
+    const videos = useSelector(state => state?.videos?.videos)
+
 
     useEffect(()=>{
-        const response = dispatch(videoActions.getSingleVideoThunkCreator(id))
-    },[dispatch])
+         dispatch(videoActions.getSingleVideoThunkCreator(id))
+        const response = dispatch(videoActions.getAllVideosThunkCreator())
+    },[dispatch,id])
 
+    const videoClickHandler = (video) => {
+        history.push(`/video/${video?.id}/`)
+
+    }
 
     return(
-        <div className={isSidebar?"singlePageOuterContainer":"singlePageOuterContainerWithoutSidebar"}>
-            {/* {isSidebar? <SideBar />  : <SmallSideBar/>} */}
+        <div className={isSidebar ? "singlePageOuterContainer":"singlePageOuterContainerWithoutSidebar"}>
             {isSidebar&& <SideBar /> }
-            {foundVideo &&
 
-                <div className="singlePageVideoDesContainer">
-                    <div className="singlePageVideoContainer">
-                        <video className='singleVidioTag' controls autoPlay>
-                        {/* <video className='singleVidioTag' controls > */}
-                            <source src={foundVideo?.url} type={foundVideo?.type}/>
-                            {/* <source src={localVideo[foundVideo?.id]} type={foundVideo?.type}/> */}
-                        </video>
-                    </div>
-                    <div className="singlePageTitleViewsContainer">
-                        <h3 className="singlePageTitle">{foundVideo?.title}</h3>
-                        <p className="singlePageViews">{foundVideo?.views} views</p>
-                        <hr className="singlepageHr"></hr>
-                        <div className="singlePageProfileImageAndNameContainer">
-                            {foundVideo?.uploader?.profileImageUrl
 
-                             ?
-                            <img className='singlePageProfileImage' src={foundVideo?.uploader?.profileImageUrl}/>:
-                            <i className="fas fa-user-circle singlePagecircleSinginIcon" />}
+            <div className="singlePageInnerContainer">
+                {foundVideo &&
+                    <div className="singlePageVideoDesContainer">
+                        <div className="singlePageVideoContainer">
+                            <video className='singleVidioTag' controls autoPlay>
+                                <source src={foundVideo?.url} type={foundVideo?.type}/>
+                                {/* <source src={localVideo[2]} type={foundVideo?.type}/> */}
+                            </video>
+                        </div>
+                        <div className="singlePageTitleViewsContainer">
+                            <h3 className="singlePageTitle">{foundVideo?.title}</h3>
+                            <p className="singlePageViews">{foundVideo?.views} views</p>
+                            <hr className="singlepageHr"></hr>
+                            <div className="singlePageProfileImageAndNameContainer">
+                                {foundVideo?.uploader?.profileImageUrl
+                                ?
+                                <img className='singlePageProfileImage' src={foundVideo?.uploader?.profileImageUrl}/>:
+                                <i className="fas fa-user-circle singlePagecircleSinginIcon" />}
 
-                            <div className="singlePageNameDiscriptionContainer">
-                                <p className="singlePageUseName">{foundVideo?.uploader?.firstName}  {foundVideo?.uploader?.lastName}</p>
-                                <p className="singlePageDiscription">{foundVideo?.description}</p>
-
+                                <div className="singlePageNameDiscriptionContainer">
+                                    <p className="singlePageUseName">{foundVideo?.uploader?.firstName}  {foundVideo?.uploader?.lastName}</p>
+                                    <p className="singlePageDiscription">{foundVideo?.description}</p>
+                                </div>
                             </div>
                         </div>
-
+                        <hr className="singlepageHr"></hr>
+                        <Comments video={foundVideo}/>
+                        <hr className="suggestedSinglepageHr"></hr>
                     </div>
-                    <hr className="singlepageHr"></hr>
-                    <Comments video={foundVideo}/>
+                }
+                <div>
+                {videos?.map((vid,i)=>{
+                    return(
+                    <div>
+
+                        <div className="suggestedVidoeImageAndTitleContainer" onClick={()=>videoClickHandler(vid)}>
+                            <div className="suggestedVidoeImageContainer">
+                                {/* onClick={videoClickHandler}  */}
+                                <video  className='suggestedVidioTag' >
+                                    {/* <source src={vid?.url} type={vid?.type}/> */}
+                                    <source src={localVideo[i]} type={vid?.type}/>
+                                </video>
+                            </div>
+                            <div>
+                                <p className="suggestedUserTitleBigScreen"> {vid?.title?.substring(0,50)}{vid?.title?.length>50&& '...'}</p>
+                                <p className="suggestedUserTitleSmallScren"> {vid?.title}</p>
+                                <div className="suggestedUserViwesAndCreatedAtContainer">
+                                    <p className="suggestedUserViews">{vid?.User?.firstName}{vid?.User?.lastName}</p>
+                                    <p className="suggestedUserViews">{vid?.views} views . {getSpentTime(vid?.createdAt)}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    )
+                })}
                 </div>
-
-            }
-            <div>
-                suggested vidoes
             </div>
-
         </div>
     )
 }

@@ -54,7 +54,7 @@ export const getAllVideosThunkCreator = (() => async (dispatch) =>{
 export const getSingleVideoThunkCreator = ((id) => async (dispatch) =>{
     const response = await csrfFetch(`/api/video/${id}/`)
     const video = await response.json()
-    
+
     dispatch(getSingleVideo(video))
     return response
 })
@@ -137,7 +137,7 @@ const videoReducer = (state = initialState, action) => {
             return newState
         }
         case CREATE_VIDEO:{
-            newState = {...state, videos:[...state?.videos,action?.video]}
+            newState = {...state, videos:[action?.video,...state?.videos]}
             return newState
         }
         case EDIT_VIDEO:{

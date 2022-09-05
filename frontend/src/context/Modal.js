@@ -22,6 +22,26 @@ export function ModalProvider({ children }) {
   );
 }
 
+
+
+export const isModalOnContext = React.createContext();
+
+export function IsModalOnContextProvider({ children }) {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+  return (
+    <>
+      <isModalOnContext.Provider value={{isModalOpen,setIsModalOpen}}>
+        {children}
+      </isModalOnContext.Provider>
+
+    </>
+  );
+}
+
+
 export function Modal({ onClose, children }) {
   const modalNode = useContext(ModalContext);
   if (!modalNode) return null;

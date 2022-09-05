@@ -31,7 +31,7 @@
 }
 
 .logo{
-    width:21%;
+    width:65px;
     height:50%;
     margin:0.2rem 0 0 1.3rem;
 
@@ -99,4 +99,19 @@
     display: flex;
     width:30%;
     justify-content: end;
+}
+
+.linkeInIcon,.gitHubIcon{
+  font-size: 1.2rem;
+  margin: 0.3rem 1rem 0 0rem;
+  color: #0275d8;
+  cursor: pointer;
+
+}
+
+
+@media only screen and (min-width: 1300px) {
+.searchForm{
+width: 30%;
+}
 }

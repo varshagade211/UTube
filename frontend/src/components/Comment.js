@@ -1,6 +1,6 @@
 
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef,useState } from 'react'
 import { useSelector, useDispatch} from "react-redux"
 import DeleteVideoFormModal from './DeleteModalPage'
 import * as commentActions from '../store/comment'
@@ -18,6 +18,8 @@ function Comment ({comment}) {
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state?.session?.user);
     const [errors, setErrors] = useState({});
+    const textArea = useRef(null);
+
 
     const editDeleteDropdown = ()=>{
         setShowDelete((prev)=> !prev)
@@ -30,9 +32,9 @@ function Comment ({comment}) {
 
     useEffect(()=>{
         if(isEdit){
-            const textArea = document.querySelector(".editCommentInput")
-            textArea.style.height = 'auto'
-            textArea.style.height = textArea.scrollHeight + 'px'
+
+            textArea.current.style.height = 'auto'
+            textArea.current.style.height = textArea.current.scrollHeight + 'px'
         }
     },[isEdit])
 
@@ -82,11 +84,11 @@ function Comment ({comment}) {
                     </div>
                     <div className='editCommentFormContainer'>
                         <form onSubmit={editSubmitHandler}>
-                            <textarea className='editCommentInput' value={commentData} onChange={(e)=>onCommentChangeHandler(e)} ></textarea>
+                            <textarea className='editCommentInput' ref={textArea}  rows={1} value={commentData} onChange={(e)=>onCommentChangeHandler(e)} ></textarea>
                             {errors?.comment &&
                                 <div className="errorContainer">
                                     <div>
-                                        <i class="fa-solid fa-circle-exclamation editCommentErrorlogo"></i>
+                                        <i classNamedr ="fa-solid fa-circle-exclamation editCommentErrorlogo"></i>
                                         <span className='editCommentError' key={errors.comment}>{errors.comment}</span>
                                     </div>
 

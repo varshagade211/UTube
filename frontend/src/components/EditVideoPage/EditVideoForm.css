@@ -1,0 +1,149 @@
+.editVideoForm{
+  min-height: 200px;
+
+}
+
+.editVideoFormContainer{
+    /* padding: 1rem 1rem 1rem 1rem; */
+    height: auto;
+    width: 500px;
+    margin: 2rem 0 0 0 ;
+}
+
+.editVideoTitleContainer,.editVideoDescContainer{
+    /* position: relative;
+    display: flex;
+    flex-direction: column; */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 1rem 0 0 0;
+}
+
+.editTitleCount,.editDescCount{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 0.8rem;
+}
+
+.editVideoTitle{
+    width: 100%;
+  /* border:none; */
+  border:  0.5px solid rgba(0, 0, 0, 0.249);
+  border-radius: 5px;
+  margin: 0rem 0 0 0rem;
+  font-size: 0.9rem;
+  outline: none;
+  resize: none;
+  overflow: hidden;
+  min-height: 0.8rem;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+}
+
+.editVideoDesc{
+    margin: 1rem 1rem 1rem 1rem;
+    width: 100%;
+    /* border:none; */
+    border:  0.5px solid rgba(0, 0, 0, 0.249);
+    border-radius: 5px;
+    margin: 0rem 0 0 0rem;
+    font-size: 0.9rem;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+    min-height: 0.8rem;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+
+}
+.editVideoForm{
+
+margin: 1rem 2rem 1rem 2rem;
+
+}
+
+
+.editVideoDescLable{
+
+    text-align: start;
+    font-size: 0.8rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    color: gray;
+
+}
+
+
+
+.editVideoTitlecLable{
+
+    text-align: start;
+    font-size: 0.8rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    color: gray;
+
+
+}
+.editVideoErrorlogo,.editVideoError{
+    color:red;
+    font-size: 0.8rem;
+    margin: 0.5rem 0.2rem 0rem 0.2rem;
+
+}
+
+
+
+.editVideoDescContainer:focus-within .editVideoDescLable{
+    color: #0067c1;
+  }
+.editVideoDesc:focus{
+    border:  0.5px solid #0067c1;
+}
+
+
+.editVideoTitleContainer:focus-within .editVideoTitlecLable{
+    color: #0067c1;
+  }
+.editVideoTitle:focus{
+    border:  0.5px solid #0067c1;
+}
+
+.editVideoBtnContainer{
+    display: flex;
+    justify-content: end;
+}
+.editVideoFormBtn{
+    background-color: #0067c1;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.5rem 0.4rem 0.5rem;
+    margin: 1rem 1rem 1rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+@media only screen and (max-width: 500px)  {
+
+
+    .editVideoFormContainer{
+
+        max-width: 400px;
+    }
+}
+
+
+@media only screen and (max-width: 300px)  {
+
+
+.editVideoFormContainer{
+
+    max-width: 250px;
+}
+}

@@ -13,9 +13,15 @@ const validateVideo = [
     check('title')
       .exists({ checkFalsy: true })
       .withMessage('Title is required.'),
+    check('title')
+      .isLength({max:100})
+      .withMessage('Title is greater than 100 characters'),
     check('description')
       .exists({ checkFalsy: true })
       .withMessage('Description is required'),
+    check('description')
+      .isLength({max:1000})
+      .withMessage('Description is greater than 1000 characters'),
     // check('url')
     //   .isString()
     //   .withMessage('Url is required'),
@@ -26,9 +32,13 @@ const validateVideo = [
 // get all videos
 router.get('/', async (req, res, next)=>{
     let videos = await Video.findAll({
+        order: [
+            ["createdAt", "DESC"]
+        ],
         include:[{
             model: Like
         },
+
         {
           model:Comment
         },
@@ -129,7 +139,7 @@ router.post('/',  singleMulterUpload("video"), requireAuth, validateVideo, async
 })
 
 // edit video
-router.put('/:id', requireAuth, validateVideo,async(req,res,next) => {
+router.put('/:id', requireAuth, validateVideo, async(req,res,next) => {
 
     let video = await Video.findByPk(req.params.id)
     if(!video){

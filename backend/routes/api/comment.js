@@ -26,6 +26,9 @@ router.get('/:videoId' , async(req,res,next) => {
     // }
     let comments = await Comment.findAll({
         where:{videoId:req.params.videoId},
+        order: [
+            ["createdAt", "DESC"]
+          ],
         include:[{
             model:User
         }]
@@ -133,6 +136,7 @@ router.delete('/:commentId', requireAuth, async(req,res,next) => {
 
     }else{
         const err = new Error('Forbidden')
+        err.errors = {comment:"Unauthorised"}
         err.statusCode = 403
         return next(err)
     }

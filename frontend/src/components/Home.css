@@ -36,3 +36,21 @@
     }
 
 }
+
+ @media only screen and (min-width: 1300px) {
+
+    .homeVideoContainer{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(16%,1fr));
+        background-color: rgba(245, 245, 245, 0.497);
+        width: 100%;
+        padding: 1rem 1rem 1rem 1rem;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(0, 0, 0, 0.126);
+
+
+    }
+
+}
+
+

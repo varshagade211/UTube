@@ -2,6 +2,7 @@
 import {useSelector} from 'react-redux'
 import './VideoCard.css'
 import { useHistory } from 'react-router-dom';
+import {getSpentTime} from './DateUtils'
 
 // function VideoCard({video,localVideo}) {
 function VideoCard({video}) {
@@ -42,8 +43,9 @@ function VideoCard({video}) {
                                 </h3>
                              </div>
                         <div className='viewsAndNameContainer'>
-                            <p className='vidUserName'>{sessionUser?.firstName} </p>
-                            <p className='vidViwes'>{video?.views} views</p>
+                            <p className='vidUserName'>{sessionUser?.firstName} {sessionUser?.lastName} </p>
+                            <p className='vidViwes'>{video?.views} views . {getSpentTime(video?.createdAt)}</p>
+
                         </div>
 
                     </div>

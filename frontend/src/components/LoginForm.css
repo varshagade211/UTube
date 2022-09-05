@@ -1,0 +1,134 @@
+.loginFormContainer{
+    max-width:450px;
+    min-height: 500px;
+
+    margin: 2rem auto auto auto;
+    box-shadow: 0 0 1px black;
+    border-radius: 10px;
+    display: flex;
+
+}
+.loginForm{
+
+    margin: 1rem 0 0 2.5rem ;
+    width: 80%;
+
+}
+.loginFormEmailInput,.loginFormPasswordInput{
+    width: 90%;
+    padding: 1rem 1rem 1rem 1rem;
+    margin: 1rem 0 0 0;
+    font-size: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.178);
+    border-radius: 6px;
+    outline: none
+
+}
+.loginFormPasswordInput:focus{
+    border:  2px solid #0067c1;
+
+}
+.loginFormEmailInput:focus{
+    border:  2px solid #0067c1;
+  }
+.demoUserBtn{
+    color:#1a73e8;
+    font-weight: bold;
+    font-size: 0.85rem;
+    margin: 0.5rem 0 0  0;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    padding: 0.5rem 0.5rem 0.5rem 0.1rem;
+}
+.demoUserBtn:hover{
+    background-color: rgba(156, 195, 240, 0.136)
+}
+.demoUserBtnTxt
+{
+    font-size: 0.85rem;
+    margin: 1rem 0 0  0.1rem;
+}
+.loginFormLoginBtn{
+   background-color: #1a73e8;
+   color: white;
+   padding: 0.7rem 1.5rem 0.7rem 1.5rem;
+   border-radius: 4px;
+   border: none;
+   cursor: pointer;
+   font-weight: bold;
+}
+
+.loginFormTitleConatainer{
+    text-align: center;
+}
+.loginBtnCreateAccountBtnContainer{
+    display: flex;
+    justify-content:space-between;
+    margin: 2rem 0 2rem 0;
+}
+.loginFormsignupLink{
+    text-decoration: none;
+    color: #1a73e8;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0.5rem 0.5rem 0.5rem  0.1rem ;
+}
+.signinTxt{
+    font-size: 1.55rem;
+    font-family: "Roboto", sans-serif;
+    margin: 0 0 0.6rem 0;
+}
+.signContinueText{
+    font-family: "Roboto", sans-serif;
+    margin: 0.5rem 0 1.5rem 0;
+}
+.loginFormsignupLink:hover{
+    background-color: rgba(156, 195, 240, 0.136)
+}
+.UTubeLogo{
+  /* font-weight: bold; */
+  font-size: 1.35rem;
+  margin: 1.4rem 0 1.4rem  0;
+}
+.U{
+    color: #1a73e8;
+
+}
+.t,.e{
+    color: red;
+}
+.u{
+    color: #FABC07;
+}
+.b{
+    color: green;
+}
+.loginError,.loginErrorlogo{
+    color:red;
+    font-size: 0.8rem;
+    margin: 0.5rem 0.2rem 0rem 1rem;
+}
+@media only screen and (max-width: 200px)  {
+    .loginForm{
+
+        margin: 5rem 0 0 0rem ;
+        width: 70%;
+
+    }
+    .loginFormEmailInput,.loginFormPasswordInput{
+        width: 90%;
+        padding: 0.5rem 0.2rem 0.5rem 0.2rem;
+        margin: 1rem 0 0 0;
+    }
+}
+@media only screen and (max-width: 400px)  {
+    .loginForm{
+
+        margin: 0rem 0 0 1rem ;
+        width: 80%;
+
+    }
+
+}

@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import EditVideoFormModal from '../components/EditVideoPage';
 import DeleteVideoFormModal from './DeleteModalPage';
-
+import {getSpentTime} from './DateUtils'
 import './FlatVideoCard.css'
 
 // function FlatVideoCard({video,localVideo}) {
@@ -37,12 +37,14 @@ function FlatVideoCard({video}) {
 
                 <h3 className='flatVideoUserTitle'>{video?.title}</h3>
                 <p className='flatVideoUserDescription'>{video?.description}</p>
-                <p className='flatVideoViews'>{video?.views} views</p>
+                <p className='flatVideoViews'>{video?.views} views  . {getSpentTime(video?.createdAt)}</p>
+
+
 
                 </div>
 
                 {showDelete && <div className='flatDropDownMenu'>
-                    <EditVideoFormModal video={video}/>
+                    <EditVideoFormModal video={video} setShowDelete={setShowDelete}/>
                     <DeleteVideoFormModal video={video} type={'video'} setShowDelete={setShowDelete}/>
                 </div>}
 

@@ -1,5 +1,5 @@
 .flatVidDelete{
-    margin: 0 0 0  0;
+    margin: 0 0 0  1rem;
     font-size: 0.8rem;
 }
 .flatVidTrashIcon{
@@ -12,7 +12,7 @@
     border: none;
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     cursor: pointer;
 }
 
