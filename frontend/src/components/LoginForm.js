@@ -30,7 +30,7 @@ function LoginForm() {
 
   const demoUserLoginHandleSubmit = (e) => {
     e.preventDefault();
-    const email ='tom@user.io'
+    const email ='varsha@user.io'
     const password = 'password1'
     return dispatch(sessionActions.login({email, password}))
     .then((res) => {
