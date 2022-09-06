@@ -136,6 +136,9 @@ router.post('/',  singleMulterUpload("video"), requireAuth, validateVideo, async
         uploaderId:req.user.id,
         type:req.file.mimetype
     })
+
+    let user = await User.findByPk(req.user.id )
+    video.dataValues.uploader = user
     console.log('backend create video', video)
     return res.status(200).json(video)
 
@@ -157,6 +160,9 @@ router.put('/:id', requireAuth, validateVideo, async(req,res,next) => {
            title,
            description
         })
+        let user = await User.findByPk(req.user.id )
+        newVideo.dataValues.uploader = user
+        console.log('backend edit video', newVideo)
         return res.status(200).json(newVideo)
     } else {
         const err = new Error("Forbidden");

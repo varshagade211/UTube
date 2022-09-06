@@ -22,7 +22,7 @@ function VideoCard({video}) {
         history.push(`/video/${video?.id}/`)
     }
     useEffect(() => {
-        if(videoCardVideoTag.current){
+        if(video && videoCardVideoTag.current){
             videoCardVideoTag.current.load()
         }
     },[video])

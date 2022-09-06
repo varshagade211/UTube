@@ -22,7 +22,7 @@ function FlatVideoCard({video}) {
         setShowDelete((prev)=> !prev)
     }
     useEffect(() => {
-        if(flatVideCardVideoTag.current){
+        if(video && flatVideCardVideoTag.current){
             flatVideCardVideoTag.current.load()
         }
     },[video])

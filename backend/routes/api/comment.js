@@ -15,7 +15,7 @@ const validateComments = [
 ]
 
 
-// get all vidio's comments
+// get all video's comments
 router.get('/:videoId' , async(req,res,next) => {
 
     // let video = await Video.findByPk(req.params.videoId)

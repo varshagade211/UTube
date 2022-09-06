@@ -42,7 +42,7 @@ function SingleVideoPage(){
     },[dispatch,id])
 
     useEffect(()=>{
-        if(singlePageVideoTag.current){
+        if(foundVideo && singlePageVideoTag.current){
             singlePageVideoTag.current.load()
         }
     },[foundVideo])
