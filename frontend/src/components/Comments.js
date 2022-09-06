@@ -3,15 +3,17 @@ import { useSelector,useDispatch } from "react-redux"
 import { useState,useRef, useEffect } from 'react'
 import Comment from './Comment'
 import './Comments.css'
+import { useHistory } from 'react-router-dom'
 
 function Comments ({video}) {
     const [commentData,setCommentData] = useState('')
     const [showSubmitCancelBtn, setshowSubmitCancelBtn] = useState(false)
     const [errors, setErrors] = useState({});
     const comments = useSelector(state => state?.comments)
-    const sessionUser = useSelector(state => state.session.user);
+    const sessionUser = useSelector(state => state?.session?.user);
     const dispatch = useDispatch()
     const textArea = useRef(null);
+    const history = useHistory()
 
 
     useEffect(()=>{
@@ -55,6 +57,9 @@ function Comments ({video}) {
 
     }
     const inputCommentClickHandler = () =>{
+        if(!sessionUser){
+            history.push('/signin')
+        }
         setshowSubmitCancelBtn(true)
     }
 
