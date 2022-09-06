@@ -2,7 +2,7 @@
    margin: 1rem 1rem 1rem 1rem;
    display: grid;
    grid-template-columns: 1fr 2fr;
-
+  
 }
 
 
@@ -31,7 +31,7 @@
     object-fit: initial;
     cursor: pointer;
     /* height: 100%; */
-  
+
 
 }
 

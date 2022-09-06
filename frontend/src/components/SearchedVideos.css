@@ -1,0 +1,28 @@
+.searchedVideoOuterContainerWithSidebar{
+    display: grid;
+    grid-template-columns:10rem  1fr;
+
+
+}
+
+
+.searchedVideoOuterContainerWithSmallSidebar{
+    display: grid;
+    grid-template-columns:55px 1fr;
+
+}
+
+.searchedVideoAndUserInfoContainer{
+    max-width:1050px;
+    margin: auto;
+}
+
+.searchedVideoContainer{
+    margin: 0 0 0 0;
+    background-color: rgba(245, 245, 245, 0.497);
+
+}
+
+.searchedVideoContainerWithSmallSidebar{
+    background-color: rgba(245, 245, 245, 0.497);
+}

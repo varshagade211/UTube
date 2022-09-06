@@ -15,7 +15,7 @@ function FlatVideoCard({video}) {
     const flatVideCardVideoTag = useRef(null);
 
     const videoClickHandler = () => {
-        history.push(`/video/${video?.id}/`)
+        history.push(`/video/${video?.id}`)
     }
 
     const editDeleteDropdown = () => {

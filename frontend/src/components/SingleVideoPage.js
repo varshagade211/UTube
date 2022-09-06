@@ -48,7 +48,7 @@ function SingleVideoPage(){
     },[foundVideo])
 
     const videoClickHandler = (video) => {
-        history.push(`/video/${video?.id}/`)
+        history.push(`/video/${video?.id}`)
 
     }
     return(

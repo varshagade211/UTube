@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './index.css'
 import CreateVideoFormModal from '../CreateVideoPage';
 import logo from '../../images/logo.png'
 import {SideBarContext} from '../../context/SideBarContext'
 import { useContext } from 'react';
+import * as videoActions from '../../store/video'
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
   const {setSidebar} = useContext(SideBarContext)
   const history = useHistory()
+  const [searchResult, setSurchResult] = useState('')
+  const videos = useSelector(state => state?.videos?.videos)
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    const response = dispatch(videoActions.getAllVideosThunkCreator())
+  },[dispatch])
 
   const signInHandler = ()=> {
     history.push("/signin")
@@ -56,8 +64,30 @@ function Navigation({ isLoaded }){
   }
   const onSearchSubmit = (e) =>{
     e.preventDefault()
-    history.push('/')
 
+    let matchedVideos=[]
+    let  result = searchResult.toLowerCase().split(' ')
+    for(let i = 0; i < videos.length; i++) {
+      let words = videos[i].title.toLowerCase().split(' ')
+
+      for(let j = 0; j < result.length; j++) {
+
+        if (result[i] === '') continue
+        let matched = false
+        for(let k = 0; k < words.length; k++) {
+          if(words[k] === '') continue
+
+          if(words[k].startsWith(result[j])) {
+            matchedVideos.push(videos[i])
+            matched = true
+            break
+          }
+        }
+        if (matched) break
+      }
+    }
+
+    history.push('/search/videos',{searchVideo :matchedVideos})
   }
 
   return (
@@ -70,11 +100,12 @@ function Navigation({ isLoaded }){
         </div>
 
           <form className='searchForm' onSubmit={(e)=> onSearchSubmit(e)}>
-            <input className='searchBar' placeholder='Search coming soon...'type='text'></input>
+            <input className='searchBar' value={searchResult} onChange={(e)=>setSurchResult(e.target.value)} placeholder='Search coming soon...'type='text'></input>
             <button className='submmitSearchbtn' ><i className="fa-solid fa-magnifying-glass"></i></button>
           </form>
 
         {isLoaded && sessionLinks}
+
       {/* </li> */}
     </div>
   );

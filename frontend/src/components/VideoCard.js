@@ -4,6 +4,9 @@ import './VideoCard.css'
 import { useHistory } from 'react-router-dom';
 import {getSpentTime} from './DateUtils'
 import { useRef,useEffect } from 'react';
+
+
+
 // function VideoCard({video,localVideo}) {
 function VideoCard({video}) {
     const sessionUser = useSelector(state => state.session.user);
@@ -19,7 +22,7 @@ function VideoCard({video}) {
     }
 
     const videoClickHandler = () => {
-        history.push(`/video/${video?.id}/`)
+        history.push(`/video/${video?.id}`)
     }
     useEffect(() => {
         if(video && videoCardVideoTag.current){

@@ -7,6 +7,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from './components/Home'
 import YourVideos from './components/YourVideos'
+import SearchedVideos from './components/SearchedVideos'
 
 import  SingleVideoPage from './components/SingleVideoPage'
 import './App.css'
@@ -34,11 +35,15 @@ function App() {
         <Route exact={true} path="/signin">
           <LoginForm />
         </Route>
-        <Route exact={true} path="/video/:id/">
+        <Route exact={true} path="/search/videos">
+          <Navigation isLoaded={isLoaded} />
+            <SearchedVideos />
+        </Route>
+        <Route exact={true} path="/video/:id">
         <Navigation isLoaded={isLoaded} />
           <SingleVideoPage />
         </Route>
-        <ProtectedRoute exact={true} path="/:userId/videos/">
+        <ProtectedRoute exact={true} path="/:userId/videos">
           <Navigation isLoaded={isLoaded} />
           <YourVideos />
         </ProtectedRoute>

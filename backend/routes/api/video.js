@@ -31,6 +31,7 @@ const validateVideo = [
 
 // get all videos
 router.get('/', async (req, res, next)=>{
+
     let videos = await Video.findAll({
         order: [
             ["createdAt", "DESC"]
