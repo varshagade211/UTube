@@ -128,20 +128,16 @@ const videoReducer = (state = initialState, action) => {
     let newState;
     switch(action.type) {
         case GET_VIDEOS:{
-            console.log('all videos in thunk', action?.videos)
             newState = {...state, videos:[...action?.videos]}
             return newState
         }
         case GET_SINGLE_VIDEO:{
-            console.log('single video in thunk', action?.video)
             state['singleVideo'] = action?.video
             newState={...state}
             return newState
         }
         case CREATE_VIDEO:{
-            console.log('create video in thunk ', action?.video)
             newState = {...state, videos:[action?.video,...state?.videos]}
-            console.log('create video newState', newState)
             return newState
         }
         case EDIT_VIDEO:{

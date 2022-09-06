@@ -26,7 +26,6 @@ function VideoCard({video}) {
             videoCardVideoTag.current.load()
         }
     },[video])
-    console.log('video............',video)
     return(
     <div>
 

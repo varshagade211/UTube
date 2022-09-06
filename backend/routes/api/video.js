@@ -50,7 +50,6 @@ router.get('/', async (req, res, next)=>{
         }
       ],
     })
-    console.log('backend get all video', videos)
     res.json({videos:videos})
 })
 
@@ -87,7 +86,6 @@ router.get('/:id', async(req,res,next) => {
         views:++video.views
 
     })
-    console.log('backend get by id video', viewIncrement, 'and id-',req.params.id )
 
     return res.status(200).json(viewIncrement)
 })
@@ -139,7 +137,6 @@ router.post('/',  singleMulterUpload("video"), requireAuth, validateVideo, async
 
     let user = await User.findByPk(req.user.id )
     video.dataValues.uploader = user
-    console.log('backend create video', video)
     return res.status(200).json(video)
 
 })
@@ -162,7 +159,6 @@ router.put('/:id', requireAuth, validateVideo, async(req,res,next) => {
         })
         let user = await User.findByPk(req.user.id )
         newVideo.dataValues.uploader = user
-        console.log('backend edit video', newVideo)
         return res.status(200).json(newVideo)
     } else {
         const err = new Error("Forbidden");

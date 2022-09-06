@@ -51,7 +51,6 @@ function SingleVideoPage(){
         history.push(`/video/${video?.id}/`)
 
     }
-    console.log('single video component in front end', foundVideo, "and id", id)
     return(
         <div className={isSidebar ? "singlePageOuterContainer":"singlePageOuterContainerWithoutSidebar"}>
             {isSidebar&& <SideBar /> }
