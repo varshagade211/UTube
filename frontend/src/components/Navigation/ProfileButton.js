@@ -40,7 +40,7 @@ function ProfileButton({ user }) {
             <i className="fas fa-user-circle topcircleSinginIcon" />}
         </div>
         {showMenu && (
-            <div className="profile-dropdown">
+            <div className="profile-dropdown" >
                 <div className="dpProfileImgNameContainer">
                     <div className="dropdownImageContainer">{user?.profileImageUrl ? <img className="proFileDropdownUserProfileImg" src={user?.profileImageUrl}
                        />: <i className="fas fa-user-circle dpcircleSinginIcon" />}
@@ -57,7 +57,7 @@ function ProfileButton({ user }) {
                     <i class="fa-solid fa-user-group switchIcon "></i>
                     <p className="drpdownVideoLinks">Switch account</p>
                 </div>
-                
+
                 <div className="dropDownVideoLinkContainer" onClick={logout}>
                     <i className="fa-solid fa-arrow-right-to-bracket signOutLogo"></i>
                     <p className="drpdownVideoLinks">Sign Out</p>

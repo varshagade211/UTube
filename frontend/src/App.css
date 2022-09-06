@@ -2,3 +2,12 @@
     width: 97vw;
 
 }
+
+
+@media only screen and (max-width: 500px) {
+
+    .appContainer{
+        width: 100vw;
+
+    }
+}

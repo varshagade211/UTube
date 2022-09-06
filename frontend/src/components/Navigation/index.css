@@ -108,10 +108,91 @@
   cursor: pointer;
 
 }
+.smallScreenSearchIcon{
+    display: none;
+}
 
-
+/* .smallScreenSearchBar:focus{
+    outline: none ;
+    outline-offset: 0px;
+    border: 1px solid black;
+} */
+.smallScreenSearchBar{
+    width: 100%;
+    padding: 0.5rem ;
+    border: 1px solid rgba(0, 0, 0, 0.222);
+}
+.smallScreenSearchForm,.smallScreenSearchFormConatiner{
+display: none;
+}
 @media only screen and (min-width: 1300px) {
 .searchForm{
 width: 30%;
 }
 }
+
+
+
+@media only screen and (max-width: 700px) {
+    .smallScreenSearchIcon{
+        display: block;
+        font-size: 1.1rem;
+        color: rgba(0, 0, 0, 0.786);
+        margin: 0.3rem 1rem 0.4rem 0rem;
+        cursor: pointer;
+    }
+    .searchForm{
+        display: none;
+    }
+    .profileBtnAndCreateVideoBtnContainer{
+        display: flex;
+        width:50%;
+    }
+    .smallScreenSearchForm{
+        display: flex;
+        width: 100%;
+        margin:  auto;
+
+
+    }
+    .smallScreenSearchFormConatiner{
+        display: block;
+        width: 90%;
+        background-color: white;
+        padding: 1rem 1rem 1rem 1rem;
+        margin: auto;
+        margin: 1rem auto 1rem auto;
+        box-shadow: 0 0 4px black;
+
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .profileBtnAndCreateVideoBtnContainer{
+        display: flex;
+        width:70%;
+    }
+    .signInBtn{
+        padding: 0 0.1rem 0 0.1rem;
+        font-size: 0.7rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    /* .createVideoIcon{
+        margin: 0 0 0 0;
+    } */
+    .logoBarIconContainer a{
+      display: none;
+    }
+    .logoBarIconContainer{
+
+        display: flex;
+        align-items: center;
+        width: 10%;
+    }
+    .profileBtnAndCreateVideoBtnContainer{
+        display: flex;
+        width:90%;
+    }
+  }

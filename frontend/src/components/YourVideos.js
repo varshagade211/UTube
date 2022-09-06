@@ -79,7 +79,6 @@ function YourVideos () {
 
 
                 </div>
-                {/* <hr className='hr'></hr> */}
             </div>
         </div>
     </div>

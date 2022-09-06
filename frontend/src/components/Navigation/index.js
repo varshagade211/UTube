@@ -14,6 +14,7 @@ function Navigation({ isLoaded }){
   const {setSidebar} = useContext(SideBarContext)
   const history = useHistory()
   const [searchResult, setSurchResult] = useState('')
+  const [isSmallscreenForm, setSmallScreenForm] = useState(false)
   const videos = useSelector(state => state?.videos?.videos)
   const dispatch = useDispatch()
 
@@ -29,6 +30,7 @@ function Navigation({ isLoaded }){
   if (sessionUser) {
     sessionLinks = (
       <div className='profileBtnAndCreateVideoBtnContainer'>
+         <i class="fa-solid fa-magnifying-glass smallScreenSearchIcon" onClick={()=>setSmallScreenForm(prev => !prev)} ></i>
         <CreateVideoFormModal />
 
         <a href={"https://github.com/varshagade211"} > <i className="fa-brands fa-github gitHubIcon"></i> </a>
@@ -38,7 +40,7 @@ function Navigation({ isLoaded }){
 
 
         {/* <CreateVideoFormModal /> */}
-        <ProfileButton user={sessionUser} />
+      <ProfileButton user={sessionUser} />
 
 
       </div>
@@ -48,6 +50,7 @@ function Navigation({ isLoaded }){
       <>
         {/* <LoginFormModal /> */}
        <div className='signinBtnContainer'>
+       <i class="fa-solid fa-magnifying-glass smallScreenSearchIcon" onClick={()=>setSmallScreenForm(prev => !prev)} ></i>
 
        <a href={"https://github.com/varshagade211"} ><i className="fa-brands fa-github gitHubIcon"></i> </a>
 
@@ -89,12 +92,14 @@ function Navigation({ isLoaded }){
 
     history.push('/search/videos',{searchVideo :matchedVideos})
   }
-
+ 
   return (
+    <div>
     <div className='navBar'>
       {/* <li> */}
         {/* <NavLink  className='utubeHomeLink' exact to="/"><i className="fa-brands fa-youtube utubeHomeIcon"></i>UTube</NavLink> */}
         <div className='logoBarIconContainer'>
+
           <i className="fa-solid fa-bars barIcon" onClick={()=>setSidebar((prev)=> !prev)}></i>
           <NavLink   exact to="/"><img className='logo' src= {logo} /></NavLink>
         </div>
@@ -108,6 +113,22 @@ function Navigation({ isLoaded }){
 
       {/* </li> */}
     </div>
+    {isSmallscreenForm && <div  className='smallScreenSearchFormConatiner'>
+
+    <form className='smallScreenSearchForm' onSubmit={(e)=> onSearchSubmit(e)}>
+
+            <input className='smallScreenSearchBar' value={searchResult} onChange={(e)=>setSurchResult(e.target.value)} placeholder='Search' type='text'></input>
+            <button className='smallScreenSubmmitSearchbtn' ><i className="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+
+
+
+
+
+    </div>}
+
+    </div>
+
   );
 }
 
