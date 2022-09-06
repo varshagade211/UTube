@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState,useRef } from 'react';
 import {useSelector} from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import EditVideoFormModal from '../components/EditVideoPage';
@@ -12,6 +12,7 @@ function FlatVideoCard({video}) {
     const sessionUser = useSelector(state => state.session.user);
     const history = useHistory()
     const [showDelete, setShowDelete] = useState(false)
+    const flatVideCardVideoTag = useRef(null);
 
     const videoClickHandler = () => {
         history.push(`/video/${video?.id}/`)
@@ -20,13 +21,18 @@ function FlatVideoCard({video}) {
     const editDeleteDropdown = () => {
         setShowDelete((prev)=> !prev)
     }
+    useEffect(() => {
+        if(flatVideCardVideoTag.current){
+            flatVideCardVideoTag.current.load()
+        }
+    },[video])
 
     return(
         <div>
         {/* {video?.uploaderId === sessionUser?.id && */}
         <div className='userVideoAnddiscContainer'>
             <div className='userFlatVideoContainer'>
-                <video className='userVideoTag' onClick={videoClickHandler}  muted playsInline >
+                <video  ref={flatVideCardVideoTag} className='userVideoTag' onClick={videoClickHandler}  muted playsInline >
                     <source src={video?.url} type={video?.type}/>
                     {/* <source src={localVideo} type={video?.type}/> */}
                 </video>

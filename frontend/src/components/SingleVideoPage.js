@@ -1,7 +1,7 @@
 import { useSelector,useDispatch } from "react-redux"
 import { useParams } from "react-router-dom"
 import * as videoActions from '../store/video'
-import { useEffect,useContext } from "react"
+import { useEffect,useContext,useRef } from "react"
 import Comments from './Comments'
 import {SideBarContext} from '../context/SideBarContext'
 import SideBar from './SideBar'
@@ -33,11 +33,14 @@ function SingleVideoPage(){
     const {isSidebar} = useContext(SideBarContext)
     const history = useHistory()
     const videos = useSelector(state => state?.videos?.videos)
-
+    const singlePageVideoTag = useRef(null);
 
     useEffect(()=>{
          dispatch(videoActions.getSingleVideoThunkCreator(id))
-        const response = dispatch(videoActions.getAllVideosThunkCreator())
+         const response = dispatch(videoActions.getAllVideosThunkCreator())
+         if(singlePageVideoTag.current){
+            singlePageVideoTag.current.load()
+         }
     },[dispatch,id])
 
     const videoClickHandler = (video) => {
@@ -54,7 +57,7 @@ function SingleVideoPage(){
                 {foundVideo &&
                     <div className="singlePageVideoDesContainer">
                         <div className="singlePageVideoContainer">
-                            <video className='singleVidioTag' controls autoPlay>
+                            <video ref={singlePageVideoTag} className='singleVidioTag' controls autoPlay>
                                 <source src={foundVideo?.url} type={foundVideo?.type}/>
                                 {/* <source src={localVideo[2]} type={foundVideo?.type}/> */}
                             </video>

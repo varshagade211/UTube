@@ -11,7 +11,7 @@ const CreateVideoForm = ({setShowModal}) => {
     const [isSpinner, setShowSpinner] = useState(false)
     const [titleCount,setTitleCount] = useState(0)
     const [descCount,setDescCount] = useState(0)
-    const videoTag = useRef(null);
+    const createVideoTag = useRef(null);
     const [preview,setPreview] = useState(null)
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user);
@@ -93,8 +93,8 @@ const CreateVideoForm = ({setShowModal}) => {
 
     useEffect(() => {
 
-        if(videoTag.current){
-            videoTag.current.load()
+        if(createVideoTag.current){
+            createVideoTag.current.load()
 
         }
     },[preview])
@@ -166,7 +166,7 @@ const CreateVideoForm = ({setShowModal}) => {
                     <div className="previewVidContainer">
                        {preview ?
 
-                        <video ref={videoTag} className='previewVid'  controls muted playsInline >
+                        <video ref={createVideoTag} className='previewVid'  controls muted playsInline >
                          <source src={preview} type={video?.type} id="videoSource"/>
                         </video>:
                        <div className="previewPlaceHolder">

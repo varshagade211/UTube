@@ -3,12 +3,12 @@ import {useSelector} from 'react-redux'
 import './VideoCard.css'
 import { useHistory } from 'react-router-dom';
 import {getSpentTime} from './DateUtils'
-
+import { useRef } from 'react';
 // function VideoCard({video,localVideo}) {
 function VideoCard({video}) {
     const sessionUser = useSelector(state => state.session.user);
     const history = useHistory()
-
+    const videoCardVideoTag = useRef(null);
     const playHandler = (target) => {
             target.currentTime = 0;
             target.play();
@@ -21,13 +21,18 @@ function VideoCard({video}) {
     const videoClickHandler = () => {
         history.push(`/video/${video?.id}/`)
     }
+    useEffect(() => {
+        if(videoCardVideoTag.current){
+            videoCardVideoTag.current.load()
+        }
+    },[video])
     console.log('video............',video)
     return(
     <div>
 
         <div className='vidioInfoContainer'>
             <div className='vidioTagContainer'>
-             <video onClick={videoClickHandler} onMouseEnter={(e)=>playHandler(e.target)} onMouseLeave={(e)=>pauseHandler(e.target)} className='vidioTag'  muted playsInline >
+             <video ref={videoCardVideoTag} onClick={videoClickHandler} onMouseEnter={(e)=>playHandler(e.target)} onMouseLeave={(e)=>pauseHandler(e.target)} className='vidioTag'  muted playsInline >
                 <source src={video?.url} type={video?.type}/>
                 {/* <source src={localVideo} type={video?.type}/> */}
             </video>
