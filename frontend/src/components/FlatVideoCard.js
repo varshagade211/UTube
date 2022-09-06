@@ -36,7 +36,9 @@ function FlatVideoCard({video}) {
                 <div>
 
                 <h3 className='flatVideoUserTitle'>{video?.title}</h3>
-                <p className='flatVideoUserDescription'>{video?.description}</p>
+                {/* <p className="suggestedUserTitleBigScreen"> {vid?.title?.substring(0,50)}{vid?.title?.length > 50 && '...'}</p> */}
+                <p className='flatVideoUserDescription'>{video?.description?.substring(0,150)}
+                {video?.description?.length > 150 && '...'}</p>
                 <p className='flatVideoViews'>{video?.views} views  . {getSpentTime(video?.createdAt)}</p>
 
 
