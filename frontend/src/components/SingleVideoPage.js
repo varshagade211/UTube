@@ -38,10 +38,14 @@ function SingleVideoPage(){
     useEffect(()=>{
          dispatch(videoActions.getSingleVideoThunkCreator(id))
          const response = dispatch(videoActions.getAllVideosThunkCreator())
-         if(singlePageVideoTag.current){
-            singlePageVideoTag.current.load()
-         }
+
     },[dispatch,id])
+
+    useEffect(()=>{
+        if(singlePageVideoTag.current){
+            singlePageVideoTag.current.load()
+        }
+    },[foundVideo])
 
     const videoClickHandler = (video) => {
         history.push(`/video/${video?.id}/`)
