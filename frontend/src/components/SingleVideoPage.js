@@ -67,7 +67,7 @@ function SingleVideoPage(){
                         </div>
                         <div className="singlePageTitleViewsContainer">
                             <h3 className="singlePageTitle">{foundVideo?.title}</h3>
-                            <p className="singlePageViews">{foundVideo?.views} views</p>
+                            <p className="singlePageViews">{foundVideo?.views} views . {new Date(foundVideo?.createdAt)?.toDateString()}</p>
                             <hr className="singlepageHr"></hr>
                             <div className="singlePageProfileImageAndNameContainer">
                                 {foundVideo?.uploader?.profileImageUrl

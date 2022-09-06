@@ -98,3 +98,11 @@
 
 
 }
+
+@media only screen and (min-width: 1300px) {
+    .vidioInfoContainer
+    {
+        max-width:300px;
+
+    }
+}
