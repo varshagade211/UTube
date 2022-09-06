@@ -22,7 +22,7 @@
 
 .createVideoForm{
   display: grid;
-  grid-template-rows: 1fr 8fr 40px;
+  grid-template-rows:  50px 1fr 60px;
   max-width:800px;
   /* height: 600px; */
 }
@@ -56,7 +56,7 @@
   height: 100%; */
   text-align: center;
   /* padding: 1rem 0 2rem 0; */
-  margin: 0.5rem 3rem 0 ;
+  margin: 2rem 0 3rem 0;
 }
 
 .createTitalConatainer{
@@ -197,6 +197,7 @@ max-height: 200px;
 .createVideoPageTital{
   font-weight: bold;
   overflow-wrap: anywhere;
+  margin: 0 0 0 0;
 }
 
 .createFormErrorError,.createFormErrorlogo{
@@ -231,7 +232,17 @@ input[type=file]::file-selector-button {
     margin: 0 0 0 0;
   }
 
-
+.downloadVideo{
+  font-size: 0.8rem;
+  margin: 1rem 0 0 0 ;
+  color: rgba(0, 0, 0, 0.759);
+}
+.downloadVideoLink{
+  font-size: 0.8rem;
+  margin: 0 0 0 0 ;
+  color:#0067c1;
+  cursor: pointer;
+}
 .createVideoPageTitleContainer{
   border-bottom: 1px solid rgba(0, 0, 0, 0.316);
 }

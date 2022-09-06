@@ -87,9 +87,11 @@ function SingleVideoPage(){
                     </div>
                 }
                 <div>
-                {videos?.map((vid,i)=>{
-                    return(
-                    <div>
+                {videos?.filter(filVid => foundVideo?.id !== filVid?.id)?.map((vid,i)=>{
+                   return(
+
+                    <div key={vid?.id}>
+
 
                         <div className="suggestedVidoeImageAndTitleContainer" onClick={()=>videoClickHandler(vid)}>
                             <div className="suggestedVidoeImageContainer">
@@ -109,7 +111,8 @@ function SingleVideoPage(){
                         </div>
                     </div>
                     )
-                })}
+                })
+                }
                 </div>
             </div>
         </div>

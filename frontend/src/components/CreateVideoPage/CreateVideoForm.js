@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useEffect,useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import * as videoActions from "../../store/video";
 import './CreateVideoForm.css'
 const CreateVideoForm = ({setShowModal}) => {
@@ -15,6 +16,7 @@ const CreateVideoForm = ({setShowModal}) => {
     const [preview,setPreview] = useState(null)
     const dispatch = useDispatch();
     const user = useSelector((state) => state.session.user);
+    const history = useHistory()
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -82,7 +84,10 @@ const CreateVideoForm = ({setShowModal}) => {
             if(errors?.url){
                 delete errors.url
             }
-            setTitle(file.name)
+            if(!title){
+
+                setTitle(file.name)
+            }
             if(errors?.title){
                 delete errors.title
             }
@@ -98,6 +103,9 @@ const CreateVideoForm = ({setShowModal}) => {
 
         }
     },[preview])
+    // const downloadHandler = ()=>{
+    //     history.push("https://amazon-clone-bucket.s3.us-west-1.amazonaws.com/1662419930486.mp4")
+    // }
 
     return (
     <div className="formandSpinerContainer">
@@ -176,7 +184,9 @@ const CreateVideoForm = ({setShowModal}) => {
                          <div className="uploadInputContainer">
 
                             <input type="file" id="file" title=" " className="uploadInput" onChange={updateFile} />
-
+                            <p className="downloadVideo">Need a video file to test the upload feature?</p>
+                            <a className="downloadVideoLink" href="https://amazon-clone-bucket.s3.us-west-1.amazonaws.com/1662419930486.mp4">Download Demo Video</a>
+                             {/* <button onClick={downloadHandler}>Button</button> */}
                         </div>
                         {errors?.url &&
                         <div className="errorContainer">
@@ -203,6 +213,7 @@ const CreateVideoForm = ({setShowModal}) => {
 
              <div className="createVideoFormButtonContainer">
                 <button className="createVideoBtn" type="submit">Publish</button>
+
                 <button className="createVideoBtn" onClick ={()=>setShowModal(false)} type="button">Cancel</button>
             </div>
         </form>
