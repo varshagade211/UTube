@@ -50,6 +50,7 @@ router.get('/', async (req, res, next)=>{
         }
       ],
     })
+    console.log('backend get all video', videos)
     res.json({videos:videos})
 })
 
@@ -86,6 +87,7 @@ router.get('/:id', async(req,res,next) => {
         views:++video.views
 
     })
+    console.log('backend get by id video', viewIncrement, 'and id-',req.params.id )
 
     return res.status(200).json(viewIncrement)
 })
@@ -134,6 +136,7 @@ router.post('/',  singleMulterUpload("video"), requireAuth, validateVideo, async
         uploaderId:req.user.id,
         type:req.file.mimetype
     })
+    console.log('backend create video', video)
     return res.status(200).json(video)
 
 })

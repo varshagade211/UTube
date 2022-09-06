@@ -45,7 +45,7 @@ function YourVideos () {
             userVideo.push(vid)
         }
     })
-
+    console.log('your video in frontend', videos)
     return (
 
         <div className={isSidebar ?'userVideoOuterContainerWithSidebar':'userVideoOuterContainerWithSmallSidebar'}>

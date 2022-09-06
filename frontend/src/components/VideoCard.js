@@ -21,6 +21,7 @@ function VideoCard({video}) {
     const videoClickHandler = () => {
         history.push(`/video/${video?.id}/`)
     }
+    console.log('video............',video)
     return(
     <div>
 
@@ -38,7 +39,6 @@ function VideoCard({video}) {
                      {video?.uploader?.profileImageUrl
                         ? <img className='userProfileImg' src={video?.uploader?.profileImageUrl}/>
                         : <i className="fas fa-user-circle userSeedProfileIcon" />
-
                      } </div>
 
                     <div>
