@@ -14,6 +14,8 @@
 
 .searchedVideoAndUserInfoContainer{
     max-width:1050px;
+    display: grid;
+    grid-template-columns: 1fr 250px;
     margin: auto;
 }
 

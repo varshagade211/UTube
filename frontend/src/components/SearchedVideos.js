@@ -10,12 +10,8 @@ function SearchedVideos(){
     let location = useLocation();
     let serchedVideos=location.state.searchVideo;
     const {isSidebar} = useContext(SideBarContext)
-    
 
-
-
-
-    return (
+ return (
         <div className={isSidebar ?'searchedVideoOuterContainerWithSidebar':'searchedVideoOuterContainerWithSmallSidebar'}>
             {isSidebar? <SideBar />  : <SmallSideBar/>}
             <div className='searchedVideoAndUserInfoContainer'>
@@ -28,6 +24,7 @@ function SearchedVideos(){
                     })}
                 </div>
             </div>
+            <div></div>
         </div>
     )
 }
