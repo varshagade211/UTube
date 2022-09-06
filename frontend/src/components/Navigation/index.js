@@ -100,7 +100,7 @@ function Navigation({ isLoaded }){
         </div>
 
           <form className='searchForm' onSubmit={(e)=> onSearchSubmit(e)}>
-            <input className='searchBar' value={searchResult} onChange={(e)=>setSurchResult(e.target.value)} placeholder='Search coming soon...'type='text'></input>
+            <input className='searchBar' value={searchResult} onChange={(e)=>setSurchResult(e.target.value)} placeholder='Search' type='text'></input>
             <button className='submmitSearchbtn' ><i className="fa-solid fa-magnifying-glass"></i></button>
           </form>
 
