@@ -67,7 +67,9 @@ function Navigation({ isLoaded }){
   }
   const onSearchSubmit = (e) =>{
     e.preventDefault()
-
+    if(!searchResult?.length){
+        return
+    }
     let matchedVideos=[]
     let  result = searchResult.toLowerCase().split(' ')
     for(let i = 0; i < videos.length; i++) {
@@ -92,7 +94,7 @@ function Navigation({ isLoaded }){
 
     history.push('/search/videos',{searchVideo :matchedVideos})
   }
- 
+
   return (
     <div>
     <div className='navBar'>
