@@ -1,6 +1,6 @@
 ### UTube
 
-UTube is a website created to help people teach or entertain user. User can upload videos on UTube, see all videos made by them in your video section,see liked videos in liked video section, play any video on separate page.All users can see all videos and
+UTube is a website created to help people teach or entertain user. User can upload videos on UTube, see all videos made by them in your video section,see liked videos in liked video section, play any video on separate page. All users can see all videos and
 share thoughts on videos in the comment section and edit delete own comments. UTube is inspired by YouTube website.
 
 [Click here to view spots-bnb Live Site](https://utube-clone-vg.herokuapp.com/)
