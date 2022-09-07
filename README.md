@@ -9,8 +9,8 @@ share thoughts on videos in the comment section and edit, delete own comments. U
 Please see below link to project wiki: <br />
  [Feature List](https://github.com/varshagade211/UTube/wiki/Feature-List-of-UTube)  <br />
  [Database Schema](https://github.com/varshagade211/UTube/wiki/Database-Schema)  <br />
- <!-- [API Routes](https://github.com/varshagade211/AirBnB/wiki/API-Routes)  <br /> -->
  [User Stories](https://github.com/varshagade211/UTube/wiki/User-Stories) <br />
+<!-- [API Routes](https://github.com/varshagade211/AirBnB/wiki/API-Routes)  <br /> -->
 
  This project is built with: <br />
  JavaScript <br />
