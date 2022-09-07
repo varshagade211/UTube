@@ -11,29 +11,33 @@ const validateSignup = [
   check('email')
     .exists({ checkFalsy: true })
     .isString()
-    .withMessage('Email is required')
-    .bail(),
+    .bail()
+    .withMessage('Email is required'),
+
   check('email')
     .isEmail()
     .withMessage('Please provide a valid email'),
   check('firstName')
     .exists({ checkFalsy: true })
-    .withMessage('First Name is required')
-    .bail(),
+    .bail()
+    .withMessage('First Name is required'),
+
   check('firstName')
     .isString()
     .withMessage('First Name is required'),
   check('lastName')
     .exists({ checkFalsy: true })
-    .withMessage('Last Name is required')
-    .bail(),
+    .bail()
+    .withMessage('Last Name is required'),
+
   check('lastName')
     .isString()
     .withMessage('Last Name is required'),
   check('password')
     .exists({ checkFalsy: true })
-    .withMessage('password is required')
-    .bail(),
+    .bail()
+    .withMessage('password is required'),
+
   check('password')
     .isLength({ min: 8, max:8 })
     .withMessage('Password must be more than eight characters'),

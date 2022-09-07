@@ -12,19 +12,21 @@ const { handleValidationErrors } = require('../../utils/validation');
 const validateVideo = [
     check('title')
       .exists({ checkFalsy: true })
-      .withMessage('Title is required.')
-      .bail(),
+      .bail()
+      .withMessage('Title is required.'),
+
     check('title')
       .isLength({max:100})
       .withMessage('Title is greater than 100 characters'),
     check('description')
       .exists({ checkFalsy: true })
-      .withMessage('Description is required')
-      .bail(),
+      .bail()
+      .withMessage('Description is required'),
+
     check('description')
       .isLength({max:1000})
-      .withMessage('Description is greater than 1000 characters')
-      .bail(),
+      .withMessage('Description is greater than 1000 characters'),
+
     // check('url')
     //   .isString()
     //   .withMessage('Url is required'),
