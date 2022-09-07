@@ -12,13 +12,23 @@ Please see below link to project wiki: <br />
  [User Stories](https://github.com/varshagade211/UTube/wiki/User-Stories) <br />
 <!-- [API Routes](https://github.com/varshagade211/AirBnB/wiki/API-Routes)  <br /> -->
 
- This project is built with: <br />
- JavaScript <br />
- Sqlite3  <br />
- Sequelize  <br />
- Express <br />
- React  <br />
- Redux <br />
+### This project is built with: <br />
+
+#### Frameworks, Platforms, and Libraries:
+JavaScript <br />
+Express <br />
+React  <br />
+Redux <br />
+HTML5 <br />
+CSS3 <br />
+#### Database:
+Sqlite3  <br />
+
+#### Hosting:
+Docker <br />
+Heroku <br />
+AWS <br />
+
 
 ## Feature Directions:
 
