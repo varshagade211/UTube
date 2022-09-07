@@ -16,15 +16,16 @@ Please see below link to project wiki: <br />
 
 #### Frameworks, Platforms, and Libraries:
 ![Javascript](Javascript.svg) <br />
+<img src="express.png" alt="express" style="width:100px;margin: 2rem 1rem 1rem 1rem" />
 ![React](react.svg)  <br />
 ![Redux](redux.svg) <br />
 ![HTML](HTML.svg) <br />
 ![CSS3](css3.svg) <br />
-<img src="express.png" alt="express" style="width:100px;margin: 2rem 1rem 1rem 1rem" />
+
 #### Database:
 ![Sqlite3](sqlite3.svg)  <br />
 ### ORM:
-![sequelize](sequelize.html)
+<img src="sequilize.png" alt="sequilize" style="width:70px;margin: 2rem 1rem 1rem 1rem" />
 #### Hosting:
 ![Heroku](heroku.svg) <br />
 <img src="aws.png" alt="AWS" style="width:70px;margin: 2rem 1rem 1rem 1rem" />
