@@ -11,16 +11,18 @@ const validateLogin = [
     .withMessage('Email is required'),
   check("email")
     .isEmail()
-    .withMessage('Email is required'),
+    .withMessage('Please provide a valid email'),
   check('password')
     .exists({ checkFalsy: true })
     .withMessage('Password is required'),
+
   handleValidationErrors
 ];
 // Log in
 router.post('/login', validateLogin, async (req, res, next) => {
 
       const { email, password } = req.body;
+     
 
       const user = await User.login({ email, password });
 

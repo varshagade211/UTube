@@ -71,20 +71,19 @@ function Navigation({ isLoaded }){
         return
     }
     let matchedVideos=[]
-    let  result = searchResult.toLowerCase().split(' ')
+    let  result = searchResult.trim().toLowerCase().split(' ')
     for(let i = 0; i < videos.length; i++) {
-      let words = videos[i].title.toLowerCase().split(' ')
-
+      let words = videos[i].title.trim().toLowerCase().split(' ')
       for(let j = 0; j < result.length; j++) {
-
         if (result[i] === '') continue
         let matched = false
         for(let k = 0; k < words.length; k++) {
           if(words[k] === '') continue
-
           if(words[k].startsWith(result[j])) {
+
             matchedVideos.push(videos[i])
             matched = true
+
             break
           }
         }

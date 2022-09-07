@@ -84,7 +84,7 @@ function LoginForm() {
 
           <div>
              <p className="demoUserBtnTxt">Just looking? Use Demo mode to sign in and preview.</p>
-            <button onClick={demoUserLoginHandleSubmit} className='demoUserBtn'>Demo User</button>
+            <button type='button' onClick={demoUserLoginHandleSubmit} className='demoUserBtn'>Demo User</button>
           </div>
         </div>
 

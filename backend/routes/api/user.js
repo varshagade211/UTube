@@ -39,6 +39,13 @@ router.post('/', singleMulterUpload("image"),  validateSignup, async (req, res, 
       const { firstName , lastName,email, password, confirmPassword } = req.body;
       let profileImageUrl = null
       let isExist = await User.findOne({where:{email:email}})
+       if (password.length < 8) {
+        const err = new Error('Password must be more than eight charactors');
+        err.status = 401;
+        err.title = "Validation Errors";
+        err.errors = {password:'Password must be more than eight charactors'}
+        return next(err);
+      }
       if(isExist){
         const err = Error('Validation error');
         err.errors = {email:"Email already exists"}
