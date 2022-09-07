@@ -75,7 +75,7 @@ router.get('/:id', async(req,res,next) => {
       )
 
     if(!video){
-       const err = new Error("Video cann't be found");
+       const err = new Error("Video cann't be empty, Please provide video");
         err.statusCode = 404;
         return next(err);
     }
