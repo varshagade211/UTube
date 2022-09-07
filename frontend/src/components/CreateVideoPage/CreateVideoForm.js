@@ -39,7 +39,7 @@ const CreateVideoForm = ({setShowModal}) => {
             setShowSpinner(false)
             const data = await res.json();
             if(!video && data.errors.url === undefined) {
-                data.errors["url"]="Video cann't be empty, Please provide video"
+                data.errors["url"]="Video is required"
             }
             if (data && data.errors) {
                 setErrors(data.errors);
