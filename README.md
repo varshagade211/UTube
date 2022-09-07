@@ -29,7 +29,7 @@ Please see below link to project wiki: <br />
 
 #### Hosting:
 ![Heroku](heroku.svg) <br />
-&nbsp;  &nbsp;  &nbsp;
+<br />
 <img src="aws.png" alt="AWS" style="width:60px;margin-top: 2rem" /><br />
 
 
