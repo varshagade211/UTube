@@ -10,6 +10,7 @@ import SideBar from './SideBar'
 import './SingleVideoPage.css'
 import {getSpentTime} from './DateUtils'
 import { useHistory } from 'react-router-dom';
+import { useState } from "react"
 
 // video files
 // import vid1 from '../videos/videoplayback.mp4'
@@ -24,7 +25,6 @@ import { useHistory } from 'react-router-dom';
 // import vid10 from '../videos/nature.mp4'
 // import vid11 from '../videos/Relaxing_Rain_Music.mp4'
 // import vid12 from '../videos/Water_falls_nature.mp4'
-// import { useState } from "react"
 
 // const localVideo = [vid1,vid2,vid3,vid4,vid5,vid6,vid7,vid8,vid9,vid10,vid11,vid12]
 
