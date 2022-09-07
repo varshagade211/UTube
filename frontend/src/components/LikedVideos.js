@@ -22,8 +22,8 @@ function LikeddVideos(){
 
     let likdeVideos = []
     for(let i=0; i<videos?.length; i++){
-        let likes = videos[i].Likes
-        for(let j=0; j<likes.length; j++){
+        let likes = videos[i]?.Likes
+        for(let j=0; j<likes?.length; j++){
             if( likes[j]?.likerId === sessionUser?.id){
                 likdeVideos.push(videos[i])
             }
