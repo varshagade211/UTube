@@ -21,6 +21,8 @@ Please see below link to project wiki: <br />
 
 ## Feature Directions:
 
+User will be able to test features without signup. User can loging as Demo use by clicking on "Demo User" button in the sign in form
+
 * Sign-Up form
 
 ![UTube](sign-up-form.JPG) &nbsp;  &nbsp;  &nbsp;
@@ -30,7 +32,7 @@ Please see below link to project wiki: <br />
 ![UTube](sign-in-form.JPG) &nbsp;  &nbsp;  &nbsp;
 
 * Home Page Demo User:
-    You will be able to test features without signup by clicking on "Demo User" button.
+
 
 ![UTube](home-page-UTbe.JPG) &nbsp;  &nbsp;  &nbsp;
 
