@@ -8,7 +8,8 @@ const { handleValidationErrors } = require('../../utils/validation');
 const validateLogin = [
   check('email')
     .exists({ checkFalsy: true })
-    .withMessage('Email is required'),
+    .withMessage('Email is required')
+    .bail(),
   check("email")
     .isEmail()
     .withMessage('Please provide a valid email'),
@@ -22,7 +23,7 @@ const validateLogin = [
 router.post('/login', validateLogin, async (req, res, next) => {
 
       const { email, password } = req.body;
-     
+
 
       const user = await User.login({ email, password });
 

@@ -11,25 +11,33 @@ const validateSignup = [
   check('email')
     .exists({ checkFalsy: true })
     .isString()
-    .withMessage('Please provide a valid email.'),
+    .withMessage('Email is required')
+    .bail(),
   check('email')
     .isEmail()
-    .withMessage('Please provide a valid email.'),
+    .withMessage('Please provide a valid email'),
   check('firstName')
     .exists({ checkFalsy: true })
-    .withMessage('First Name is required'),
+    .withMessage('First Name is required')
+    .bail(),
   check('firstName')
     .isString()
     .withMessage('First Name is required'),
   check('lastName')
     .exists({ checkFalsy: true })
-    .withMessage('Last Name is required'),
+    .withMessage('Last Name is required')
+    .bail(),
   check('lastName')
     .isString()
     .withMessage('Last Name is required'),
   check('password')
     .exists({ checkFalsy: true })
-    .withMessage('password is required'),
+    .withMessage('password is required')
+    .bail(),
+  check('password')
+    .isLength({ min: 8, max:8 })
+    .withMessage('Password must be more than eight characters'),
+
 
   handleValidationErrors
 ];
@@ -39,13 +47,13 @@ router.post('/', singleMulterUpload("image"),  validateSignup, async (req, res, 
       const { firstName , lastName,email, password, confirmPassword } = req.body;
       let profileImageUrl = null
       let isExist = await User.findOne({where:{email:email}})
-       if (password.length < 8) {
-        const err = new Error('Password must be more than eight characters');
-        err.status = 401;
-        err.title = "Validation Errors";
-        err.errors = {password:'Password must be more than eight characters'}
-        return next(err);
-      }
+      //  if (password.length < 8) {
+      //   const err = new Error('Password must be more than eight characters');
+      //   err.status = 401;
+      //   err.title = "Validation Errors";
+      //   err.errors = {password:'Password must be more than eight characters'}
+      //   return next(err);
+      // }
       if(isExist){
         const err = Error('Validation error');
         err.errors = {email:"Email already exists"}
