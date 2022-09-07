@@ -29,6 +29,9 @@ module.exports = (sequelize, DataTypes) => {
     likableType: {
       type:DataTypes.STRING,
       allowNull:false
+    },
+    type:{
+      type:DataTypes.BOOLEAN
     }
   }, {
     sequelize,

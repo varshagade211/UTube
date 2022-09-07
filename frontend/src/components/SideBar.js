@@ -16,28 +16,28 @@ function SideBar(){
 
             </div>
 
-            <div className='sidebarLinkContainer' onClick={() => history.push('/explore')}>
+            {/* <div className='sidebarLinkContainer' onClick={() => history.push('/explore')}>
                <i className= {location?.pathname ==='/explore'? "fa-regular fa-compass sideiconActive"
                 :"fa-regular fa-compass sidebarexplorerIcon"}></i>
                  <p className='sidebarLinks'>Explore</p>
 
 
-            </div>
+            </div> */}
 
-            <div className='sidebarLinkContainer' onClick={() => history.push('/subscription')}>
+            {/* <div className='sidebarLinkContainer' onClick={() => history.push('/subscription')}>
 
                     <i className={location?.pathname ==='/subscription'?"fa-brands fa-square-youtube sideiconActive"
                 :"fa-brands fa-square-youtube sidebarsubscriptionsIcon"}></i>
 
                  <p className='sidebarLinks'>Subscriptions</p>
 
-            </div>
+            </div> */}
 
-            <div className='sidebarLinkContainer' onClick={() => history.push('/library')}>
+            {/* <div className='sidebarLinkContainer' onClick={() => history.push('/library')}>
                 <i className={location?.pathname === '/library'?"fa-solid fa-photo-film sideiconActive"
                 :"fa-solid fa-photo-film sidebarlibraryIcon"}></i>
                  <p className='sidebarLinks'>Library</p>
-            </div>
+            </div> */}
 
             {sessionUser?.id && <div className='sidebarLinkContainer' onClick={() => history.push(`/${sessionUser?.id}/videos`)}>
 
@@ -47,6 +47,13 @@ function SideBar(){
                <p className='sidebarLinks'>Your Videos</p>
             </div>}
 
+            {sessionUser?.id && <div className='sidebarLinkContainer' onClick={() => history.push(`/${sessionUser?.id}/likedvideos`)}>
+            
+                <i className={location?.pathname === `/${sessionUser?.id}/likedvideos`?"fa-solid fa-thumbs-up  sideiconActive":
+                "fa-solid fa-thumbs-up  sideYourVideosIcon "}>
+                </i>
+                <p className='sidebarLinks'>Liked Videos</p>
+            </div>}
 
         </div>
     )

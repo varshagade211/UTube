@@ -65,7 +65,7 @@ export const createCommentThunkCreator = (commentData) => async (dispatch) => {
     return response;
 }
 
-export const editCommentThunkCreator = (commentData) => async (dispatch) => {
+export const editCommentThunkCreator = ((commentData) => async (dispatch) => {
 
     const {comment, id} = commentData
     const response = await csrfFetch(`/api/comment/${id}`,
@@ -79,10 +79,10 @@ export const editCommentThunkCreator = (commentData) => async (dispatch) => {
     const newComment = await response.json()
     dispatch(editComment(newComment))
     return response;
-}
+})
 
 
-export const deleteCommentThunkCreator = (commentId) => async(dispatch) => {
+export const deleteCommentThunkCreator = ((commentId) => async(dispatch) => {
     const response = await csrfFetch(`/api/comment/${commentId}`,
     {
         method: 'DELETE',
@@ -93,7 +93,7 @@ export const deleteCommentThunkCreator = (commentId) => async(dispatch) => {
     }
 
     return response
-}
+})
 
 
 const initialState = {};

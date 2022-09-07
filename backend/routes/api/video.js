@@ -97,7 +97,7 @@ router.post('/',  singleMulterUpload("video"), requireAuth, validateVideo, async
 
     if(!req.file){
         const err = Error('Validation error');
-        err.errors = {url:"Video url cannot be empty"}
+        err.errors = {url:"Video is required"}
         err.status = 400;
         err.title = "Validation Errors"
         return next(err);

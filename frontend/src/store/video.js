@@ -61,7 +61,7 @@ export const getSingleVideoThunkCreator = ((id) => async (dispatch) =>{
 
 
 
-export const createVideoThunkCreator = ( (videoInfo) => async (dispatch) => {
+export const createVideoThunkCreator = ((videoInfo) => async (dispatch) => {
    const {video, videos, title , description} = videoInfo;
    const formData = new FormData();
    formData.append('title', title);
@@ -92,7 +92,7 @@ export const createVideoThunkCreator = ( (videoInfo) => async (dispatch) => {
 })
 
 
-export const editVideoThunkCreator = (video) => async(dispatch) => {
+export const editVideoThunkCreator = ((video) => async(dispatch) => {
     const {id, title,description} = video
     const response = await csrfFetch(`/api/video/${id}`,
     {
@@ -104,9 +104,9 @@ export const editVideoThunkCreator = (video) => async(dispatch) => {
     dispatch(editVideo(editedVideo))
     return response
 
-}
+})
 
-export const deleteVideoThunkCreator = (videoId) => async(dispatch) => {
+export const deleteVideoThunkCreator = ((videoId) => async(dispatch) => {
     const response = await csrfFetch(`/api/video/${videoId}`,
     {
         method: 'DELETE',
@@ -115,7 +115,7 @@ export const deleteVideoThunkCreator = (videoId) => async(dispatch) => {
     dispatch(deletVideo(videoId))
     return response
 
-}
+})
 
 
 

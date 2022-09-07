@@ -1,6 +1,7 @@
 import { useSelector,useDispatch } from "react-redux"
 import { useParams } from "react-router-dom"
 import * as videoActions from '../store/video'
+import * as likeActions from '../store/like'
 import { useEffect,useContext,useRef } from "react"
 import Comments from './Comments'
 import {SideBarContext} from '../context/SideBarContext'
@@ -23,21 +24,29 @@ import { useHistory } from 'react-router-dom';
 // import vid10 from '../videos/nature.mp4'
 // import vid11 from '../videos/Relaxing_Rain_Music.mp4'
 // import vid12 from '../videos/Water_falls_nature.mp4'
+// import { useState } from "react"
 
 // const localVideo = [vid1,vid2,vid3,vid4,vid5,vid6,vid7,vid8,vid9,vid10,vid11,vid12]
 
 function SingleVideoPage(){
     const dispatch = useDispatch()
     const foundVideo = useSelector(state => state?.videos?.singleVideo)
+    const likeData= useSelector(state => state?.likes)
+    const sessionUser = useSelector(state => state.session.user);
     const {id} = useParams()
     const {isSidebar} = useContext(SideBarContext)
     const history = useHistory()
     const videos = useSelector(state => state?.videos?.videos)
     const singlePageVideoTag = useRef(null);
+    const [isLiked, setIsLiked] = useState(likeData?.likes?.filter(like => like?.likerId === sessionUser?.id)?.length)
+    const [isDisLiked, setIsDisLiked] = useState(likeData?.dislikes?.filter(dislike => dislike?.likerId === sessionUser?.id)?.length)
+
+
 
     useEffect(()=>{
          dispatch(videoActions.getSingleVideoThunkCreator(id))
          const response = dispatch(videoActions.getAllVideosThunkCreator())
+         dispatch(likeActions.getAllLikesThunkCreator(id))
 
     },[dispatch,id])
 
@@ -49,6 +58,37 @@ function SingleVideoPage(){
 
     const videoClickHandler = (video) => {
         history.push(`/video/${video?.id}`)
+
+    }
+    useEffect(()=>{
+        setIsLiked(likeData?.likes?.filter(like => like?.likerId === sessionUser?.id)?.length)
+        setIsDisLiked(likeData?.dislikes?.filter(dislike => dislike?.likerId === sessionUser?.id)?.length)
+    },[likeData?.likes,likeData?.dislikes])
+
+    const likeHandler = ()=>{
+        if(isLiked){
+            dispatch(likeActions.deleteLikeThunkCreator({type:true,videoId:foundVideo?.id}))
+        }else{
+            if(isDisLiked){
+                dispatch(likeActions.editLikeThunkCreator({type:true,videoId:foundVideo?.id}))
+            }else{
+                dispatch(likeActions.createLikeThunkCreator({type:true,videoId:foundVideo?.id}))
+            }
+
+        }
+    }
+
+    const disLikeHandler = ()=>{
+        if(isDisLiked){
+            dispatch(likeActions.deleteLikeThunkCreator({type:false,videoId:foundVideo?.id}))
+
+        }else{
+           if(isLiked){
+            dispatch(likeActions.editLikeThunkCreator({type:false,videoId:foundVideo?.id}))
+           }else{
+            dispatch(likeActions.createLikeThunkCreator({type:false,videoId:foundVideo?.id}))
+           }
+        }
 
     }
     return(
@@ -67,7 +107,22 @@ function SingleVideoPage(){
                         </div>
                         <div className="singlePageTitleViewsContainer">
                             <h3 className="singlePageTitle">{foundVideo?.title}</h3>
-                            <p className="singlePageViews">{foundVideo?.views} views . {new Date(foundVideo?.createdAt)?.toDateString()}</p>
+                            <div className="viewsAndLikeDislikContainer">
+                            <span className="singlePageViews">{foundVideo?.views} views . {new Date(foundVideo?.createdAt)?.toDateString()}</span>
+                            <div className="likeDislikeContainer">
+                            <div className="likeContainer">
+                               {isLiked === 0 && <i onClick={likeHandler} className="fa-regular fa-thumbs-up thumbsUpIcon"></i>}
+                               {isLiked !== 0 && <i onClick={likeHandler} className="fa-solid fa-thumbs-up thumbsUpIcon"></i>}
+                               <span className='likeCount'>{likeData?.likes?.length}</span>
+
+                            </div>
+                            <div className="likeContainer">
+                               {isDisLiked === 0 &&<i onClick={disLikeHandler} className="fa-regular fa-thumbs-down thumbsUpIcon"></i>}
+                               {isDisLiked !== 0 &&<i onClick={disLikeHandler} className="fa-solid fa-thumbs-down thumbsUpIcon"></i>}
+                               <span className='disLikeCount'>{likeData?.dislikes?.length}</span>
+                            </div>
+                            </div>
+                            </div>
                             <hr className="singlepageHr"></hr>
                             <div className="singlePageProfileImageAndNameContainer">
                                 {foundVideo?.uploader?.profileImageUrl
@@ -107,6 +162,7 @@ function SingleVideoPage(){
                                     <p className="suggestedUserViews">{vid?.User?.firstName}{vid?.User?.lastName}</p>
                                     <p className="suggestedUserViews">{vid?.views} views . {getSpentTime(vid?.createdAt)}</p>
                                 </div>
+
                             </div>
                         </div>
                     </div>

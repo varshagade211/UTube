@@ -143,6 +143,28 @@
     margin: auto;
 }
 
+.thumbsUpIcon{
+
+    font-size: 1.1rem;
+   
+}
+.viewsAndLikeDislikContainer{
+    display: flex;
+    justify-content: space-between;
+}
+.likeContainer{
+    display: flex;
+    margin: 0 1rem 0 1rem;
+}
+
+
+.likeDislikeContainer{
+    display: flex;
+}
+.disLikeCount,.likeCount{
+    margin: 0.15rem 0 0 1rem;
+    font-size: 0.85rem;
+}
 @media only screen and (max-width: 1000px)  {
 
 
@@ -170,4 +192,19 @@
         color: rgba(0, 0, 0, 0.782);
         overflow-wrap: anywhere;
     }
+}
+
+
+
+@media only screen and (max-width: 400px)  {
+    .viewsAndLikeDislikContainer{
+        display: block;
+    }
+    .likeContainer{
+        display: flex;
+        margin: 1rem 1rem 1rem 0rem;
+    }
+
+
+
 }

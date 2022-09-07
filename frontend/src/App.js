@@ -8,10 +8,11 @@ import Navigation from "./components/Navigation";
 import Home from './components/Home'
 import YourVideos from './components/YourVideos'
 import SearchedVideos from './components/SearchedVideos'
-
+import LikeddVideos from './components/LikedVideos'
 import  SingleVideoPage from './components/SingleVideoPage'
 import './App.css'
 import ProtectedRoute from './components/ProtectedRoute'
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -46,6 +47,10 @@ function App() {
         <ProtectedRoute exact={true} path="/:userId/videos">
           <Navigation isLoaded={isLoaded} />
           <YourVideos />
+        </ProtectedRoute>
+        <ProtectedRoute exact={true} path="/:userId/likedvideos">
+          <Navigation isLoaded={isLoaded} />
+          <LikeddVideos />
         </ProtectedRoute>
       </Switch>
     )}

@@ -13,12 +13,13 @@ function VideoCard({video}) {
     const history = useHistory()
     const videoCardVideoTag = useRef(null);
     const playHandler = (target) => {
-            target.currentTime = 0;
-            target.play();
+        target.currentTime = 0;
+        target.play();
     }
 
     const pauseHandler = (target)=> {
-        target.load()
+        // target.load()
+        target.pause();
     }
 
     const videoClickHandler = () => {
@@ -35,7 +36,7 @@ function VideoCard({video}) {
         <div className='vidioInfoContainer'>
             <div className='vidioTagContainer'>
              <video ref={videoCardVideoTag} onClick={videoClickHandler} onMouseEnter={(e)=>playHandler(e.target)} onMouseLeave={(e)=>pauseHandler(e.target)} className='vidioTag'  muted playsInline >
-                <source src={video?.url} type={video?.type}/>
+                  <source src={video?.url} type={video?.type}/>
                 {/* <source src={localVideo} type={video?.type}/> */}
             </video>
 

@@ -7,7 +7,7 @@ import DeleteVideoFormModal from './DeleteModalPage';
 import {getSpentTime} from './DateUtils'
 import './FlatVideoCard.css'
 
-// function FlatVideoCard({video,localVideo}) {
+// function FlatVideoCard({video,localVideo, type}) {
 function FlatVideoCard({video}) {
     const sessionUser = useSelector(state => state.session.user);
     const history = useHistory()
@@ -42,16 +42,16 @@ function FlatVideoCard({video}) {
                 <div>
 
                 <h3 className='flatVideoUserTitle'>{video?.title}</h3>
-                {/* <p className="suggestedUserTitleBigScreen"> {vid?.title?.substring(0,50)}{vid?.title?.length > 50 && '...'}</p> */}
                 <p className='flatVideoUserDescription'>{video?.description?.substring(0,150)}
                 {video?.description?.length > 150 && '...'}</p>
                 <p className='flatVideoViews'>{video?.views} views  . {getSpentTime(video?.createdAt)}</p>
-
+                {/* {type === 'likeddVideos' &&<i  className="fa-regular fa-thumbs-down thumbsUpIcon"></i>} */}
 
 
                 </div>
 
                 {showDelete && <div className='flatDropDownMenu'>
+
                     <EditVideoFormModal video={video} setShowDelete={setShowDelete}/>
                     <DeleteVideoFormModal video={video} type={'video'} setShowDelete={setShowDelete}/>
                 </div>}

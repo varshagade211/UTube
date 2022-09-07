@@ -14,26 +14,26 @@ function SmallSideBar(){
 
             </div>
 
-            <div className='linkContainer' onClick={() => history.push('/explore')}>
+            {/* <div className='linkContainer' onClick={() => history.push('/explore')}>
             <i className= {location?.pathname ==='/explore'? "fa-regular fa-compass iconActive"
                 :"fa-regular fa-compass explorerIcon"}></i>
                 <p className='smallSidebarLinks'>Explore</p>
 
-            </div>
-            <div className='linkContainer' onClick={() => history.push('/subscription')}>
+            </div> */}
+            {/* <div className='linkContainer' onClick={() => history.push('/subscription')}>
 
                     <i className={location?.pathname ==='/subscription'?"fa-brands fa-square-youtube iconActive"
                 :"fa-brands fa-square-youtube subscriptionsIcon"}></i>
 
                     <p className='smallSidebarLinks '>Subscriptions</p>
 
-            </div>
-            <div className='linkContainer' onClick={() => history.push('/library')}>
+            </div> */}
+            {/* <div className='linkContainer' onClick={() => history.push('/library')}>
               <i className={location?.pathname === '/library'?"fa-solid fa-photo-film iconActive"
                 :"fa-solid fa-photo-film libraryIcon"}></i>
                     <p className='smallSidebarLinks'>Library</p>
 
-            </div>
+            </div> */}
 
 
         </div>
