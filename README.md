@@ -20,7 +20,7 @@ Please see below link to project wiki: <br />
 ![Redux](redux.svg) <br />
 ![HTML](HTML.svg) <br />
 ![CSS3](css3.svg) <br />
-<img src="express.png" alt="AWS" style="width:100px;margin: 2rem 1rem 1rem 1rem" />
+<img src="express.png" alt="express" style="width:100px;margin: 2rem 1rem 1rem 1rem" />
 #### Database:
 ![Sqlite3](sqlite3.svg)  <br />
 ### ORM:
