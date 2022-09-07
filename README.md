@@ -73,7 +73,7 @@ User will be able to test features without signup. User can loging as Demo use b
 
 ![UTube](delete-video-form.JPG) &nbsp;  &nbsp;  &nbsp;
 
-* Edit comment form on opens on the place
+* Edit comment form on open ups on the place
 
 ![UTube](edit-comment-form.JPG) &nbsp;  &nbsp;  &nbsp;
 
