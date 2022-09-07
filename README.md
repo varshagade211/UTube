@@ -32,19 +32,19 @@ Please see below link to project wiki: <br />
 * Home Page Demo User:
     You will be able to test features without signup by clicking on "Demo User" button.
 
-![UTube](home-page-Utbe.JPG) &nbsp;  &nbsp;  &nbsp;
+![UTube](home-page-UTbe.JPG) &nbsp;  &nbsp;  &nbsp;
 
-![UTube](home-page-Utube.JPG) &nbsp;  &nbsp;  &nbsp;
+![UTube](home-page-UTube.JPG) &nbsp;  &nbsp;  &nbsp;
 
 
 * Single page playing video -
 
-![UTube](single-page-Utube.JPG) &nbsp;  &nbsp;  &nbsp;
+![UTube](single-page-UTube.JPG) &nbsp;  &nbsp;  &nbsp;
 
 
 * Comment section -
 
-![UTube](comment-section-Utube.JPG) &nbsp;  &nbsp;  &nbsp;
+![UTube](comment-section-UTube.JPG) &nbsp;  &nbsp;  &nbsp;
 
 * User's uploaded videos section -
 
