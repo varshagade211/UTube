@@ -51,7 +51,7 @@ User will be able to test features without signup. User can loging as Demo use b
 
 * User's uploaded videos section -
 
-![UTube](user-uploade-videos.JPG) &nbsp;  &nbsp;  &nbsp;
+![UTube](user-uploaded-videos.JPG) &nbsp;  &nbsp;  &nbsp;
 
 
 * User's liked videos section -
