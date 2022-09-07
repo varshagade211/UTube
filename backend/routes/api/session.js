@@ -8,7 +8,6 @@ const { handleValidationErrors } = require('../../utils/validation');
 const validateLogin = [
   check('email')
     .exists({ checkFalsy: true })
-    .bail()
     .withMessage('Email is required'),
   check("email")
     .isEmail()

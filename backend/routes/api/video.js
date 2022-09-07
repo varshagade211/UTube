@@ -12,7 +12,6 @@ const { handleValidationErrors } = require('../../utils/validation');
 const validateVideo = [
     check('title')
       .exists({ checkFalsy: true })
-      .bail()
       .withMessage('Title is required.'),
 
     check('title')
@@ -20,7 +19,6 @@ const validateVideo = [
       .withMessage('Title is greater than 100 characters'),
     check('description')
       .exists({ checkFalsy: true })
-      .bail()
       .withMessage('Description is required'),
 
     check('description')
