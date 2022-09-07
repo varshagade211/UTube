@@ -15,11 +15,11 @@ Please see below link to project wiki: <br />
 ### This project is built with: <br />
 
 #### Frameworks, Platforms, and Libraries:
-![Javascript](Javascript.svg) &nbsp;  &nbsp;  &nbsp;
+![Javascript](Javascript.svg) <br />
 ![Express]() <br />
 ![React](react.svg)  <br />
 ![Redux](redux.svg) <br />
-![HTML](HTML.svg) &nbsp;  &nbsp;  &nbsp;
+![HTML](HTML.svg) <br />
 ![CSS3](css3.svg) <br />
 #### Database:
 ![Sqlite3](sqlite3.svg)  <br />
