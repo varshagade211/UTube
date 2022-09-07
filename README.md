@@ -24,8 +24,9 @@ Please see below link to project wiki: <br />
 
 #### Database:
 ![Sqlite3](sqlite3.svg)  <br />
-### ORM:
-<img src="sequilize.png" alt="sequilize" style="width:70px;width:70px;margin-top: 2rem" /><br />
+
+### Sequelize ORM:
+<img src="sequelize.png" alt="sequilize" style="width:70px;width:70px;margin-top: 2rem" /><br />
 
 #### Hosting:
 ![Heroku](heroku.svg) <br />
