@@ -27,7 +27,7 @@ Please see below link to project wiki: <br />
 ![sequelize](sequelize.html)
 #### Hosting:
 ![Heroku](heroku.svg) <br />
-![AWS](aws.png) <br />
+<img src="aws.png" alt="AWS" style="width:200px;"/>
 
 
 ## Feature Directions:
