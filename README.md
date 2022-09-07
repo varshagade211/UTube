@@ -19,7 +19,7 @@ JavaScript <br />
 Express <br />
 React  <br />
 Redux <br />
-![UTube](HTML.JPG) &nbsp;  &nbsp;  &nbsp;
+![UTube](HTML.svg) &nbsp;  &nbsp;  &nbsp;
 CSS3 <br />
 #### Database:
 Sqlite3  <br />
