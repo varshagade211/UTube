@@ -32,7 +32,7 @@ User will be able to test features without signup. User can loging as Demo use b
 * Sign-In form
 ![UTube](sign-in-form.JPG) &nbsp;  &nbsp;  &nbsp;
 
-* Home Page Demo User:
+* Home Page:
 
 
 ![UTube](home-page-UTbe.JPG) &nbsp;  &nbsp;  &nbsp;
