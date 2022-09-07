@@ -8,7 +8,7 @@ import {getSpentTime} from './DateUtils'
 import './FlatVideoCard.css'
 
 // function FlatVideoCard({video,localVideo, type}) {
-function FlatVideoCard({video}) {
+function FlatVideoCard({video,type}) {
     const sessionUser = useSelector(state => state.session.user);
     const history = useHistory()
     const [showDelete, setShowDelete] = useState(false)
@@ -50,13 +50,13 @@ function FlatVideoCard({video}) {
 
                 </div>
 
-                {showDelete && <div className='flatDropDownMenu'>
+                {showDelete && type !== 'likeddVideos' && <div className='flatDropDownMenu'>
 
                     <EditVideoFormModal video={video} setShowDelete={setShowDelete}/>
                     <DeleteVideoFormModal video={video} type={'video'} setShowDelete={setShowDelete}/>
                 </div>}
 
-                {sessionUser?.id === video?.uploaderId &&<div onClick={editDeleteDropdown} className='flatVerticalIconContainer'>
+                {sessionUser?.id === video?.uploaderId && type !== 'likeddVideos' &&<div onClick={editDeleteDropdown} className='flatVerticalIconContainer'>
                 <i className="fa-solid fa-ellipsis-vertical flatVerticalIcon"></i>
                 </div>}
             </div>

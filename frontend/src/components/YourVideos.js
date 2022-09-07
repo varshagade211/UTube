@@ -56,7 +56,7 @@ function YourVideos () {
             {userVideo?.length === 0 && <h2>No videos created yet, Please create some videos..........</h2>}
             {userVideo?.length !== 0 && userVideo?.map((video,i) => {
                 return(
-                    <FlatVideoCard video={video} />
+                    <FlatVideoCard video={video} type={"yourVideos"} />
                     // <FlatVideoCard video={video} localVideo={localVideo[i]} />
                     )
             })}

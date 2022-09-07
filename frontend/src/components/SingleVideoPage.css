@@ -146,7 +146,8 @@
 .thumbsUpIcon{
 
     font-size: 1.1rem;
-   
+    cursor: pointer;
+
 }
 .viewsAndLikeDislikContainer{
     display: flex;
