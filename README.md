@@ -15,19 +15,19 @@ Please see below link to project wiki: <br />
 ### This project is built with: <br />
 
 #### Frameworks, Platforms, and Libraries:
-JavaScript <br />
-Express <br />
-React  <br />
-Redux <br />
-![UTube](HTML.svg) &nbsp;  &nbsp;  &nbsp;
-CSS3 <br />
+![Javascript](Javascript.svg) &nbsp;  &nbsp;  &nbsp;
+![Express]() <br />
+![React](react.svg)  <br />
+![Redux](redux.svg) <br />
+![HTML](HTML.svg) &nbsp;  &nbsp;  &nbsp;
+![CSS3](css3.svg) <br />
 #### Database:
-Sqlite3  <br />
-
+![Sqlite3](sqlite3.svg)  <br />
+### ORM:
+![sequelize](sequelize.html)
 #### Hosting:
-Docker <br />
-Heroku <br />
-AWS <br />
+![Heroku](heroku.svg) <br />
+![AWS](aws.png) <br />
 
 
 ## Feature Directions:
