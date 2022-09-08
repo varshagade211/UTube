@@ -44,7 +44,7 @@ function SideBar(){
             {sessionUser?.id && <div className='sidebarLinkContainer' onClick={() => history.push(`/${sessionUser?.id}/videos`)}>
 
                     <i className={location?.pathname === `/${sessionUser?.id}/videos`?"fa-regular fa-circle-play sideiconActive":
-                    "fa-regular fa-circle-play ssidebarhomeIcon "}>
+                    "fa-regular fa-circle-play sidebarhomeIcon "}>
                 </i>
                <p className='sidebarLinks'>Your Videos</p>
             </div>}
