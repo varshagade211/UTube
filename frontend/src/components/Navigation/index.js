@@ -33,7 +33,7 @@ function Navigation({ isLoaded }){
          <i class="fa-solid fa-magnifying-glass smallScreenSearchIcon" onClick={()=>setSmallScreenForm(prev => !prev)} ></i>
         <CreateVideoFormModal />
 
-        <a href={"https://github.com/varshagade211"} > <i className="fa-brands fa-github gitHubIcon"></i> </a>
+        <a href={"https://github.com/varshagade211/UTube"} > <i className="fa-brands fa-github gitHubIcon"></i> </a>
 
        <a  href={"https://www.linkedin.com/in/varsha-gade-7b33aa174/"}>
        <i className="fa-brands fa-linkedin linkeInIcon"></i></a>
