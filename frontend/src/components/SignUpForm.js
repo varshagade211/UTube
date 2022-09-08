@@ -97,7 +97,7 @@ const SignupFormPage = () => {
           }
 
             {errors?.lastName &&
-            <div className="errorContainer">
+            <div className={errors.lastName?.length>47&&"errorContainer"}>
               <div>
                 <i class="fa-solid fa-circle-exclamation signUpEerrorlogo"></i>
                 <span className='signUpError' key={errors.lastName}>{errors.lastName}</span>

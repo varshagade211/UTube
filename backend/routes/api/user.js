@@ -21,12 +21,18 @@ const validateSignup = [
   check('firstName')
     .isString()
     .withMessage('First Name is required'),
+  check('firstName')
+    .isLength({max:30})
+    .withMessage('Please provide firstname less than 30 characters'),
   check('lastName')
     .exists({ checkFalsy: true })
     .withMessage('Last Name is required'),
   check('lastName')
     .isString()
     .withMessage('Last Name is required'),
+  check('lastName')
+    .isLength({max:30})
+    .withMessage('Please provide lastname less than 30 characters'),
   check('password')
     .exists({ checkFalsy: true })
     .withMessage('Password is required'),
