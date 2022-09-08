@@ -15,23 +15,23 @@ Please see below link to project wiki: <br />
 ### This project is built with: <br />
 
 #### Frameworks, Platforms, and Libraries:
-![Javascript](Javascript.svg) <br />
-<img src="express.png" alt="express" style="width:100px;margin-top: 2rem" /><br />
-![React](react.svg)  <br />
-![Redux](redux.svg) <br />
-![HTML](HTML.svg) <br />
-![CSS3](css3.svg) <br />
+![Javascript](Javascript.svg)
+<img src="express.png" alt="express" style="width:100px;margin-top: 2rem" />
+![React](react.svg)
+![Redux](redux.svg)
+![HTML](HTML.svg)
+![CSS3](css3.svg)
 
 #### Database:
-![Sqlite3](sqlite3.svg)  <br />
+![Sqlite3](sqlite3.svg)
 
 ### Sequelize ORM:
-<img src="sequelize.png" alt="sequelize" style="width:70px;width:70px;margin-top: 2rem" /><br />
+<img src="sequelize.png" alt="sequelize" style="width:70px;width:70px;margin-top: 2rem" />
 
 #### Hosting:
-![Heroku](heroku.svg) <br />
+![Heroku](heroku.svg)
 <br />
-<img src="aws.png" alt="AWS" style="width:60px;margin-top: 2rem" /><br />
+<img src="aws.png" alt="AWS" style="width:60px;margin-top: 2rem" />
 
 
 ## Feature Directions:
