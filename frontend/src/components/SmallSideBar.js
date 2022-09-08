@@ -46,7 +46,7 @@ function SmallSideBar(){
 
             {sessionUser?.id && <div className='linkContainer' onClick={() => history.push(`/${sessionUser?.id}/likedvideos`)}>
                <i className={location?.pathname === `/${sessionUser?.id}/likedvideos`?"fa-solid fa-thumbs-up  iconActive":
-                "fa-solid fa-thumbs-up  sideYourVideosIcon "}>
+                "fa-solid fa-thumbs-up  homeIcon "}>
                </i>
                <p className='smallSidebarLinks'>Liked Videos</p>
             </div>}

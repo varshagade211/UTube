@@ -44,7 +44,7 @@ function SideBar(){
             {sessionUser?.id && <div className='sidebarLinkContainer' onClick={() => history.push(`/${sessionUser?.id}/videos`)}>
 
                     <i className={location?.pathname === `/${sessionUser?.id}/videos`?"fa-regular fa-circle-play sideiconActive":
-                    "fa-regular fa-circle-play sideYourVideosIcon "}>
+                    "fa-regular fa-circle-play ssidebarhomeIcon "}>
                 </i>
                <p className='sidebarLinks'>Your Videos</p>
             </div>}
@@ -52,7 +52,7 @@ function SideBar(){
             {sessionUser?.id && <div className='sidebarLinkContainer' onClick={() => history.push(`/${sessionUser?.id}/likedvideos`)}>
 
                 <i className={location?.pathname === `/${sessionUser?.id}/likedvideos`?"fa-solid fa-thumbs-up  sideiconActive":
-                "fa-solid fa-thumbs-up  sideYourVideosIcon "}>
+                "fa-solid fa-thumbs-up  sidebarhomeIcon "}>
                 </i>
                 <p className='sidebarLinks'>Liked Videos</p>
             </div>}

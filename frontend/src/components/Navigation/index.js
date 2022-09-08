@@ -30,7 +30,7 @@ function Navigation({ isLoaded }){
   if (sessionUser) {
     sessionLinks = (
       <div className='profileBtnAndCreateVideoBtnContainer'>
-         <i class="fa-brands fa-youtube smallScreenLogo"></i>
+
          <i class="fa-solid fa-magnifying-glass smallScreenSearchIcon" onClick={()=>setSmallScreenForm(prev => !prev)} ></i>
         <CreateVideoFormModal />
 
@@ -51,7 +51,7 @@ function Navigation({ isLoaded }){
       <>
         {/* <LoginFormModal /> */}
        <div className='signinBtnContainer'>
-       <i class="fa-brands fa-youtube smallScreenLogo"></i>
+   
        <i class="fa-solid fa-magnifying-glass smallScreenSearchIcon" onClick={()=>setSmallScreenForm(prev => !prev)} ></i>
 
        <a href={"https://github.com/varshagade211/UTube"} ><i className="fa-brands fa-github gitHubIcon"></i> </a>

@@ -128,9 +128,7 @@ display: none;
 }
 
 
-.smallScreenLogo{
-    display: none;
-}
+
 @media only screen and (min-width: 1300px) {
 .searchForm{
 width: 30%;
@@ -188,24 +186,23 @@ width: 30%;
     /* .createVideoIcon{
         margin: 0 0 0 0;
     } */
-    .logoBarIconContainer {
+    .logo {
       display: none;
     }
-    /* .logoBarIconContainer{
+    .logoBarIconContainer{
+        width: 10%;
+    }
 
+    /* .logoBarIconContainer a{
         display: flex;
         align-items: center;
         width: 10%;
     } */
     .profileBtnAndCreateVideoBtnContainer{
         display: flex;
-        width:100%;
-        justify-content: space-between;
+        width:60%;
+        /* justify-content: space-between; */
     }
-    .smallScreenLogo{
-        display: inline;
-        color: red;
-        margin: 0.3rem 0 0 0.2rem;
-    }
+
 
   }

@@ -34,7 +34,8 @@ function Home () {
     },[dispatch])
     return (
         <div className={isSidebar?'homePageOuterContainer':"oncloseSidebar"}>
-            {isSidebar? <SideBar />  : <SmallSideBar/>}
+          {isSidebar? <SideBar />  : <SmallSideBar/>}
+
             <div className='homeVideoContainer'>
                 {videos.length === 0 && <h2>No videos created yet, Please create some videos..........</h2>}
                 {videos.length !== 0 && videos?.map((video,i) => {
