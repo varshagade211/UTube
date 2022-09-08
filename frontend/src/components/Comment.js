@@ -85,22 +85,28 @@ function Comment ({comment}) {
                     <div className='editCommentFormContainer'>
                         <form onSubmit={editSubmitHandler}>
                             <textarea className='editCommentInput' ref={textArea}  rows={1} value={commentData} onChange={(e)=>onCommentChangeHandler(e)} ></textarea>
-                            {errors?.comment &&
-                                <div className="errorContainer">
-                                    <div>
-                                        <i classNamedr ="fa-solid fa-circle-exclamation editCommentErrorlogo"></i>
-                                        <span className='editCommentError' key={errors.comment}>{errors.comment}</span>
-                                    </div>
 
-                                </div>
-                            }
-
+                        {errors?.comment &&
+                            <div className="errorContainer">
+                                <div>
+                                    <i class="fa-solid fa-circle-exclamation editCommentErrorlogo "></i>
+                                    <span className='editCommentError' key={errors.comment}>{errors.comment}</span>
+                                 </div>
+                            </div>
+                        }
 
                             <div className='editCommentBtnContainer'>
                                 <button className='editCommentCancelBtn' type='button'  onClick={()=>editCancelHandler()}>CANCEL</button>
                                 <button className='editCommentsubmitBtn'>SAVE</button>
                             </div>
-
+                            {errors?.error &&
+                            <div className="errorContainer">
+                                <div>
+                                    <i class="fa-solid fa-circle-exclamation editCommentErrorlogo "></i>
+                                    <span className='editCommentError' key={errors.error}>{errors.error}</span>
+                                 </div>
+                            </div>
+                        }
                             {/* <button>edit comment</button>
                             <button type='button' onClick={()=> setIsEdit(false)}>Cancel</button> */}
                         </form>

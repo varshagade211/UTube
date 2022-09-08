@@ -78,7 +78,7 @@ router.get('/:id', async(req,res,next) => {
       )
 
     if(!video){
-       const err = new Error("Video cann't be empty, Please provide video");
+       const err = new Error("Video is required");
         err.statusCode = 404;
         return next(err);
     }

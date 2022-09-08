@@ -148,12 +148,13 @@
     border-bottom: 2px solid black;
 }
 
+
+
 .editCommentError,.editCommentErrorlogo{
     color:red;
     font-size: 0.8rem;
     margin: 0.5rem 0.2rem 0rem 0.2rem;
 }
-
 
 
 .editCommentCancelBtn,.editCommentsubmitBtn{
