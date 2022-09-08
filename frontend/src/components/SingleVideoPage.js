@@ -66,28 +66,37 @@ function SingleVideoPage(){
     },[likeData?.likes,likeData?.dislikes])
 
     const likeHandler = ()=>{
-        if(isLiked){
-            dispatch(likeActions.deleteLikeThunkCreator({type:true,videoId:foundVideo?.id}))
-        }else{
-            if(isDisLiked){
-                dispatch(likeActions.editLikeThunkCreator({type:true,videoId:foundVideo?.id}))
+        if(sessionUser){
+            if(isLiked){
+                dispatch(likeActions.deleteLikeThunkCreator({type:true,videoId:foundVideo?.id}))
             }else{
-                dispatch(likeActions.createLikeThunkCreator({type:true,videoId:foundVideo?.id}))
-            }
+                if(isDisLiked){
+                    dispatch(likeActions.editLikeThunkCreator({type:true,videoId:foundVideo?.id}))
+                }else{
+                    dispatch(likeActions.createLikeThunkCreator({type:true,videoId:foundVideo?.id}))
+                }
 
+            }
+        }else{
+            history.push('/signin')
         }
+
     }
 
     const disLikeHandler = ()=>{
-        if(isDisLiked){
-            dispatch(likeActions.deleteLikeThunkCreator({type:false,videoId:foundVideo?.id}))
+        if(sessionUser){
+            if(isDisLiked){
+                dispatch(likeActions.deleteLikeThunkCreator({type:false,videoId:foundVideo?.id}))
 
+            }else{
+               if(isLiked){
+                dispatch(likeActions.editLikeThunkCreator({type:false,videoId:foundVideo?.id}))
+               }else{
+                dispatch(likeActions.createLikeThunkCreator({type:false,videoId:foundVideo?.id}))
+               }
+            }
         }else{
-           if(isLiked){
-            dispatch(likeActions.editLikeThunkCreator({type:false,videoId:foundVideo?.id}))
-           }else{
-            dispatch(likeActions.createLikeThunkCreator({type:false,videoId:foundVideo?.id}))
-           }
+            history.push('/signin')
         }
 
     }
