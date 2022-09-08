@@ -2,7 +2,7 @@ import FlatVideoCard from './FlatVideoCard'
 
 import { useSelector,useDispatch } from "react-redux"
 import SideBar from './SideBar'
-import './SearchedVideos.css'
+import './YourVideos.css'
 import {SideBarContext} from '../context/SideBarContext'
 import SmallSideBar from './SmallSideBar'
 import { useContext, useEffect} from 'react'
@@ -31,10 +31,10 @@ function LikeddVideos(){
     }
 
  return (
-        <div className={isSidebar ?'searchedVideoOuterContainerWithSidebar':'searchedVideoOuterContainerWithSmallSidebar'}>
+        <div className={isSidebar ?'userVideoOuterContainerWithSidebar':'userVideoOuterContainerWithSmallSidebar'}>
             {isSidebar? <SideBar />  : <SmallSideBar/>}
-            <div className='searchedVideoAndUserInfoContainer'>
-                <div  className={isSidebar ? 'searchedVideoContainer':'searchedVideoContainerWithSmallSidebar'}>
+            <div className='yourVideoAndUserInfoContainer'>
+                <div  className={isSidebar ? 'userVideoContainer':'userVideoContainerWithSmallSidebar'}>
                     {likdeVideos?.length === 0 && <h2>No liked videos yet..........</h2>}
                     {likdeVideos?.length !== 0 && likdeVideos?.map((video,i) => {
                         return(

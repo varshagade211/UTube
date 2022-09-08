@@ -126,6 +126,11 @@
 .smallScreenSearchForm,.smallScreenSearchFormConatiner{
 display: none;
 }
+
+
+.smallScreenLogo{
+    display: none;
+}
 @media only screen and (min-width: 1300px) {
 .searchForm{
 width: 30%;
@@ -183,17 +188,24 @@ width: 30%;
     /* .createVideoIcon{
         margin: 0 0 0 0;
     } */
-    .logoBarIconContainer a{
+    .logoBarIconContainer {
       display: none;
     }
-    .logoBarIconContainer{
+    /* .logoBarIconContainer{
 
         display: flex;
         align-items: center;
         width: 10%;
-    }
+    } */
     .profileBtnAndCreateVideoBtnContainer{
         display: flex;
-        width:90%;
+        width:100%;
+        justify-content: space-between;
     }
+    .smallScreenLogo{
+        display: inline;
+        color: red;
+        margin: 0.3rem 0 0 0.2rem;
+    }
+
   }

@@ -2,6 +2,8 @@ import { NavLink, useHistory } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
 import {useSelector} from 'react-redux'
 
+
+
 import './SideBar.css'
 function SideBar(){
     const location = useLocation();
@@ -48,7 +50,7 @@ function SideBar(){
             </div>}
 
             {sessionUser?.id && <div className='sidebarLinkContainer' onClick={() => history.push(`/${sessionUser?.id}/likedvideos`)}>
-            
+
                 <i className={location?.pathname === `/${sessionUser?.id}/likedvideos`?"fa-solid fa-thumbs-up  sideiconActive":
                 "fa-solid fa-thumbs-up  sideYourVideosIcon "}>
                 </i>
