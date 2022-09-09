@@ -6,8 +6,7 @@ import DeleteVideoFormModal from './DeleteModalPage'
 import * as commentActions from '../store/comment'
 import {getSpentTime} from './DateUtils'
 import './Comment.css'
-
-
+import defaultProfile from '../images/default_profile_image.png'
 
 function Comment ({comment}) {
     const [isEdit, setIsEdit] = useState(false)
@@ -75,6 +74,10 @@ function Comment ({comment}) {
         setErrors({})
         setIsEdit(false)
     }
+    const addDefaultSrc = (ev)=>{
+        ev.target.src = defaultProfile
+      }
+
 
     return(
         <div>
@@ -83,7 +86,10 @@ function Comment ({comment}) {
                 <div className='editProfileImageAndFormContainer'>
                     <div className='editCommentFormImageContainer'>
                         { comment?.User?.profileImageUrl
-                            ? <img className='commentProfileImage' src={comment?.User?.profileImageUrl} />
+                            ?
+
+                             <img onError={(e)=>addDefaultSrc(e)} className='commentProfileImage' src={comment?.User?.profileImageUrl} />
+
                             : <i className="fas fa-user-circle commentProfileImageIcon" />
                         }
                     </div>
@@ -119,8 +125,11 @@ function Comment ({comment}) {
                 </div>
                 :
                 <div className='commentProfileImageAndIconContainer'>
+
                     { comment?.User?.profileImageUrl
-                        ? <img className='commentProfileImage' src={comment?.User?.profileImageUrl} />
+                        ?
+                            <img  onError={(e)=>addDefaultSrc(e)} className='commentProfileImage' src={comment?.User?.profileImageUrl} />
+
                         : <i className="fas fa-user-circle commentProfileImageIcon" />
                     }
                     {/* <div> */}

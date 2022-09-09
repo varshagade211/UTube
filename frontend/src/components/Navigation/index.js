@@ -109,7 +109,7 @@ function Navigation({ isLoaded }){
           <i className="fa-solid fa-bars barIcon" onClick={()=>setSidebar((prev)=> !prev)}></i>
           <i class="fa-solid fa-circle-play logo" onClick={()=>history.push('/')}></i>
           <p className='logoName' onClick={()=>history.push('/')}>UTube</p>
-          {/* <NavLink   exact to="/"><img className='logo' src= {logo} /></NavLink> */}
+      
         </div>
 
           <form className='searchForm' onSubmit={(e)=> onSearchSubmit(e)}>

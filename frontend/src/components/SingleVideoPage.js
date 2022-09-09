@@ -11,6 +11,7 @@ import './SingleVideoPage.css'
 import {getSpentTime} from './DateUtils'
 import { useHistory } from 'react-router-dom';
 import { useState } from "react"
+import defaultProfile from '../images//default_profile_image.png'
 
 // video files
 // import vid1 from '../videos/videoplayback.mp4'
@@ -100,6 +101,11 @@ function SingleVideoPage(){
         }
 
     }
+
+    const addDefaultSrc = (ev)=>{
+        ev.target.src = defaultProfile
+      }
+   
     return(
         <div className={isSidebar ? "singlePageOuterContainer":"singlePageOuterContainerWithoutSidebar"}>
             {isSidebar&& <SideBar /> }
@@ -136,7 +142,10 @@ function SingleVideoPage(){
                             <div className="singlePageProfileImageAndNameContainer">
                                 {foundVideo?.uploader?.profileImageUrl
                                 ?
-                                <img className='singlePageProfileImage' src={foundVideo?.uploader?.profileImageUrl}/>:
+
+                                <img onError={(e)=>addDefaultSrc(e)} className='singlePageProfileImage' src={foundVideo?.uploader?.profileImageUrl}/>
+
+                                :
                                 <i className="fas fa-user-circle singlePagecircleSinginIcon" />}
 
                                 <div className="singlePageNameDiscriptionContainer">

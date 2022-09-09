@@ -4,6 +4,7 @@ import { useState,useRef, useEffect } from 'react'
 import Comment from './Comment'
 import './Comments.css'
 import { useHistory } from 'react-router-dom'
+import defaultProfile from '../images/default_profile_image.png'
 
 function Comments ({video}) {
     const [commentData,setCommentData] = useState('')
@@ -53,7 +54,7 @@ function Comments ({video}) {
     const onCommentChangeHandler = (e) =>{
         if(e.target.value.length>1000){
             setErrors({...errors,'comment':'Comment must be less than 1000 characters'});
-           
+
         }if(errors.comment){
             delete errors.comment
         }
@@ -68,7 +69,9 @@ function Comments ({video}) {
         }
         setshowSubmitCancelBtn(true)
     }
-
+    const addDefaultSrc = (ev)=>{
+        ev.target.src = defaultProfile
+      }
 
     return (
         <div className='commentsAndFormContainer'>
@@ -78,7 +81,9 @@ function Comments ({video}) {
                     {sessionUser?.profileImageUrl
 
                     ?
-                        <img className='commentFormProfileImage' src={sessionUser?.profileImageUrl}/>:
+                        <img onError={(e)=>addDefaultSrc(e)} className='commentFormProfileImage' src={sessionUser?.profileImageUrl}/>
+
+                        :
                         <i className="fas fa-user-circle commentFormProfileImageIcon" />
                     }
 

@@ -7,6 +7,7 @@ import './YourVideos.css'
 import {SideBarContext} from '../context/SideBarContext'
 import SmallSideBar from './SmallSideBar'
 import { Modal ,isModalOnContext} from '../context/Modal';
+import defaultProfile from '../images/default_profile_image.png'
 
 // video files
 // import vid1 from '../videos/videoplayback.mp4'
@@ -45,6 +46,11 @@ function YourVideos () {
             userVideo.push(vid)
         }
     })
+
+   const addDefaultSrc = (ev)=>{
+        ev.target.src = defaultProfile
+      }
+      
     return (
 
         <div className={isSidebar ?'userVideoOuterContainerWithSidebar':'userVideoOuterContainerWithSmallSidebar'}>
@@ -62,11 +68,15 @@ function YourVideos () {
             })}
 
 
+
             </div>
             <div className='userVideosInfo'>
                 <div className='yourVideoImageProfileIconContainer'>
                     <div className='yourVideoProfileContainer'>
-                    {sessionUser?.profileImageUrl ? <img className="userYourVideosProfileImg" src={sessionUser?.profileImageUrl} />:
+                    {sessionUser?.profileImageUrl ?
+
+                    <img onError={(e)=>addDefaultSrc(e)} className="userYourVideosProfileImg" src={sessionUser?.profileImageUrl} />
+                    :
                       <i className="fas fa-user-circle yourVidcircleSinginIcon" />
                     }
                     <p>{sessionUser?.firstName} {sessionUser?.lastName}</p>

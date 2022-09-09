@@ -7,7 +7,7 @@ import {SideBarContext} from '../context/SideBarContext'
 import SmallSideBar from './SmallSideBar'
 import { useContext, useEffect} from 'react'
 import * as videoActions from '../store/video'
-
+import defaultProfile from '../images/default_profile_image.png'
 function LikeddVideos(){
 
     const {isSidebar} = useContext(SideBarContext)
@@ -30,6 +30,10 @@ function LikeddVideos(){
         }
     }
 
+    const addDefaultSrc = (ev)=>{
+        ev.target.src = defaultProfile
+      }
+
  return (
         <div className={isSidebar ?'userVideoOuterContainerWithSidebar':'userVideoOuterContainerWithSmallSidebar'}>
             {isSidebar? <SideBar />  : <SmallSideBar/>}
@@ -45,7 +49,10 @@ function LikeddVideos(){
                <div className='userVideosInfo'>
                 <div className='yourVideoImageProfileIconContainer'>
                     <div className='yourVideoProfileContainer'>
-                    {sessionUser?.profileImageUrl ? <img className="userYourVideosProfileImg" src={sessionUser?.profileImageUrl} />:
+                    {sessionUser?.profileImageUrl ?
+
+                      <img onError={(e)=>addDefaultSrc(e)} className="userYourVideosProfileImg" src={sessionUser?.profileImageUrl} />
+                    :
                       <i className="fas fa-user-circle yourVidcircleSinginIcon" />
                     }
                     <p>{sessionUser?.firstName} {sessionUser?.lastName}</p>

@@ -4,8 +4,7 @@ import './VideoCard.css'
 import { useHistory } from 'react-router-dom';
 import {getSpentTime} from './DateUtils'
 import { useRef,useEffect } from 'react';
-
-
+import defaultProfile from '../images/default_profile_image.png'
 
 // function VideoCard({video,localVideo}) {
 function VideoCard({video}) {
@@ -30,6 +29,12 @@ function VideoCard({video}) {
             videoCardVideoTag.current.load()
         }
     },[video])
+
+    const addDefaultSrc = (ev)=>{
+        ev.target.src = defaultProfile
+    }
+
+
     return(
     <div>
 
@@ -45,7 +50,10 @@ function VideoCard({video}) {
                 <div className='imgAndDescriptionContainer'>
                     <div className='profileImageContainer'>
                      {video?.uploader?.profileImageUrl
-                        ? <img className='userProfileImg' src={video?.uploader?.profileImageUrl}/>
+                        ?
+
+                            <img   onError={(e)=>addDefaultSrc(e)} className='userProfileImg' src={video?.uploader?.profileImageUrl}/>
+
                         : <i className="fas fa-user-circle userSeedProfileIcon" />
                      } </div>
 
