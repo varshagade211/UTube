@@ -52,7 +52,7 @@ const CreateVideoForm = ({setShowModal}) => {
         e.target.style.height = e.target.scrollHeight + 'px'
 
         if(e.target.value.length>100){
-            setErrors({...errors,'title':'Title is greater than 100 characters'});
+            setErrors({...errors,'title':'Title must be less than 100 characters'});
         }if(errors.title){
             delete errors.title
         }
@@ -68,7 +68,7 @@ const CreateVideoForm = ({setShowModal}) => {
 
         if(e.target.value.length>1000){
 
-            setErrors({...errors,'description':'Description is greater than 1000 characters'});
+            setErrors({...errors,'description':'Description must be less than 1000 characters'});
         }else{
             if(errors.description){
                 delete errors.description

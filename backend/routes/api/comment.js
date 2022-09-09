@@ -54,7 +54,7 @@ router.post('/:videoId', requireAuth, validateComments, async(req,res,next) => {
     }
     if(comment.length > 1000){
         const err = Error('Validation error');
-        err.errors = {comment:"Comment greater than 1000 characters not allowed"}
+        err.errors = {comment:"Comment must be less than 1000 characters"}
         err.status = 400;
         err.title = "Validation Errors"
         return next(err);
@@ -86,7 +86,7 @@ router.put('/:id', requireAuth, validateComments, async(req,res,next) => {
     if(req.user.id === foundComment.commenterId){
         if(comment.length > 1000){
             const err = Error('Validation error');
-            err.errors = {comment:"Comment greater than 1000 characters not allowed"}
+            err.errors = {comment:"Comment must be less than 1000 characters"}
             err.status = 400;
             err.title = "Validation Errors"
             return next(err);

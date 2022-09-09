@@ -74,6 +74,7 @@
 }
 .singlePageDiscription{
     font-size: 0.8rem;
+    overflow-wrap: anywhere;
 
 
 }

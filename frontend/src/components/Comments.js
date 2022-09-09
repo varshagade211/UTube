@@ -51,6 +51,12 @@ function Comments ({video}) {
     }
 
     const onCommentChangeHandler = (e) =>{
+        if(e.target.value.length>1000){
+            setErrors({...errors,'comment':'Comment must be less than 1000 characters'});
+           
+        }if(errors.comment){
+            delete errors.comment
+        }
         e.target.style.height = 'auto'
         e.target.style.height = e.target.scrollHeight + 'px'
         setCommentData(e.target.value)

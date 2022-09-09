@@ -10,7 +10,6 @@ const {singlePublicFileUpload,singleMulterUpload} = require('../../awsS3')
 const validateSignup = [
   check('email')
     .exists({ checkFalsy: true })
-    .isString()
     .withMessage('Email is required'),
   check('email')
     .isEmail()
@@ -19,25 +18,20 @@ const validateSignup = [
     .exists({ checkFalsy: true })
     .withMessage('First Name is required'),
   check('firstName')
-    .isString()
-    .withMessage('First Name is required'),
-  check('firstName')
-    .isLength({max:30})
-    .withMessage('Please provide firstname less than 30 characters'),
+    .isLength({max:20})
+    .withMessage('First name must be less than 20 characters'),
   check('lastName')
     .exists({ checkFalsy: true })
     .withMessage('Last Name is required'),
   check('lastName')
-    .isString()
-    .withMessage('Last Name is required'),
-  check('lastName')
-    .isLength({max:30})
-    .withMessage('Please provide lastname less than 30 characters'),
+    .isLength({max:20})
+    .withMessage('Last name must be less than 20 characters'),
   check('password')
     .exists({ checkFalsy: true })
     .withMessage('Password is required'),
-
-
+  check('password')
+    .isLength({min:8, max:16})
+    .withMessage('Password must be 8-16 characters'),
 
   handleValidationErrors
 ];
@@ -47,13 +41,7 @@ router.post('/', singleMulterUpload("image"),  validateSignup, async (req, res, 
       const { firstName , lastName,email, password, confirmPassword } = req.body;
       let profileImageUrl = null
       let isExist = await User.findOne({where:{email:email}})
-       if (password.length < 8) {
-        const err = new Error('Password must be more than eight characters');
-        err.status = 401;
-        err.title = "Validation Errors";
-        err.errors = {password:'Password must be more than eight characters'}
-        return next(err);
-      }
+
       if(isExist){
         const err = Error('Validation error');
         err.errors = {email:"Email already exists"}

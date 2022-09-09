@@ -66,7 +66,7 @@ const EditVideoForm = ({video, setShowModal,showModal,setShowDelete}) => {
         e.target.style.height = e.target.scrollHeight + 'px'
 
         if(e.target.value.length > 100){
-            setErrors({...errors,'title':'Title is greater than 100 characters'});
+            setErrors({...errors,'title':'Title must be less than 100 characters'});
         }else if(e.target.value.length === 0){
             setErrors({...errors,'title':'Title is required'});
         }else if(errors.title){
@@ -81,7 +81,7 @@ const EditVideoForm = ({video, setShowModal,showModal,setShowDelete}) => {
         e.target.style.height = e.target.scrollHeight + 'px'
         if(e.target.value.length>1000){
 
-            setErrors({...errors,'description':'Description is greater than 1000 characters'});
+            setErrors({...errors,'description':'Description must be less than 1000 characters'});
         }else if(e.target.value.length === 0){
             setErrors({...errors,'description':'Description is required'});
         }else if(errors.description){
