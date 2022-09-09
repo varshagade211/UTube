@@ -68,25 +68,10 @@ const SignupFormPage = () => {
 
         <div>
 
-          <input  className="firstNameInput"  placeholder='First Name *' type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-          {errors?.firstName &&
-            <div className="firstNameSmallScreenError">
-              <div>
-                <i class="fa-solid fa-circle-exclamation signUpEerrorlogo"></i>
-                <span className='signUpError' key={errors.firstName}>{errors.firstName}</span>
-              </div>
-            </div>
-          }
+        <input  className="firstNameInput"  placeholder='First Name *' type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+
         <input type="text" className="lastNameInput"  placeholder='Last Name *'  value={lastName} onChange={(e) => setLastName(e.target.value)}  />
-          {errors?.lastName &&
-            <div className="firstNameSmallScreenError">
-              <div>
-                <i class="fa-solid fa-circle-exclamation signUpEerrorlogo"></i>
-                <span className='signUpError' key={errors.lastName}>{errors.lastName}</span>
-              </div>
-            </div>
-          }
-         <div className="FirstNameLastNAmeErrorContainer">
+
             {errors?.firstName &&
             <div className="errorContainer">
               <div>
@@ -106,7 +91,7 @@ const SignupFormPage = () => {
           }
 
          </div>
-        </div>
+
         <div>
           {/* <label>Email  (required)</label><br></br> */}
           <input type="text" className="singnUpInput"  placeholder="Email *" value={email} onChange={(e) => setEmail(e.target.value)}/>

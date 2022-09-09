@@ -138,9 +138,9 @@
     display: flex;
     justify-content: space-between;
 }
-.FirstNameLastNAmeErrorContainer{
+/* .FirstNameLastNAmeErrorContainer{
     display: flex;
-}
+} */
 .firstNameSmallScreenError{
     display: none;
 }

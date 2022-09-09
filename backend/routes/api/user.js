@@ -59,6 +59,13 @@ router.post('/', singleMulterUpload("image"),  validateSignup, async (req, res, 
       }
 
       if(req.file){
+        if(!['image/jpeg','image/png'].includes(req.file.mimetype)){
+          const err = Error('Validation error');
+          err.errors = {profile:"Image format not supported, only supports JPEG, PNG"}
+          err.status = 400;
+          err.title = "Validation Errors"
+          return next(err);
+        }
         if(req.file.size > 1048576){
           const err = Error('Validation error');
           err.errors = {profile:"Maximum allowed file size is 1MB"}
