@@ -31,12 +31,19 @@
 }
 
 .logo{
-    width:65px;
-    height:50%;
-    margin:0.2rem 0 0 1.3rem;
+    /* width:65px;
+    height:50%; */
+    font-size: 1.1rem;
+    margin:0 0 0 1.2rem;
+    color:red;
+    cursor: pointer;
 
 }
-
+.logoName{
+   margin: 0 0 0 0.2rem;
+   font-weight: bold;
+   cursor: pointer;
+}
 .barIcon{
     margin: 0 0 0 1rem;
     cursor: pointer;
@@ -152,6 +159,10 @@ width: 30%;
         display: flex;
         width:50%;
     }
+    .signinBtnContainer{
+        display: flex;
+        width:60%;
+    }
     .smallScreenSearchForm{
         display: flex;
         width: 100%;
@@ -176,6 +187,10 @@ width: 30%;
         display: flex;
         width:70%;
     }
+    .signinBtnContainer{
+        display: flex;
+        width:80%;
+    }
     .signInBtn{
         padding: 0 0.1rem 0 0.1rem;
         font-size: 0.7rem;
@@ -186,9 +201,10 @@ width: 30%;
     /* .createVideoIcon{
         margin: 0 0 0 0;
     } */
-    .logo {
+    .logo,.logoName {
       display: none;
     }
+
     .logoBarIconContainer{
         width: 10%;
     }
@@ -203,6 +219,13 @@ width: 30%;
         width:60%;
         /* justify-content: space-between; */
     }
+    .signinBtnContainer{
+        display: flex;
+        width:70%;
+        justify-content: space-between;
+    }
+    .signInBtn{
 
-
+        margin: 0 1.5rem 0 0rem;
+    }
   }

@@ -51,7 +51,7 @@ function Navigation({ isLoaded }){
       <>
         {/* <LoginFormModal /> */}
        <div className='signinBtnContainer'>
-   
+
        <i class="fa-solid fa-magnifying-glass smallScreenSearchIcon" onClick={()=>setSmallScreenForm(prev => !prev)} ></i>
 
        <a href={"https://github.com/varshagade211/UTube"} ><i className="fa-brands fa-github gitHubIcon"></i> </a>
@@ -107,7 +107,9 @@ function Navigation({ isLoaded }){
         <div className='logoBarIconContainer'>
 
           <i className="fa-solid fa-bars barIcon" onClick={()=>setSidebar((prev)=> !prev)}></i>
-          <NavLink   exact to="/"><img className='logo' src= {logo} /></NavLink>
+          <i class="fa-solid fa-circle-play logo" onClick={()=>history.push('/')}></i>
+          <p className='logoName' onClick={()=>history.push('/')}>UTube</p>
+          {/* <NavLink   exact to="/"><img className='logo' src= {logo} /></NavLink> */}
         </div>
 
           <form className='searchForm' onSubmit={(e)=> onSearchSubmit(e)}>
