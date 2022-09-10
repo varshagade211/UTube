@@ -56,7 +56,7 @@ function SingleVideoPage(){
         if(foundVideo && singlePageVideoTag.current){
             singlePageVideoTag.current.load()
         }
-    },[foundVideo,singlePageVideoTag])
+    },[foundVideo])
 
     const videoClickHandler = (video) => {
         history.push(`/video/${video?.id}`)
