@@ -53,10 +53,10 @@ function SingleVideoPage(){
     },[dispatch,id])
 
     useEffect(()=>{
-        if(foundVideo && singlePageVideoTag.current){
-            singlePageVideoTag.current.load()
+        if(foundVideo && singlePageVideoTag?.current){
+            singlePageVideoTag?.current?.load()
         }
-    },[foundVideo])
+    },[foundVideo,singlePageVideoTag])
 
     const videoClickHandler = (video) => {
         history.push(`/video/${video?.id}`)
