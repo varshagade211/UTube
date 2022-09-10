@@ -31,14 +31,7 @@ function VideoCard({video}) {
         }
     },[video, videoCardVideoTag])
 
-    // ==================
-
-    useEffect(() => {
-        if(video && videoCardVideoTag.current){
-            videoCardVideoTag.current.load()
-        }
-    },[])
-    // ==========
+ 
 
     const addDefaultSrc = (ev)=>{
         ev.target.src = defaultProfile
