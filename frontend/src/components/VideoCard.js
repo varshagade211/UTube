@@ -29,7 +29,7 @@ function VideoCard({video}) {
         if(video && videoCardVideoTag.current){
             videoCardVideoTag.current.load()
         }
-    },[video, videoCardVideoTag?.current])
+    },[video, videoCardVideoTag])
 
     const addDefaultSrc = (ev)=>{
         ev.target.src = defaultProfile
