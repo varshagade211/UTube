@@ -20,7 +20,7 @@ const EditVideoForm = ({video, setShowModal,showModal,setShowDelete}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('descroption************',description)
+      
         let id=video?.id
         // if(Object.keys(errors).length){
         //     return

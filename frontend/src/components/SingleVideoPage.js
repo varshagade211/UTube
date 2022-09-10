@@ -121,7 +121,6 @@ function SingleVideoPage(){
 
     const showMoreHandler= ()=>{
         setMore(true)
-        // console.log('height',descriptionPara.current.scrollHeight)
         if(descriptionPara.current.scrollHeight >  45){
            descriptionPara.current.style.height = 'auto'
         }
