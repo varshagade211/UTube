@@ -32,6 +32,11 @@ function Home () {
         const response = dispatch(videoActions.getAllVideosThunkCreator())
 
     },[dispatch])
+    // ==========================
+    useEffect(()=>{
+
+    },[videos])
+    // ===============================
     return (
         <div className={isSidebar?'homePageOuterContainer':"oncloseSidebar"}>
           {isSidebar? <SideBar />  : <SmallSideBar/>}
