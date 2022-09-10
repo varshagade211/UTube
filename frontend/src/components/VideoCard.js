@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import {getSpentTime} from './DateUtils'
 import { useRef,useEffect } from 'react';
 import defaultProfile from '../images/default_profile_image.png'
-
+// import thumbNail from '../images/default_thambnail.jpeg'
 // function VideoCard({video,localVideo}) {
 function VideoCard({video}) {
     const sessionUser = useSelector(state => state.session.user);
@@ -24,18 +24,16 @@ function VideoCard({video}) {
     const videoClickHandler = () => {
         history.push(`/video/${video?.id}`)
     }
+
     useEffect(() => {
         if(video && videoCardVideoTag.current){
             videoCardVideoTag.current.load()
         }
-    },[video])
+    },[video, videoCardVideoTag?.current])
 
     const addDefaultSrc = (ev)=>{
         ev.target.src = defaultProfile
     }
-
-
-
 
 
     return(
@@ -43,7 +41,7 @@ function VideoCard({video}) {
 
         <div className='vidioInfoContainer'>
             <div className='vidioTagContainer'>
-             <video  ref={videoCardVideoTag} onClick={videoClickHandler} onMouseEnter={(e)=>playHandler(e.target)} onMouseLeave={(e)=>pauseHandler(e.target)} className='vidioTag'  muted playsInline >
+             <video  ref={videoCardVideoTag} onClick={videoClickHandler}  onMouseEnter={(e)=>playHandler(e.target)} onMouseLeave={(e)=>pauseHandler(e.target)} className='vidioTag'  muted playsInline >
                   <source  src={video?.url} type={video?.type}/>
                 {/* <source src={localVideo} type={video?.type}/> */}
             </video>

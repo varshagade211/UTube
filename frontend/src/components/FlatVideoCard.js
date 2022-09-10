@@ -25,8 +25,8 @@ function FlatVideoCard({video,type}) {
         if(video && flatVideCardVideoTag.current){
             flatVideCardVideoTag.current.load()
         }
-    },[video])
-   
+    },[video,flatVideCardVideoTag?.current])
+
 
     return(
         <div>

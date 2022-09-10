@@ -43,9 +43,7 @@ function SingleVideoPage(){
     const [isDisLiked, setIsDisLiked] = useState(likeData?.dislikes?.filter(dislike => dislike?.likerId === sessionUser?.id)?.length)
     const descriptionPara = useRef(null)
     const [isMore , setMore] = useState(false)
-    // =========================================================
-    const [isShowMoreButton , setIsShowMoreButton] = useState(false)
-    // ===============================================================
+
 
     useEffect(()=>{
          dispatch(videoActions.getSingleVideoThunkCreator(id))
@@ -58,7 +56,7 @@ function SingleVideoPage(){
         if(foundVideo && singlePageVideoTag.current){
             singlePageVideoTag.current.load()
         }
-    },[foundVideo])
+    },[foundVideo,singlePageVideoTag?.current])
 
     const videoClickHandler = (video) => {
         history.push(`/video/${video?.id}`)
@@ -108,16 +106,7 @@ function SingleVideoPage(){
     const addDefaultSrc = (ev)=>{
         ev.target.src = defaultProfile
       }
-    // remove these lines if it rerenders=======================================
-    useEffect(()=>{
-        if(descriptionPara?.current?.scrollHeight > 45){
-            setIsShowMoreButton(true)
-        }else{
-            setIsShowMoreButton(false)
-        }
-    },[descriptionPara?.current?.scrollHeight])
 
-    // ===============================================================
 
     const showMoreHandler= ()=>{
         setMore(true)
@@ -180,8 +169,8 @@ function SingleVideoPage(){
                                     <p className="singlePageUseName">{foundVideo?.uploader?.firstName}  {foundVideo?.uploader?.lastName}</p>
                                     <p ref={descriptionPara} className="singlePageDiscription">{foundVideo?.description}
                                     </p>
-                                   {isMore && isShowMoreButton &&<span className='singlePageDescShowLess' onClick={showLessHandler}>SHOW LESS</span>}
-                                   {!isMore && isShowMoreButton && <span className= 'singlePageDescShowMore' onClick={showMoreHandler}>SHOW MORE</span>}
+                                   {isMore  &&<span className='singlePageDescShowLess' onClick={showLessHandler}>SHOW LESS</span>}
+                                   {!isMore  && <span className= 'singlePageDescShowMore' onClick={showMoreHandler}>SHOW MORE</span>}
                                 </div>
                             </div>
                         </div>

@@ -98,6 +98,7 @@ router.get('/:id', async(req,res,next) => {
 router.post('/',  singleMulterUpload("video"), requireAuth, validateVideo, async (req, res,next)=>{
     const {title,description} = req.body;
 
+
     if(!req.file){
         const err = Error('Validation error');
         err.errors = {url:"Video is required"}
