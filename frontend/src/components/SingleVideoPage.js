@@ -122,7 +122,11 @@ function SingleVideoPage(){
         descriptionPara.current.style.overflow = 'hidden'
     }
 
+    // ==========================
+    useEffect(()=>{
 
+    },[videos])
+    // ===============================
     return(
         <div className={isSidebar ? "singlePageOuterContainer":"singlePageOuterContainerWithoutSidebar"}>
             {isSidebar&& <SideBar /> }
