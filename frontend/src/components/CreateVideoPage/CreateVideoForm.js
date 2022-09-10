@@ -103,9 +103,10 @@ const CreateVideoForm = ({setShowModal}) => {
 
         }
     },[preview])
-    // const downloadHandler = ()=>{
-    //     history.push("https://amazon-clone-bucket.s3.us-west-1.amazonaws.com/1662419930486.mp4")
-    // }
+
+
+   
+
 
     return (
     <div className="formandSpinerContainer">
@@ -186,7 +187,7 @@ const CreateVideoForm = ({setShowModal}) => {
                             <input type="file" id="file" title=" " className="uploadInput" onChange={updateFile} />
                             <p className="downloadVideo">Need a video file to test the upload feature?</p>
                             <a className="downloadVideoLink" href="https://amazon-clone-bucket.s3.us-west-1.amazonaws.com/1662419930486.mp4">Download Demo Video</a>
-                             {/* <button onClick={downloadHandler}>Button</button> */}
+
                         </div>
                         {errors?.url &&
                         <div className="errorContainer">

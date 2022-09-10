@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
 import { useDispatch } from "react-redux";
 import * as videoActions from "../../store/video";
 import './DeleteVideoForm.css'
@@ -7,6 +7,7 @@ import './DeleteVideoForm.css'
 function DeleteVideoForm({video,setShowModal,setShowDelete})  {
   const [isChecked, setIsChecked] = useState(false)
     const dispatch = useDispatch()
+    const deleteVideoTag = useRef(null);
 
     const deleteHandler = () => {
         dispatch(videoActions.deleteVideoThunkCreator(video?.id))
@@ -24,11 +25,14 @@ function DeleteVideoForm({video,setShowModal,setShowDelete})  {
       setShowDelete(false)
 
     }
+
+
+
   return(
     <div className="deleteVideoContainer">
       <h3>Permanently delete this video?</h3>
       <div className="deleteVideoAndIfoContainer">
-        <video  className='deletePreviewVid'  controls muted playsInline >
+        <video ref={deleteVideoTag}  className='deletePreviewVid'  controls muted playsInline >
           <source src={video?.url} type={video?.type} id="videoSource"/>
         </video>
         <div className="dateTitleViewsContainer">

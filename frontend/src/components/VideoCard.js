@@ -35,13 +35,16 @@ function VideoCard({video}) {
     }
 
 
+
+
+
     return(
     <div>
 
         <div className='vidioInfoContainer'>
             <div className='vidioTagContainer'>
-             <video ref={videoCardVideoTag} onClick={videoClickHandler} onMouseEnter={(e)=>playHandler(e.target)} onMouseLeave={(e)=>pauseHandler(e.target)} className='vidioTag'  muted playsInline >
-                  <source src={video?.url} type={video?.type}/>
+             <video  ref={videoCardVideoTag} onClick={videoClickHandler} onMouseEnter={(e)=>playHandler(e.target)} onMouseLeave={(e)=>pauseHandler(e.target)} className='vidioTag'  muted playsInline >
+                  <source  src={video?.url} type={video?.type}/>
                 {/* <source src={localVideo} type={video?.type}/> */}
             </video>
 

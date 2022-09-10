@@ -26,13 +26,14 @@ function FlatVideoCard({video,type}) {
             flatVideCardVideoTag.current.load()
         }
     },[video])
+   
 
     return(
         <div>
         {/* {video?.uploaderId === sessionUser?.id && */}
         <div className='userVideoAnddiscContainer'>
             <div className='userFlatVideoContainer'>
-                <video  ref={flatVideCardVideoTag} className='userVideoTag' onClick={videoClickHandler}  muted playsInline >
+                <video ref={flatVideCardVideoTag} className='userVideoTag' onClick={videoClickHandler}  muted playsInline >
                     <source src={video?.url} type={video?.type}/>
                     {/* <source src={localVideo} type={video?.type}/> */}
                 </video>

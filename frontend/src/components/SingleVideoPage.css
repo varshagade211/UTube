@@ -75,9 +75,21 @@
 .singlePageDiscription{
     font-size: 0.8rem;
     overflow-wrap: anywhere;
+    white-space: pre-line;
+
+    height: 2.8rem;
+    overflow: hidden;
 
 
 }
+.singlePageDescShowMore,.singlePageDescShowLess{
+    font-size: 0.65rem;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.692);
+    font-weight: bold;
+
+}
+
 /* suhggested video css */
 .suggestedVidoeImageContainer{
 
