@@ -20,9 +20,9 @@ const SignupFormPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if(!Object.keys(errors).length){
+    // if(!Object.keys(errors).length){
       setShowSpinner(true)
-  }
+  // }
 
     dispatch(sessionActions.signup({ firstName,lastName, email, password, image,confirmPassword }))
       .then((res) => {
