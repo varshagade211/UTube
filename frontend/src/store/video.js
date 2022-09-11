@@ -47,7 +47,9 @@ const deletVideo = ( (deleteVideodId) => {
 export const getAllVideosThunkCreator = (() => async (dispatch) =>{
     const response = await csrfFetch('/api/video/')
     const videos = await response.json()
+
     dispatch(getAllVideos(videos.videos))
+
     return response
 })
 

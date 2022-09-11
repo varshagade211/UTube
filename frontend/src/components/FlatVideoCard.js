@@ -51,13 +51,18 @@ function FlatVideoCard({video,type}) {
 
                 </div>
 
-                {showDelete && type !== 'likeddVideos' && <div className='flatDropDownMenu'>
+                {showDelete &&  type === 'yourVideos' &&
+
+                <div className='flatDropDownMenu'>
 
                     <EditVideoFormModal video={video} setShowDelete={setShowDelete}/>
                     <DeleteVideoFormModal video={video} type={'video'} setShowDelete={setShowDelete}/>
                 </div>}
 
-                {sessionUser?.id === video?.uploaderId && type !== 'likeddVideos' &&<div onClick={editDeleteDropdown} className='flatVerticalIconContainer'>
+                {sessionUser?.id === video?.uploaderId && type === 'yourVideos' &&
+
+
+                <div onClick={editDeleteDropdown} className='flatVerticalIconContainer'>
                 <i className="fa-solid fa-ellipsis-vertical flatVerticalIcon"></i>
                 </div>}
             </div>

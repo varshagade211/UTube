@@ -34,9 +34,9 @@ function Navigation({ isLoaded }){
          <i class="fa-solid fa-magnifying-glass smallScreenSearchIcon" onClick={()=>setSmallScreenForm(prev => !prev)} ></i>
         <CreateVideoFormModal />
 
-        <a href={"https://github.com/varshagade211/UTube"} > <i className="fa-brands fa-github gitHubIcon"></i> </a>
+        <a href={"https://github.com/varshagade211/UTube"} target="_blank"> <i className="fa-brands fa-github gitHubIcon"></i> </a>
 
-       <a  href={"https://www.linkedin.com/in/varsha-gade-7b33aa174/"}>
+       <a  href={"https://www.linkedin.com/in/varsha-gade-7b33aa174/"} target="_blank">
        <i className="fa-brands fa-linkedin linkeInIcon"></i></a>
 
 
@@ -109,7 +109,7 @@ function Navigation({ isLoaded }){
           <i className="fa-solid fa-bars barIcon" onClick={()=>setSidebar((prev)=> !prev)}></i>
           <i class="fa-solid fa-circle-play logo" onClick={()=>history.push('/')}></i>
           <p className='logoName' onClick={()=>history.push('/')}>UTube</p>
-      
+
         </div>
 
           <form className='searchForm' onSubmit={(e)=> onSearchSubmit(e)}>

@@ -32,9 +32,10 @@ function Home () {
         const response = dispatch(videoActions.getAllVideosThunkCreator())
 
     },[dispatch])
+
     // ==========================
     useEffect(()=>{
-
+          
     },[videos])
     // ===============================
     return (

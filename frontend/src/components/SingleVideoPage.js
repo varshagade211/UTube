@@ -125,6 +125,7 @@ function SingleVideoPage(){
     // ==========================
     useEffect(()=>{
 
+        window.scrollTo(0, 0);
     },[videos])
     // ===============================
     return(
