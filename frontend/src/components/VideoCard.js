@@ -28,6 +28,8 @@ function VideoCard({video}) {
     }
 
     useEffect(() => {
+        console.log('inside useEffect video', video)
+        console.log('inside useEffect videoCardVideoTag', videoCardVideoTag)
         if(video && videoCardVideoTag.current){
 
             videoCardVideoTag.current.load()
