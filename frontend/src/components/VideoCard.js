@@ -42,7 +42,7 @@ function VideoCard({video}) {
      // =======================================================
     const onerrorHandler = (e) => {
 
-        if(isOnErrorReload < 2){
+        if(isOnErrorReload < 4){
 
             setTimeout(()=>{
                 console.log('video url',e?.target?.src)
