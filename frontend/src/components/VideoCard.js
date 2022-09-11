@@ -28,6 +28,7 @@ function VideoCard({video}) {
 
     useEffect(() => {
         if(video && videoCardVideoTag.current){
+
             videoCardVideoTag.current.load()
         }
     },[video, videoCardVideoTag])
@@ -38,11 +39,12 @@ function VideoCard({video}) {
         ev.target.src = defaultProfile
     }
      // =======================================================
-    const onerrorHandler = () => {
+    const onerrorHandler = (e) => {
 
         if(isOnErrorReload < 2){
 
             setTimeout(()=>{
+                console.log('video url',e?.target?.src)
                 videoCardVideoTag.current.load()
                 setIsOnErrorReload(prev => prev +1)
                 console.log(videoCardVideoTag.current)
