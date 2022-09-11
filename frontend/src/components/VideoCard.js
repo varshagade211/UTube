@@ -49,7 +49,7 @@ function VideoCard({video}) {
             setTimeout(()=>{
                 console.log('video url',e?.target?.src)
                 console.log('source',videScourceTag?.current?.src )
-                videScourceTag?.current?.src = e?.target?.src
+                videScourceTag.current.src = e?.target?.src
                 videoCardVideoTag?.current.load()
                 setIsOnErrorReload(prev => prev +1)
                 console.log(videoCardVideoTag?.current)
