@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import {getSpentTime} from './DateUtils'
 import { useRef,useEffect,useState } from 'react';
 import defaultProfile from '../images/default_profile_image.png'
+import default_video from '../images/default_video.mp4'
 // import thumbNail from '../images/default_thambnail.jpeg'
 // function VideoCard({video,localVideo}) {
 function VideoCard({video}) {
@@ -41,25 +42,28 @@ function VideoCard({video}) {
         ev.target.src = defaultProfile
     }
      // =======================================================
-    // const onerrorHandler = (e) => {
+    const onerrorHandler = (e) => {
 
-    //     if(isOnErrorReload < 4){
+        if(isOnErrorReload < 2){
 
-    //         setTimeout(()=>{
-    //             console.log('video url',e?.target?.src)
-    //             console.log('source',videScourceTag?.current?.src )
-    //             // videScourceTag.current.src = e?.target?.src
-    //             videScourceTag.current.setAttribute('src', e?.target?.src);
-    //             videoCardVideoTag?.current.load()
-    //             setIsOnErrorReload(prev => prev +1)
-    //             console.log(videoCardVideoTag?.current)
-    //             console.log(isOnErrorReload)
-    //             console.log('isOnErrorReload',isOnErrorReload )
-    //         },5000)
+            setTimeout(()=>{
+                // console.log('video url',e?.target?.src)
+                // console.log('source',videScourceTag?.current?.src )
+                // videScourceTag.current.src = e?.target?.src
+                videScourceTag.current.setAttribute('src', e?.target?.src);
+                videoCardVideoTag?.current.load()
+                setIsOnErrorReload(prev => prev +1)
+                // console.log(videoCardVideoTag?.current)
+                // console.log(isOnErrorReload)
+                // console.log('isOnErrorReload',isOnErrorReload )
+            },1000)
 
-    //     }
+        }else{
+            videScourceTag.current.setAttribute('src', default_video );
+            videoCardVideoTag?.current.load()
+        }
 
-    // }
+    }
     // =======================================================
 
     return(
