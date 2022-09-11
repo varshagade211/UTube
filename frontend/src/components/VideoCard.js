@@ -48,11 +48,11 @@ function VideoCard({video}) {
 
             setTimeout(()=>{
                 console.log('video url',e?.target?.src)
-                console.log('source',videScourceTag.src )
-                videScourceTag.src = e?.target?.src
-                videoCardVideoTag.current.load()
+                console.log('source',videScourceTag?.current?.src )
+                videScourceTag?.current?.src = e?.target?.src
+                videoCardVideoTag?.current.load()
                 setIsOnErrorReload(prev => prev +1)
-                console.log(videoCardVideoTag.current)
+                console.log(videoCardVideoTag?.current)
                 console.log(isOnErrorReload)
                 console.log('isOnErrorReload',isOnErrorReload )
             },5000)
