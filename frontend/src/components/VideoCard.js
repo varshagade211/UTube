@@ -11,6 +11,7 @@ function VideoCard({video}) {
     const sessionUser = useSelector(state => state.session.user);
     const history = useHistory()
     const videoCardVideoTag = useRef(null);
+    const videScourceTag = useRef(null);
     const [isOnErrorReload, setIsOnErrorReload] = useState(0)
     const playHandler = (target) => {
         target.currentTime = 0;
@@ -45,6 +46,8 @@ function VideoCard({video}) {
 
             setTimeout(()=>{
                 console.log('video url',e?.target?.src)
+                console.log('source',videScourceTag.src )
+                videScourceTag.src = e?.target?.src
                 videoCardVideoTag.current.load()
                 setIsOnErrorReload(prev => prev +1)
                 console.log(videoCardVideoTag.current)
@@ -63,7 +66,7 @@ function VideoCard({video}) {
         <div className='vidioInfoContainer'>
             <div className='vidioTagContainer'>
              <video onError={onerrorHandler} ref={videoCardVideoTag} onClick={videoClickHandler}  onMouseEnter={(e)=>playHandler(e.target)} onMouseLeave={(e)=>pauseHandler(e.target)} className='vidioTag'  muted playsInline >
-                  <source  src={video?.url} type={video?.type}/>
+                  <source ref={videScourceTag} src={video?.url} type={video?.type}/>
                 {/* <source src={localVideo} type={video?.type}/> */}
             </video>
 
