@@ -28,10 +28,9 @@ function VideoCard({video}) {
     }
 
     useEffect(() => {
-        console.log('inside useEffect video', video)
-        console.log('inside useEffect videoCardVideoTag', videoCardVideoTag)
+        // console.log('inside useEffect video', video)
+        // console.log('inside useEffect videoCardVideoTag', videoCardVideoTag)
         if(video && videoCardVideoTag.current){
-
             videoCardVideoTag.current.load()
         }
     },[video, videoCardVideoTag])
@@ -42,25 +41,25 @@ function VideoCard({video}) {
         ev.target.src = defaultProfile
     }
      // =======================================================
-    const onerrorHandler = (e) => {
+    // const onerrorHandler = (e) => {
 
-        if(isOnErrorReload < 4){
+    //     if(isOnErrorReload < 4){
 
-            setTimeout(()=>{
-                console.log('video url',e?.target?.src)
-                console.log('source',videScourceTag?.current?.src )
-                // videScourceTag.current.src = e?.target?.src
-                videScourceTag.current.setAttribute('src', e?.target?.src);
-                videoCardVideoTag?.current.load()
-                setIsOnErrorReload(prev => prev +1)
-                console.log(videoCardVideoTag?.current)
-                console.log(isOnErrorReload)
-                console.log('isOnErrorReload',isOnErrorReload )
-            },5000)
+    //         setTimeout(()=>{
+    //             console.log('video url',e?.target?.src)
+    //             console.log('source',videScourceTag?.current?.src )
+    //             // videScourceTag.current.src = e?.target?.src
+    //             videScourceTag.current.setAttribute('src', e?.target?.src);
+    //             videoCardVideoTag?.current.load()
+    //             setIsOnErrorReload(prev => prev +1)
+    //             console.log(videoCardVideoTag?.current)
+    //             console.log(isOnErrorReload)
+    //             console.log('isOnErrorReload',isOnErrorReload )
+    //         },5000)
 
-        }
+    //     }
 
-    }
+    // }
     // =======================================================
 
     return(
