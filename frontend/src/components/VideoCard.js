@@ -15,13 +15,13 @@ function VideoCard({video}) {
     const videScourceTag = useRef(null);
     const [isOnErrorReload, setIsOnErrorReload] = useState(0)
     const playHandler = (target) => {
-        target.currentTime = 0;
-        target.play();
+        // target.currentTime = 0;
+        // target.play();
     }
 
     const pauseHandler = (target)=> {
         // target.load()
-        target.pause();
+        // target.pause();
     }
 
     const videoClickHandler = () => {
@@ -58,10 +58,11 @@ function VideoCard({video}) {
                 // console.log('isOnErrorReload',isOnErrorReload )
             },1000)
 
-        }else{
-            videScourceTag.current.setAttribute('src', default_video );
-            videoCardVideoTag?.current.load()
         }
+        // else{
+        //     videScourceTag.current.setAttribute('src', default_video );
+        //     videoCardVideoTag?.current.load()
+        // }
 
     }
     // =======================================================
