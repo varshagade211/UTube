@@ -42,29 +42,29 @@ function VideoCard({video}) {
         ev.target.src = defaultProfile
     }
      // =======================================================
-    const onerrorHandler = (e) => {
+    // const onerrorHandler = (e) => {
 
-        if(isOnErrorReload < 2){
+    //     if(isOnErrorReload < 2){
 
-            setTimeout(()=>{
-                console.log('video url',e?.target?.src)
-                console.log('source',videScourceTag?.current?.src )
-                videScourceTag.current.src = e?.target?.src
-                videScourceTag?.current?.setAttribute('src', e?.target?.src);
-                videoCardVideoTag?.current?.load()
-                setIsOnErrorReload(prev => prev +1)
-                console.log(videoCardVideoTag?.current)
-                console.log(isOnErrorReload)
-                console.log('isOnErrorReload',isOnErrorReload )
-            },1000)
+    //         setTimeout(()=>{
+    //             console.log('video url',e?.target?.src)
+    //             console.log('source',videScourceTag?.current?.src )
+    //             videScourceTag.current.src = e?.target?.src
+    //             videScourceTag?.current?.setAttribute('src', e?.target?.src);
+    //             videoCardVideoTag?.current?.load()
+    //             setIsOnErrorReload(prev => prev +1)
+    //             console.log(videoCardVideoTag?.current)
+    //             console.log(isOnErrorReload)
+    //             console.log('isOnErrorReload',isOnErrorReload )
+    //         },1000)
 
-        }
-        else{
-            videScourceTag.current.setAttribute('src', default_video );
-            videoCardVideoTag?.current.load()
-        }
+    //     }
+    //     else{
+    //         videScourceTag.current.setAttribute('src', default_video );
+    //         videoCardVideoTag?.current.load()
+    //     }
 
-    }
+    // }
     // =======================================================
 
     return(
@@ -72,7 +72,8 @@ function VideoCard({video}) {
 
         <div className='vidioInfoContainer'>
             <div className='vidioTagContainer'>
-             <video onError={onerrorHandler} ref={videoCardVideoTag} onClick={videoClickHandler}  onMouseEnter={(e)=>playHandler(e.target)} onMouseLeave={(e)=>pauseHandler(e.target)} className='vidioTag'  muted playsInline >
+             {/* <video onError={onerrorHandler} ref={videoCardVideoTag} onClick={videoClickHandler}  onMouseEnter={(e)=>playHandler(e.target)} onMouseLeave={(e)=>pauseHandler(e.target)} className='vidioTag'  muted playsInline > */}
+             <video ref={videoCardVideoTag} onClick={videoClickHandler}  onMouseEnter={(e)=>playHandler(e.target)} onMouseLeave={(e)=>pauseHandler(e.target)} className='vidioTag'  muted playsInline >
                   <source ref={videScourceTag} src={video?.url} type={video?.type}/>
                 {/* <source src={localVideo} type={video?.type}/> */}
             </video>
