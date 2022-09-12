@@ -47,22 +47,22 @@ function VideoCard({video}) {
         if(isOnErrorReload < 2){
 
             setTimeout(()=>{
-                // console.log('video url',e?.target?.src)
-                // console.log('source',videScourceTag?.current?.src )
-                // videScourceTag.current.src = e?.target?.src
+                console.log('video url',e?.target?.src)
+                console.log('source',videScourceTag?.current?.src )
+                videScourceTag.current.src = e?.target?.src
                 videScourceTag?.current?.setAttribute('src', e?.target?.src);
                 videoCardVideoTag?.current?.load()
                 setIsOnErrorReload(prev => prev +1)
-                // console.log(videoCardVideoTag?.current)
-                // console.log(isOnErrorReload)
-                // console.log('isOnErrorReload',isOnErrorReload )
+                console.log(videoCardVideoTag?.current)
+                console.log(isOnErrorReload)
+                console.log('isOnErrorReload',isOnErrorReload )
             },1000)
 
         }
-        // else{
-        //     videScourceTag.current.setAttribute('src', default_video );
-        //     videoCardVideoTag?.current.load()
-        // }
+        else{
+            videScourceTag.current.setAttribute('src', default_video );
+            videoCardVideoTag?.current.load()
+        }
 
     }
     // =======================================================
