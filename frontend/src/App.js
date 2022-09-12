@@ -12,7 +12,7 @@ import LikeddVideos from './components/LikedVideos'
 import  SingleVideoPage from './components/SingleVideoPage'
 import './App.css'
 import ProtectedRoute from './components/ProtectedRoute'
-
+import PageNotFound  from './components/PageNotFound'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -52,6 +52,9 @@ function App() {
           <Navigation isLoaded={isLoaded} />
           <LikeddVideos />
         </ProtectedRoute>
+        <Route>
+          <PageNotFound />
+        </Route>
       </Switch>
     )}
   </div>
