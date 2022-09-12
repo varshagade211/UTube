@@ -50,8 +50,8 @@ function VideoCard({video}) {
                 // console.log('video url',e?.target?.src)
                 // console.log('source',videScourceTag?.current?.src )
                 // videScourceTag.current.src = e?.target?.src
-                videScourceTag.current.setAttribute('src', e?.target?.src);
-                videoCardVideoTag?.current.load()
+                videScourceTag?.current?.setAttribute('src', e?.target?.src);
+                videoCardVideoTag?.current?.load()
                 setIsOnErrorReload(prev => prev +1)
                 // console.log(videoCardVideoTag?.current)
                 // console.log(isOnErrorReload)
