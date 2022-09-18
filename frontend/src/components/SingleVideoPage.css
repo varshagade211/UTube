@@ -58,7 +58,7 @@
     height: 2.5rem;
     border-radius: 50%;
     overflow: hidden;
-    margin: 0.8rem 1rem 0rem 0rem;
+    margin: 0.6rem 1rem 0rem 0rem;
 
 }
 .singlePageNameDiscriptionContainer{
@@ -179,9 +179,32 @@
     margin: 0.15rem 0 0 1rem;
     font-size: 0.85rem;
 }
-.subscribed{
-   background-color: red;
-   color:white
+.subscribedBtn{
+    height: 100%;
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.495);
+    border: none;
+    padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+    border-radius: 1.5px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+.singlePageUserNameAndSubscribeBtnCOntainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.subscribeBtn{
+    height: 100%;
+    color: white;
+    background-color: rgb(218, 29, 29);
+    border: none;
+    padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 1.5px;
+    cursor: pointer;
 }
 @media only screen and (max-width: 1000px)  {
 

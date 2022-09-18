@@ -189,8 +189,11 @@ function SingleVideoPage(){
                                 <i className="fas fa-user-circle singlePagecircleSinginIcon" />}
 
                                 <div className="singlePageNameDiscriptionContainer">
+                                    <div className="singlePageUserNameAndSubscribeBtnCOntainer">
                                     <p className="singlePageUseName">{foundVideo?.uploader?.firstName}  {foundVideo?.uploader?.lastName}</p>
-                                    {foundVideo?.uploaderId !== sessionUser?.id && <button onClick={subscribeHandler}>{isSubscribe ? 'Unsubscribe':'Subscribe'}</button>}
+                                    {!sessionUser && <button className="subscribeBtn" onClick={()=> history.push('/signin')}>SUBSCRIBE</button>}
+                                    {sessionUser && foundVideo?.uploaderId !== sessionUser?.id && <button className={isSubscribe ?"subscribedBtn":"subscribeBtn"} onClick={subscribeHandler}>{isSubscribe ? 'SUBSCRIBED':'SUBSCRIBE'}</button>}
+                                    </div>
                                     <p ref={descriptionPara} className="singlePageDiscription">{foundVideo?.description}
                                     </p>
 
