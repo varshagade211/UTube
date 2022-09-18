@@ -56,7 +56,12 @@ function SideBar(){
                 </i>
                 <p className='sidebarLinks'>Liked Videos</p>
             </div>}
-
+            {sessionUser?.id && <div className='sidebarLinkContainer' onClick={() => history.push(`/${sessionUser?.id}/subscribe`)}>
+                <i className={location?.pathname === `/${sessionUser?.id}/subscribe`?"fa-solid fa-photo-film sideiconActive":
+                "fa-solid fa-photo-film  sidebarhomeIcon "}>
+                </i>
+                <p className='sidebarLinks'>Subscriptions</p>
+            </div>}
         </div>
     )
 }

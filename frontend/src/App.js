@@ -10,6 +10,7 @@ import YourVideos from './components/YourVideos'
 import SearchedVideos from './components/SearchedVideos'
 import LikeddVideos from './components/LikedVideos'
 import  SingleVideoPage from './components/SingleVideoPage'
+import Subscription from './components/Subscriptions'
 import './App.css'
 import ProtectedRoute from './components/ProtectedRoute'
 import PageNotFound  from './components/PageNotFound'
@@ -51,6 +52,10 @@ function App() {
         <ProtectedRoute exact={true} path="/:userId/likedvideos">
           <Navigation isLoaded={isLoaded} />
           <LikeddVideos />
+        </ProtectedRoute>
+        <ProtectedRoute exact={true} path="/:userId/subscribe">
+          <Navigation isLoaded={isLoaded} />
+          <Subscription />
         </ProtectedRoute>
         <Route>
           <PageNotFound />

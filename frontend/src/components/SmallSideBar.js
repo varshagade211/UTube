@@ -51,9 +51,16 @@ function SmallSideBar(){
                <p className='smallSidebarLinks'>Liked Videos</p>
             </div>}
 
+            {sessionUser?.id && <div className='linkContainer' onClick={() => history.push(`/${sessionUser?.id}/subscribe`)}>
+               <i className={location?.pathname === `/${sessionUser?.id}/subscribe`?"fa-solid fa-photo-film  iconActive":
+                "fa-solid fa-photo-film  homeIcon "}>
+               </i>
+               <p className='smallSidebarLinks'>Subscriptions</p>
+            </div>}
 
         </div>
     )
 }
 
 export default SmallSideBar
+

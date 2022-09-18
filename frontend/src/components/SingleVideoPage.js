@@ -2,6 +2,7 @@ import { useSelector,useDispatch } from "react-redux"
 import { useParams } from "react-router-dom"
 import * as videoActions from '../store/video'
 import * as likeActions from '../store/like'
+import * as subscribeActions from '../store/subscribe'
 import { useEffect,useContext,useRef } from "react"
 import Comments from './Comments'
 import {SideBarContext} from '../context/SideBarContext'
@@ -33,6 +34,7 @@ function SingleVideoPage(){
     const dispatch = useDispatch()
     const foundVideo = useSelector(state => state?.videos?.singleVideo)
     const likeData= useSelector(state => state?.likes)
+    const subscribeData= useSelector(state => state?.subscribe)
     const sessionUser = useSelector(state => state.session.user);
     const {id} = useParams()
     const {isSidebar} = useContext(SideBarContext)
@@ -41,6 +43,7 @@ function SingleVideoPage(){
     const singlePageVideoTag = useRef(null);
     const [isLiked, setIsLiked] = useState(likeData?.likes?.filter(like => like?.likerId === sessionUser?.id)?.length)
     const [isDisLiked, setIsDisLiked] = useState(likeData?.dislikes?.filter(dislike => dislike?.likerId === sessionUser?.id)?.length)
+    const [isSubscribe, setSubscribe] = useState(subscribeData?.subscribee?.filter(subs => subs?.id === foundVideo?.uploaderId)?.length)
     const descriptionPara = useRef(null)
     const [isMore , setMore] = useState(false)
 
@@ -49,6 +52,7 @@ function SingleVideoPage(){
          dispatch(videoActions.getSingleVideoThunkCreator(id))
          const response = dispatch(videoActions.getAllVideosThunkCreator())
          dispatch(likeActions.getAllLikesThunkCreator(id))
+         dispatch(subscribeActions.getAllSubscribeeThunk())
 
     },[dispatch,id])
 
@@ -63,10 +67,24 @@ function SingleVideoPage(){
 
     }
     useEffect(()=>{
+        setSubscribe(subscribeData?.subscribee?.filter(subs => subs?.id === foundVideo?.uploaderId)?.length)
+
+    },[subscribeData?.subscribee])
+
+    useEffect(()=>{
         setIsLiked(likeData?.likes?.filter(like => like?.likerId === sessionUser?.id)?.length)
         setIsDisLiked(likeData?.dislikes?.filter(dislike => dislike?.likerId === sessionUser?.id)?.length)
     },[likeData?.likes,likeData?.dislikes])
 
+   const subscribeHandler = (()=>{
+    if(!isSubscribe){
+         dispatch(subscribeActions.createSubscriberThunk(foundVideo?.uploaderId))
+    }else{
+        dispatch(subscribeActions.deleteSubscriberThunk(foundVideo?.uploaderId))
+    }
+
+
+   })
     const likeHandler = ()=>{
         if(sessionUser){
             if(isLiked){
@@ -171,11 +189,17 @@ function SingleVideoPage(){
                                 <i className="fas fa-user-circle singlePagecircleSinginIcon" />}
 
                                 <div className="singlePageNameDiscriptionContainer">
+                                    <div className="singlePageUserNameAndSubscribeBtnCOntainer">
                                     <p className="singlePageUseName">{foundVideo?.uploader?.firstName}  {foundVideo?.uploader?.lastName}</p>
+                                    {!sessionUser && <button className="subscribeBtn" onClick={()=> history.push('/signin')}>SUBSCRIBE</button>}
+                                    {sessionUser && foundVideo?.uploaderId !== sessionUser?.id && <button className={isSubscribe ?"subscribedBtn":"subscribeBtn"} onClick={subscribeHandler}>{isSubscribe ? 'SUBSCRIBED':'SUBSCRIBE'}</button>}
+                                    </div>
                                     <p ref={descriptionPara} className="singlePageDiscription">{foundVideo?.description}
                                     </p>
+
                                    {isMore  &&<span className='singlePageDescShowLess' onClick={showLessHandler}>SHOW LESS</span>}
                                    {!isMore  && <span className= 'singlePageDescShowMore' onClick={showMoreHandler}>SHOW MORE</span>}
+
                                 </div>
                             </div>
                         </div>
