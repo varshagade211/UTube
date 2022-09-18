@@ -4,12 +4,14 @@ import sessionReducer from './session';
 import videoReducer from './video';
 import commentReducer from './comment'
 import likeReducer from './like'
+import subscribeReducer from './subscribe';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     videos:videoReducer,
     comments:commentReducer,
     likes:likeReducer,
+    subscribe:subscribeReducer
 });
 
 let enhancer;

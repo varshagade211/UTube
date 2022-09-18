@@ -2,7 +2,7 @@ const express = require('express')
 const router= express.Router()
 const {requireAuth} = require('../../utils/auth')
 const {Comment , Video, User,Like} = require('../../db/models')
-const { application } = require('express')
+// const { application } = require('express')
 const {Op} = require("sequelize")
 
 

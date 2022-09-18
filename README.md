@@ -4,7 +4,7 @@ UTube is a website created to help people teach or entertain user. User can uplo
 share thoughts on videos in the comment section and edit, delete own comments. UTube is inspired by YouTube website.
 
 ## Live Link-
-[Click here to view UTube Live Site](https://utube-clone-vg.herokuapp.com/)
+[Click here to view UTube Live Site](https://video-varsha-gade.herokuapp.com/)
 
 Please see below link to project wiki: <br />
  [Feature List](https://github.com/varshagade211/UTube/wiki/Feature-List-of-UTube)  <br />
