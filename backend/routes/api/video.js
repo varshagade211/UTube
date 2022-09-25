@@ -123,8 +123,7 @@ router.post('/',  singleMulterUpload("video"), requireAuth, validateVideo, async
         return next(err);
     }
 
-    // const videoUrl = await singlePublicFileUpload(req.file);
-    const videoUrl='my create test'
+    const videoUrl = await singlePublicFileUpload(req.file);
 
     if(!videoUrl){
         const err = Error('AWS error');
