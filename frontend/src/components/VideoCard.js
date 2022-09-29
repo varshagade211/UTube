@@ -90,7 +90,7 @@ function VideoCard({video}) {
                         : <i className="fas fa-user-circle userSeedProfileIcon" />
                      } </div>
 
-                    <div>
+                    <div className='homeDescVidDiscContainer'>
                         <div className="homeDescriptionContainer">
                              <h3 className='vidDiscription'>
                                 {video?.title}
