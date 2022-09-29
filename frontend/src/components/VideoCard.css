@@ -72,9 +72,7 @@
 
 
 }
-.homeDescVidDiscContainer{
-    margin: 0 0 0 0.2rem
-}
+
 .vidioInfoContainer
 {
     max-width:280px;
@@ -82,7 +80,7 @@
 }
 
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1200px) {
 
     /* .vidioInfoContainer
     {
@@ -108,5 +106,8 @@
     {
         max-width:300px;
 
+    }
+    .homeDescVidDiscContainer{
+        margin: 0 0 0 0.rem
     }
 }
