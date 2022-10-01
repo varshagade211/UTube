@@ -42,7 +42,7 @@ function LoginForm() {
     <div className="loginFormContainer">
       <form className='loginForm' onSubmit={handleSubmit}>
         <div className="loginFormTitleConatainer">
-          <h6 className="UTubeLogo"><span className="U">U</span><span className='t'>T</span><span className='u'>u</span>
+          <h6 onClick={()=>history.push('/')} className="UTubeLogo"><span className="U">U</span><span className='t'>T</span><span className='u'>u</span>
           <span className="b">b</span><span className='e'>e</span></h6>
           <p className="signinTxt">Sign in</p>
           <p className="signContinueText">to continue to UTube</p>

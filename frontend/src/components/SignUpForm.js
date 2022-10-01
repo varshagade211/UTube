@@ -59,7 +59,7 @@ const SignupFormPage = () => {
       <form className='signupForm' onSubmit={handleSubmit} >
 
       <div className="signUpFormTitleConatainer">
-          <h6 className="UTubeLogo"><span className="U">U</span><span className='t'>T</span><span className='u'>u</span>
+          <h6 onClick={()=>history.push('/')} className="UTubeLogo"><span className="U">U</span><span className='t'>T</span><span className='u'>u</span>
           <span className="b">b</span><span className='e'>e</span></h6>
           <p className="signUpTxt">Create your Account</p>
           <p className="signUpContinueText">to continue to UTube</p>

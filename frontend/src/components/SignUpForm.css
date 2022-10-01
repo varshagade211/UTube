@@ -119,6 +119,7 @@
 
     font-size: 1.35rem;
     margin: 1.4rem 0 1.4rem  0;
+    cursor: pointer;
   }
 .signUpFormTitleConatainer{
     text-align: start;
